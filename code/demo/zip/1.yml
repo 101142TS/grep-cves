@@ -1,0 +1,14 @@
+rules:
+- id: zip路径穿越1
+  patterns:
+    - pattern: $Y = $X.getName();
+    - pattern-inside: |
+        (ZipEntry $X) = ...;
+        ...
+        (String $Y) = $X.getName();
+        ...
+  languages: 
+    - java
+  message: |
+    非常粗粒度的过滤，只要用到了ZipEntry.getName()我们就把这些东西筛出来
+  severity: WARNING

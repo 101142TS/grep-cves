@@ -1,0 +1,18 @@
+rules:
+- id: ZipEntry路径穿越
+  patterns:
+    - pattern: |
+        (ZipEntry $X) = ...;
+        ...
+        (String $Y) = ($X).getName();
+        ...
+        if (<... (ZipEntry $X).getName().contains("...") ...>) {
+          ...
+        }
+
+        ...
+  languages: 
+    - java
+  message: |
+    路径穿越
+  severity: WARNING

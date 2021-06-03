@@ -1,0 +1,22 @@
+rules:
+- id: useless-equality
+  patterns:
+    - pattern-inside: |
+        $RETURNTYPE $FUNC (..., HttpServletRequest $REQ, ...) {
+          ...
+        }
+    - pattern-either:
+        - pattern: |
+            $VAR = ($TYPE)$REQ.getParameter(...);
+            ...
+            new File(..., $VAR, ...);
+        - pattern: |
+            $VAR = $REQ.getParameter(...);
+            ...
+            new File(..., $VAR, ...);
+  languages: 
+    - java
+  message: |
+    The left- and right-hand sides of this expression are identical.
+    Use math.isnan(...) to check if a floating-point object is not-a-number.
+  severity: WARNING

@@ -1,0 +1,42 @@
+../../source/code/com.tencent.mtt/sources/com/tencent/connect/avatar/ImageActivity.java
+severity:warning rule:intent重定向1: 非常粗粒度的过滤，是setResult就过滤，同时确保不在onActivityResult中
+
+449:        setResult(-1, intent);
+
+../../source/code/com.tencent.mtt/sources/com/tencent/connect/common/AssistActivity.java
+severity:warning rule:intent重定向1: 非常粗粒度的过滤，是setResult就过滤，同时确保不在onActivityResult中
+
+218:            setResult(-1, intent);
+--------------------------------------------------------------------------------
+227:            setResult(-1, intent);
+--------------------------------------------------------------------------------
+236:            setResult(-1, intent);
+--------------------------------------------------------------------------------
+245:            setResult(-1, intent);
+--------------------------------------------------------------------------------
+254:            setResult(-1, intent);
+--------------------------------------------------------------------------------
+260:            setResult(-1, intent);
+--------------------------------------------------------------------------------
+333:                    setResult(-1, intent);
+--------------------------------------------------------------------------------
+337:                    setResult(0, intent);
+--------------------------------------------------------------------------------
+341:                    setResult(-1, intent);
+--------------------------------------------------------------------------------
+345:                setResult(-1, intent);
+
+../../source/code/com.tencent.mtt/sources/com/tencent/ilivesdk/photocomponent/activity/PhotoListActivity.java
+severity:warning rule:intent重定向1: 非常粗粒度的过滤，是setResult就过滤，同时确保不在onActivityResult中
+
+330:            setResult(-1, intent);
+
+../../source/code/com.tencent.mtt/sources/com/tencent/mtt/external/read/InfoReactNativePage.java
+severity:warning rule:intent重定向1: 非常粗粒度的过滤，是setResult就过滤，同时确保不在onActivityResult中
+
+1465:        setResult(100, new Intent());
+
+../../source/code/com.tencent.mtt/sources/com/tencent/now/webcomponent/widget/BaseWebActivity.java
+severity:warning rule:intent重定向1: 非常粗粒度的过滤，是setResult就过滤，同时确保不在onActivityResult中
+
+264:                    setResult(-1, intent);

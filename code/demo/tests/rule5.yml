@@ -1,0 +1,13 @@
+rules:
+- id: intent重定向1
+  patterns:
+    - pattern: setResult($X, $Y)
+    - pattern-not-inside: |
+        $RETURNTYPE onActivityResult ($AAA, $BBB, $CCC) {
+          ...
+        }
+  languages: 
+    - java
+  message: |
+    非常粗粒度的过滤，是setResult就过滤，同时确保不在onActivityResult中
+  severity: WARNING

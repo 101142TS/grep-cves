@@ -1,0 +1,13 @@
+rules:
+  - id: classic
+    mode: taint
+    pattern-sources:
+      - source(...)
+      - source1(...)
+    pattern-sinks:
+      - sink(...)
+      - sink1(...)
+      - eval(...)
+    message: A user input source() went into a dangerous sink()
+    languages: [java]
+    severity: WARNING

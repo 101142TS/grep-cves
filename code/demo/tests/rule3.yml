@@ -1,0 +1,20 @@
+rules:
+- id: ZipEntry
+  patterns:
+    - pattern: $Y = $X.getName();
+    - pattern-inside: |
+        (ZipEntry $X) = ...;
+        ...
+        (String $Y) = $X.getName();
+        ...
+        $Z = <... $Y.contains("...") ...>;
+        if (<... $Z ...>) {
+          ...
+        }
+
+        ...
+  languages: 
+    - java
+  message: |
+    match
+  severity: WARNING

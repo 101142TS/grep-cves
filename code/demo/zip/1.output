@@ -1,0 +1,36 @@
+../../source/code/com.tencent.mtt/sources/com/didi/virtualapk/internal/p071a/C1266d.java
+severity:warning rule:zip路径穿越1: 非常粗粒度的过滤，只要用到了ZipEntry.getName()我们就把这些东西筛出来
+
+185:            String name = zipEntry.getName();
+
+../../source/code/com.tencent.mtt/sources/com/p186qq/p187e/comm/net/ZipCompress.java
+severity:warning rule:zip路径穿越1: 非常粗粒度的过滤，只要用到了ZipEntry.getName()我们就把这些东西筛出来
+
+113:                String name = nextEntry.getName();
+
+../../source/code/com.tencent.mtt/sources/com/tencent/luggage/wxa/bjn.java
+severity:warning rule:zip路径穿越1: 非常粗粒度的过滤，只要用到了ZipEntry.getName()我们就把这些东西筛出来
+
+22:                    String name = nextEntry.getName();
+
+../../source/code/com.tencent.mtt/sources/com/tencent/mtt/hippy/bridge/p1026a/C28654a.java
+severity:warning rule:zip路径穿越1: 非常粗粒度的过滤，只要用到了ZipEntry.getName()我们就把这些东西筛出来
+
+123:                String name = nextEntry.getName();
+
+../../source/code/com.tencent.mtt/sources/com/tencent/smtt/sdk/LzmaProcessor.java
+severity:warning rule:zip路径穿越1: 非常粗粒度的过滤，只要用到了ZipEntry.getName()我们就把这些东西筛出来
+
+124:                    String name2 = nextEntry.getName();
+
+../../source/code/com.tencent.mtt/sources/com/tencent/tencentmap/mapsdk/p1301a/C34813bq.java
+severity:warning rule:zip路径穿越1: 非常粗粒度的过滤，只要用到了ZipEntry.getName()我们就把这些东西筛出来
+
+38:            String name = zipEntry.getName();
+
+../../source/code/com.tencent.mtt/sources/com/tencent/thumbplayer/core/common/TPLoadLibFromApk.java
+severity:warning rule:zip路径穿越1: 非常粗粒度的过滤，只要用到了ZipEntry.getName()我们就把这些东西筛出来
+
+67:                    String name = zipEntry.getName();
+--------------------------------------------------------------------------------
+99:        String name = entry.getName();

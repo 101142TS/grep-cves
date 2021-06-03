@@ -1,0 +1,8 @@
+rules:
+- id: loadUrl调用
+  pattern: $X.loadUrl(...);
+  languages: 
+    - java
+  message: |
+    loadUrl
+  severity: WARNING

@@ -1,0 +1,23 @@
+rules:
+- id: intent重定向1
+  patterns:
+    - pattern: setResult($X, $Y);
+    - pattern-not: setResult($X, NULL);
+    - pattern-not: setResult($X, null);
+    - pattern-not-inside: |
+        $RETURNTYPE onActivityResult  (int $P0, int $P1, Intent $P2) {
+          ...
+        }
+    - pattern-not-inside: |
+        $RETURNTYPE $FUNC  (...) {
+          ...
+          (Intent $Y) = new Intent();
+          ...
+          setResult($X, $Y);
+          ...
+        }
+  languages: 
+    - java
+  message: |
+    非常粗粒度的过滤，是setResult就过滤，同时确保不在onActivityResult中
+  severity: WARNING

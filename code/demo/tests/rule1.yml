@@ -1,0 +1,9 @@
+rules:
+- id: useless-equality
+  pattern: file.exists
+  languages: 
+    - java
+  message: |
+    The left- and right-hand sides of this expression are identical.
+    Use math.isnan(...) to check if a floating-point object is not-a-number.
+  severity: WARNING
