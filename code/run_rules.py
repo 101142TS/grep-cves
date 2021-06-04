@@ -52,6 +52,16 @@ def run_single_rule(r, d):
         cmd = 'semgrep' + ' -f ' + r + ' ' + d + ' > ' + output
         run_cmd(cmd)
 
+    # 过滤
+    filter_file = output
+    components_file = root_dir[:-7] + "files/ExportedComponents.txt"
+    print(filter_file)
+    print(components_file)
+    if not os.path.exists(filter_file + ".bak"):
+        cmd = "python ./filter_output.py " + filter_file + " " + components_file
+        print(cmd)
+        run_cmd(cmd)
+
 def run_rules(rules, dirs):
     for r in rules:
         for d in dirs:
