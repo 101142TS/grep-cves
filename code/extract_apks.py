@@ -33,6 +33,8 @@ def decompose_single_apk(in_app, out_dir, with_res=True, with_src=True):
 
     run_cmd("mv " + out_dir + "/resources/AndroidManifest.xml" + " " + out_dir)
     run_cmd("rm -rf " + out_dir + "/resources/")
+
+    run_cmd("python ./get_components.py" + " " + out_dir + "/AndroidManifest.xml" + " > " + out_dir + "/ExportedComponents.txt")
 def decompose_apks(in_dir, out_dir, with_res=True, with_src=True):
     apks = os.listdir(in_dir)
 

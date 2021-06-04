@@ -46,9 +46,11 @@ def run_single_rule(r, d):
 
     if not os.path.exists(info_dir):
         os.makedirs(info_dir)
-    cmd = 'semgrep' + ' -f ' + r + ' ' + d + ' > ' + output
-
-    run_cmd(cmd)
+    
+    if not os.path.exists(output):
+        print("generate output : " + output)
+        cmd = 'semgrep' + ' -f ' + r + ' ' + d + ' > ' + output
+        run_cmd(cmd)
 
 def run_rules(rules, dirs):
     for r in rules:
