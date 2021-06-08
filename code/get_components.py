@@ -1,75 +1,77 @@
 import sys
 from xml.etree.ElementTree import parse
-
+from basic_func import run_cmd
+from xml.etree.ElementTree import ParseError
 def getElementTree(filePath):
     with open(filePath, encoding='utf8') as f:
-        doc = parse(f)
-    return doc
+        try:
+            doc = parse(f)
+            return doc
+        except ParseError as e:
+            print("rm " + filePath)
+            run_cmd("rm " + filePath)
+            return None
+    
+def search_nodelist(nodelist):
+    explicit_ret = []
+    implicit_ret = []
+    for node in nodelist:
+        name = node.get('{http://schemas.android.com/apk/res/android}name')
+        exported = node.get('{http://schemas.android.com/apk/res/android}exported')
+
+        if not exported == None:
+            if exported == "true":
+                explicit_ret.append(name)
+        else:
+            x = node.findall('intent-filter')
+            if len(x) > 0:
+                implicit_ret.append(name)
+
+    return explicit_ret, implicit_ret
 def getExportedService(doc):
     nodelist = doc.findall('application/service')
-    ret = []
-    for node in nodelist:
-        name = node.get('{http://schemas.android.com/apk/res/android}name')
-        exported = node.get('{http://schemas.android.com/apk/res/android}exported')
 
-        if not exported == None:
-            if exported == "true":
-                ret.append(name)
-        else:
-            x = node.findall('intent-filter')
-            if len(x) > 0:
-                ret.append(name)
-    return ret
+    explicit_ret, implicit_ret = search_nodelist(nodelist)
+    return explicit_ret, implicit_ret
 def getExportedReceiver(doc):
     nodelist = doc.findall('application/receiver')
-    ret = []
-    for node in nodelist:
-        name = node.get('{http://schemas.android.com/apk/res/android}name')
-        exported = node.get('{http://schemas.android.com/apk/res/android}exported')
 
-        if not exported == None:
-            if exported == "true":
-                ret.append(name)
-        else:
-            x = node.findall('intent-filter')
-            if len(x) > 0:
-                ret.append(name)
-    return ret
+    explicit_ret, implicit_ret = search_nodelist(nodelist)
+    return explicit_ret, implicit_ret
 # activity-alias??
 def getExportedActivity(doc):
     nodelist = doc.findall('application/activity')
-    ret = []
-    for node in nodelist:
-        name = node.get('{http://schemas.android.com/apk/res/android}name')
-        exported = node.get('{http://schemas.android.com/apk/res/android}exported')
 
-        if not exported == None:
-            if exported == "true":
-                ret.append(name)
-        else:
-            x = node.findall('intent-filter')
-            if len(x) > 0:
-                ret.append(name)
+    explicit_ret, implicit_ret = search_nodelist(nodelist)
+    return explicit_ret, implicit_ret
 
-    return ret
+def getComponentsTypes(source_doc):
+    nodelist = getElementTree(source_doc)
+    if nodelist == None:
+        return [], []
+    explicit_ret = []
+    implicit_ret = []
 
-if len(sys.argv) == 2:
-    source_doc = getElementTree(sys.argv[1])
-    Activities = getExportedActivity(source_doc)
-    for a in Activities:
-        print(a)
-    print("\n\n")
+    ret1, ret2 = getExportedActivity(nodelist)
+    explicit_ret = explicit_ret + ret1
+    implicit_ret = implicit_ret + ret2
+
     # receiver  https://developer.android.com/guide/topics/manifest/receiver-element
     # 对外公开方式同时受permission限制 
     
-    Receivers = getExportedReceiver(source_doc)
-    for r in Receivers:
-        print(r)
-    print("\n\n")
-
+    ret1, ret2 = getExportedReceiver(nodelist)
+    explicit_ret = explicit_ret + ret1
+    implicit_ret = implicit_ret + ret2
     # service  https://developer.android.com/guide/topics/manifest/service-element
     # 对外公开方式同时受permission限制 
 
-    Services = getExportedService(source_doc)
-    for s in Services:
-        print(s)
+    ret1, ret2 = getExportedService(nodelist)
+    explicit_ret = explicit_ret + ret1
+    implicit_ret = implicit_ret + ret2
+
+    return explicit_ret, implicit_ret
+
+if len(sys.argv) == 2:
+    ret1, ret2 = getComponentsTypes(sys.argv[1])
+    print(ret1)
+    print(ret2)

@@ -63,3 +63,13 @@ def read_app_list(path):
 		c_res = json.loads(data)
 		res = reduce(lambda x, y: x + y, c_res.values())
 		return c_res, res
+
+def semgrep_exclude():
+	res = ""
+	res = res + " --exclude='files/sources/android'"
+	res = res + " --exclude='files/sources/androidx'"
+	res = res + " --exclude='files/sources/com/google'"
+	res = res + " --exclude='files/sources/org/google'"
+	return res
+
+print(semgrep_exclude())
