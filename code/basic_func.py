@@ -68,8 +68,11 @@ def semgrep_exclude():
 	res = ""
 	res = res + " --exclude='files/sources/android'"
 	res = res + " --exclude='files/sources/androidx'"
-	res = res + " --exclude='files/sources/com/google'"
-	res = res + " --exclude='files/sources/org/google'"
+	res = res + " --exclude='files/sources/org/apache'"
+	res = res + " --exclude='files/sources/okhttp3'"
+	res = res + " --exclude='files/sources/java'"
+	res = res + " --exclude='files/sources/javax'"
+	res = res + " --exclude='files/sources/kotlin'"
 	return res
 
 print(semgrep_exclude())

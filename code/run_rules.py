@@ -5,8 +5,8 @@ import subprocess
 from basic_func import run_cmd_with_output
 from basic_func import run_cmd
 from basic_func import iterate_dir
+from basic_func import semgrep_exclude
 from filter_components import filter_output
-
 
 def path_filter(x):
     return x.endswith(".yml")
@@ -44,7 +44,7 @@ def run_single_rule(r, d):
     
     if not os.path.exists(yml_output):
         print("generate output : " + yml_output)
-        cmd = 'semgrep' + ' -f ' + r + ' ' + d + ' > ' + yml_output
+        cmd = 'semgrep' + ' -f ' + r + ' ' + d + ' > ' + yml_output + semgrep_exclude()
         run_cmd(cmd)
 
     yml_outputbak = yml_output

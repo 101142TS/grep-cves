@@ -19,5 +19,16 @@ rules:
   languages: 
     - java
   message: |
+    Intent重定向之setResult
+    涵盖了从setResult流出去的所有情况
+    一般来说，是因为组件公开暴露 (exported = true) 外加 setResult直接把getIntent()作为其第二个参数返回
+    或者是隐式暴露(存在Intent过滤器)，setResult把getIntent的getParcelableExtra()作为其第二个参数返回，不过这比较罕见
+
+    实验结果 ： 20210609
+    # 4923 个应用
+    # 227584次 setResult调用
+    # semgrep + explict 过滤出 232个可能的结果
+    # 4  + 16  = 20   个确认的漏洞
+    # 如果增加数据流过滤, 能多过滤 9 + 20 + 12 + 4 = 45
     非常粗粒度的过滤，是setResult就过滤，同时确保不在onActivityResult中
   severity: WARNING
