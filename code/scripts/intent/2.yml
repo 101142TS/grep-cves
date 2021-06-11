@@ -31,4 +31,16 @@ rules:
     - java
   message: |
     Intent重定向之startActivity() 或 startActivityForResult()
+    涵盖了从startActivity和startActivityForResult流出去的情况，但不包含所有情况，因为有可能从其他方法取getParcelableExtra塞到intent里面，然后传给本方法再通过startActivity*流出去
+
+    实验结果 ： 20210611
+    # 4923 个应用
+    # semgrep + explict +implict 过滤出 102个可能的结果
+    # 21个确认的漏洞
+
+    4个
+    com/xiaomi/account/openauth/AuthorizeActivity.java
+
+    1个6046083v4.1
+    com/autoconnectwifi/app/activity/AutoWifiActivity.java
   severity: WARNING
