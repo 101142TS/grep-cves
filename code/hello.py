@@ -10,7 +10,7 @@ class hello(IScript):
         assert isinstance(ctx,IClientContext)
         input_path = r"/mnt/RAID/users_data/caijiajin/semgrep/data-test/apks/1.apk"
         method_sign = "Lcom/tencent/connect/common/AssistActivity;->setResult(ILandroid/content/Intent;)V"
-        sadsad
+        sad
         unit = ctx.open(input_path);                                    assert isinstance(unit,IUnit)
         prj = ctx.getMainProject();                                     assert isinstance(prj,IRuntimeProject)
         dexUnit = prj.findUnit(IDexUnit);                               assert isinstance(dexUnit,IDexUnit)
