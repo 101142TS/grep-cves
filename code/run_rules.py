@@ -9,49 +9,67 @@ from basic_func import semgrep_exclude
 from filter_components import filter_output
 
 def path_filter(x):
-    return x.endswith(".yml")
+    return x.endswith(".cfg")
 
 def get_dirs(root_dir = "../../source/"):
     d_list = os.listdir(root_dir)
     ret = []
     for d in d_list:
-        path = root_dir + d + "/" + "files"
+        path = root_dir + d + "/" + "files" + "/AndroidManifest.xml"
         if os.path.exists(path):
-            ret.append(path)
+            ret.append(root_dir + d + "/" + "files")
     return ret
 
-rules = iterate_dir("./scripts", path_filter)
+rules = iterate_dir("../rules", path_filter)
 dirs = get_dirs()
 
 def run_single_rule(r, d):
-    # r : ./scripts/tests/rule6.yml
-    # d : ../source/com.tencent.mtt/files
-    AndroidManifest = os.path.join(d, "AndroidManifest.xml")
+    # r : ../rules/loadUrl/links.cfg
+    # d : ../../source/com.tencent.android.duoduo_327/files
 
-    results_dir = os.path.join(d[:-5], "results")
+    output_dir = "../../results/" + r[9:-9] + d[13:-5]
+    # 结果保存点  ../../results/
+    print(r)
+    print(d)
+    print(output_dir)
 
-    if not os.path.exists(results_dir):
-        os.mkdir(results_dir)
-    
+    if not os.path.exists(output_dir):
+        os.makedirs(output_dir)
 
-    
-    yml_output = results_dir + r[1:] + ".output"
+    config_file = output_dir + "config.txt"
+    with open(config_file, 'w') as output:
+        with open(r, "r") as input:
+            # apk所在路径
+            output.write("../../data/apks/" + d[13:-6] + ".apk" + "\n")
+            # manifest所在路径
+            output.write(d + "/AndroidManifest.xml" + "\n")
+            # jadx反编译后的 java文件的根路径
+            output.write(d + "/sources" + "\n")
 
-    info_dir = yml_output[:yml_output.rindex('/')]
+            # 起点函数，  函数的类型， 函数名， 匹配时的规则文件
+            st = input.readline().split()
+            if not st[2] == "default":
+                st[2] = r[:-9] + st[2]
 
-    if not os.path.exists(info_dir):
-        os.makedirs(info_dir)
-    
-    if not os.path.exists(yml_output):
-        print("generate output : " + yml_output)
-        cmd = 'semgrep' + ' -f ' + r + ' ' + d + ' > ' + yml_output + semgrep_exclude()
-        run_cmd(cmd)
+            output.write(st[0] + " " + st[1] + " " + st[2] + "\n")
 
-    yml_outputbak = yml_output
+            # 终点函数，  函数的类型， 函数名， 匹配时的规则文件
+            ed = input.readline().split()
+            if not ed[2] == "default":
+                ed[2] = r[:-9] + ed[2]
+            
+            output.write(ed[0] + " " + ed[1] + " " + ed[2] + "\n")
 
-    if os.path.exists(AndroidManifest):
-        print("filter components : " + AndroidManifest + " " + yml_outputbak)
-        filter_output(AndroidManifest, yml_outputbak)
+            # 切片时的中间文件所在路径
+            output.write(config_file[:config_file.rindex("/")] + "/tmp.txt" + "\n")
+
+            # 最后结果保存路径
+            output.write(config_file[:config_file.rindex("/")] + "/result.txt" + "\n")
+
+            # 函数链的长度
+            output.write("5\n")
+            
+    run_cmd()
 def run_rules(rules, dirs):
     for r in rules:
         for d in dirs:
