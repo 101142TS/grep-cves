@@ -56,5 +56,5 @@ def decompose_apks(in_dir, out_dir, with_res=True, with_src=True):
         cnt += 1
 
 
-# decompose_apks("../../data/apks/", "../../source/")
-decompose_apks("../../data-test/apks/", "../../source-test/")
+decompose_apks("../../data/apks/", "../../source/")
+# decompose_apks("../../data-test/apks/", "../../source-test/")

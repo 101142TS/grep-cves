@@ -105,7 +105,11 @@ def FindPath(dex_unit, sources, sinks):
     return real_sinks
 def DFS(dex_unit, now_method, len, links, vis, maxlen):
     if (now_method.getIndex() in vis and vis[now_method.getIndex()] == "Target"):
-        print(links)
+        print("************START************")
+        for i in range(len - 1, -1, -1):
+            print("[*] " + str(links[i]))
+        
+        print("*************END*************")
         return
     
     if len == maxlen:
@@ -114,7 +118,10 @@ def DFS(dex_unit, now_method, len, links, vis, maxlen):
     vis[now_method.getIndex()] = "True"
     pre_methods = GetMethodXref(dex_unit, now_method)
     for pre in pre_methods:
-        links[len + 1] = pre
+        if pre.getIndex() in vis and vis[pre.getIndex()] == "True":
+            continue
+
+        links[len] = pre
         DFS(dex_unit, pre, len + 1, links, vis, maxlen)
     
     vis[now_method.getIndex()] = "False"
@@ -122,19 +129,17 @@ def GetPath(dex_unit, sources, sinks, maxlen):
     real_sinks = FindPath(dex_unit, sources, sinks)
 
     if real_sinks == []:
-        print("BFS not found")
         return
-    
+
     vis = dict()
     for source in sources:
         vis[source.getIndex()] = "Target"
 
-
     for sink in sinks:
-        DFS(dex_unit, sink, 1, [sink], vis, maxlen)
-    print("BFS found!")
+        links = [0] * maxlen
+        links[0] = sink
+        DFS(dex_unit, sink, 1, links, vis, maxlen)
 
-    return 0
 class hello(IScript):
     def run(self, ctx):
         assert isinstance(ctx,IClientContext)
@@ -159,4 +164,4 @@ class hello(IScript):
         print(sinks)
         # print(GetMethodXref(dex_unit, dex_unit.getMethod(method_sign)))
 
-        print(GetPath(dex_unit, sources, sinks))
+        GetPath(dex_unit, sources, sinks, 5)
