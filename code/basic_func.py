@@ -75,4 +75,4 @@ def semgrep_exclude():
 	res = res + " --exclude='files/sources/kotlin'"
 	return res
 
-print(semgrep_exclude())
+# print(semgrep_exclude())
