@@ -23,15 +23,15 @@ def get_dirs(root_dir = "../../source/"):
 rules = iterate_dir("../rules", path_filter)
 dirs = get_dirs()
 
-def run_single_rule(r, d):
+def generate_single_rule(r, d):
     # r : ../rules/loadUrl/links.cfg
     # d : ../../source/com.tencent.android.duoduo_327/files
 
     output_dir = "../../results/" + r[9:-9] + d[13:-5]
     # 结果保存点  ../../results/
-    print(r)
-    print(d)
-    print(output_dir)
+    # print(r)
+    # print(d)
+    # print(output_dir)
 
     if not os.path.exists(output_dir):
         os.makedirs(output_dir)
@@ -69,11 +69,20 @@ def run_single_rule(r, d):
             # 函数链的长度
             output.write("5\n")
 
-    cmd = ["java", "-jar", "/mnt/RAID/users_data/caijiajin/Desktop/jeb/bin/app/jeb.jar", "--srv2", "--script=/mnt/RAID/users_data/caijiajin/semgrep/grep-cves/code/jeb-script.py"]
-    run_cmd(cmd)
+    return "../../data/apks/" + d[13:-6] + ".apk", config_file
 def run_rules(rules, dirs):
-    for r in rules:
-        for d in dirs:
-            run_single_rule(r, d)
+    for d in dirs:
+        configs = []
+        apk_path = ""
+        for r in rules:
+            apk_path, config = generate_single_rule(r, d)
+            configs.append(config)
 
+        print(configs)
+        with open("./tmp.txt", "w") as f:
+            for config in configs:
+                f.write(config + "\n")
+        cmd = "java -jar /mnt/RAID/users_data/caijiajin/Desktop/jeb/bin/app/jeb.jar --srv2 --script=./jeb.py -- ./tmp.txt " + apk_path
+        # print(cmd)
+        run_cmd(cmd)
 run_rules(rules, dirs)

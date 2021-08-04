@@ -1,0 +1,31 @@
+JEB 3.19.1.202005071620 (null) is starting...
+Current directory: /mnt/RAID/users_data/caijiajin/semgrep/grep-cves/code
+Base directory: /mnt/RAID/users_data/caijiajin/Desktop/jeb
+Program directory: /mnt/RAID/users_data/caijiajin/Desktop/jeb/bin
+System: Linux 4.15.0-88-generic (amd64) en_US
+Java: Private Build 1.8.0_292
+Plugin loaded: com.pnf.plugin.androidjnihelper.DynamicJNIDetectionPlugin
+Plugin loaded: com.pnf.libravm.LibraIdentifier
+Plugin loaded: com.pnf.libravm.LibraDisassemblerPlugin
+Plugin loaded: com.pnf.libravm.LibraDecompilerPlugin
+Plugin loaded: com.pnf.plugin.oat.OATPlugin
+Plugin loaded: com.pnf.androsig.gen.AndroidSigGenPlugin
+Plugin loaded: com.pnf.androsig.apply.andsig.AndroidSigApplyPlugin
+Plugin loaded: com.pnf.plugin.pdf.PdfPlugin
+Initializing Jython, please wait...
+{com.UCMobile.apk > com.UCMobile.apk}: 2799 resource files were adjusted
+Attempting to merge the multiple DEX files into a single DEX file...
+This APK contains multiple DEX files: 7
+{com.UCMobile.apk > com.UCMobile.apk}: DEX merger was successful and produced a virtual DEX unit
+[APK Sig v2] Unexpected slack instead of end of record; skipping 4 bytes
+{com.UCMobile.apk > com.UCMobile.apk > Libraries > armeabi-v7a > libsgavmp.so > Bytecode}: Invalid DEX signature (expected=D0 67 0C 1B 70 43 BA AC 76 24 3B 62 73 74 1F DA 33 5A CA 23 , actual=1D E9 72 C5 42 69 B6 FE D8 68 67 FB EF E7 BB A3 EB 7E AA 53 )
+{com.UCMobile.apk > com.UCMobile.apk > Libraries > armeabi-v7a > libsgnocaptcha.so}: 2 resource files were adjusted
+[APK Sig v2] Unexpected slack instead of end of record; skipping 4 bytes
+{com.UCMobile.apk > com.UCMobile.apk > Libraries > armeabi-v7a > libsgnocaptcha.so > Bytecode}: Invalid DEX signature (expected=81 1B 3C 83 7C 71 A2 48 C5 4E B1 A0 FC 9F EB 0F D9 2F D8 C1 , actual=5D C0 EC 01 54 19 5C 09 A4 73 DF C1 60 C7 63 DF E2 02 2C 14 )
+[APK Sig v2] Unexpected slack instead of end of record; skipping 4 bytes
+{com.UCMobile.apk > com.UCMobile.apk > Libraries > armeabi-v7a > libsgmain.so > Bytecode}: Invalid DEX signature (expected=9E 0B F6 EE 02 12 03 FE D4 A0 38 B4 99 24 BA D9 9D 58 04 60 , actual=A9 4A 39 8D 2C 11 D7 18 2C 7B 40 60 0B CD EC 59 3A A4 28 D9 )
+[APK Sig v2] Unexpected slack instead of end of record; skipping 4 bytes
+{com.UCMobile.apk > com.UCMobile.apk > Libraries > armeabi-v7a > libsgsecuritybody.so > Bytecode}: Invalid DEX signature (expected=77 7F 87 E4 F3 9A 4D 3F 9E FB DC 75 8F 6F 7F 9D 92 54 62 A0 , actual=26 3C 49 C0 B5 72 AB 45 0F 0E 1E CF 2D 30 9E 18 1A 44 31 68 )
+[APK Sig v2] Unexpected slack instead of end of record; skipping 4 bytes
+{com.UCMobile.apk > com.UCMobile.apk > Libraries > armeabi-v7a > libsgsgmiddletier.so > Bytecode}: Invalid DEX signature (expected=2E 11 A7 71 01 52 93 39 A6 E0 25 1B E4 44 FE E8 12 D1 5B E1 , actual=04 62 EA 54 22 07 18 98 B5 C9 31 2B 44 E0 15 E7 34 78 53 30 )
+['../../results/loadUrl/4/com.UCMobile/config.txt', '../../results/loadUrl/10/com.UCMobile/config.txt', '../../results/loadUrl/6/com.UCMobile/config.txt', '../../results/loadUrl/9/com.UCMobile/config.txt', '../../results/loadUrl/8/com.UCMobile/config.txt', '../../results/loadUrl/3/com.UCMobile/config.txt', '../../results/loadUrl/7/com.UCMobile/config.txt', '../../results/loadUrl/5/com.UCMobile/config.txt', '../../results/loadUrl/2/com.UCMobile/config.txt', '../../results/loadUrl/1/com.UCMobile/config.txt']
