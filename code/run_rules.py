@@ -68,8 +68,9 @@ def run_single_rule(r, d):
 
             # 函数链的长度
             output.write("5\n")
-            
-    run_cmd()
+
+    cmd = ["java", "-jar", "/mnt/RAID/users_data/caijiajin/Desktop/jeb/bin/app/jeb.jar", "--srv2", "--script=/mnt/RAID/users_data/caijiajin/semgrep/grep-cves/code/jeb-script.py"]
+    run_cmd(cmd)
 def run_rules(rules, dirs):
     for r in rules:
         for d in dirs:

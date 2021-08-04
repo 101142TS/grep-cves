@@ -140,28 +140,51 @@ def GetPath(dex_unit, sources, sinks, maxlen):
         links[0] = sink
         DFS(dex_unit, sink, 1, links, vis, maxlen)
 
-class hello(IScript):
+class jeb(IScript):
     def run(self, ctx):
-        assert isinstance(ctx,IClientContext)
-        input_path = r"/mnt/RAID/users_data/caijiajin/semgrep/data-test/apks/loadUrl.apk"
-        method_sign = "Lcom/tencent/connect/common/AssistActivity;->setResult(ILandroid/content/Intent;)V"
+        if not len(ctx.getArguments()) == 1:
+            print("ERROR: args len illegal")
+            return
 
-        unit = ctx.open(input_path);                                    assert isinstance(unit,IUnit)
-        prj = ctx.getMainProject();                                     assert isinstance(prj,IRuntimeProject)
-        dex_unit = prj.findUnit(IDexUnit);                               assert isinstance(dex_unit,IDexUnit)
+        input_path = ctx.getArguments()[0]
+        input = open(input_path, "r")
+        apk_path = input.readline().strip()
+        manifest_path = input.readline().strip()
+        root_path = input.readline().strip()
+        st = input.readline().strip().split()
+        ed = input.readline().strip().split()
+        tmp_path = input.readline().strip()
+        result_path = input.readline().strip()
+        links_len = int(input.readline().strip())
 
-        # methods = GetMethods(dexUnit, "setResult", 0)
-        # print(methods)
+        print(apk_path)
+        print(manifest_path)
+        print(root_path)
+        print(st)
+        print(ed)
+        print(tmp_path)
+        print(result_path)
+        print(links_len)
+        # assert isinstance(ctx,IClientContext)
+        # input_path = r"/mnt/RAID/users_data/caijiajin/semgrep/data-test/apks/loadUrl.apk"
+        # method_sign = "Lcom/tencent/connect/common/AssistActivity;->setResult(ILandroid/content/Intent;)V"
 
-        sources = ReturnMethods(dex_unit, 1, 3, "shouldOverrideUrlLoading")
-        sinks = ReturnMethods(dex_unit, 1, 4, "Landroid/webkit/WebView;->loadUrl(Ljava/lang/String;)V")
+        # unit = ctx.open(input_path);                                    assert isinstance(unit,IUnit)
+        # prj = ctx.getMainProject();                                     assert isinstance(prj,IRuntimeProject)
+        # dex_unit = prj.findUnit(IDexUnit);                               assert isinstance(dex_unit,IDexUnit)
+
+        # # methods = GetMethods(dexUnit, "setResult", 0)
+        # # print(methods)
+
+        # sources = ReturnMethods(dex_unit, 1, 3, "shouldOverrideUrlLoading")
+        # sinks = ReturnMethods(dex_unit, 1, 4, "Landroid/webkit/WebView;->loadUrl(Ljava/lang/String;)V")
 
         
-        print("sources:")
-        print(sources)
+        # print("sources:")
+        # print(sources)
 
-        print("sinks:")
-        print(sinks)
-        # print(GetMethodXref(dex_unit, dex_unit.getMethod(method_sign)))
+        # print("sinks:")
+        # print(sinks)
+        # # print(GetMethodXref(dex_unit, dex_unit.getMethod(method_sign)))
 
-        GetPath(dex_unit, sources, sinks, 5)
+        # GetPath(dex_unit, sources, sinks, 5)
