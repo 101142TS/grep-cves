@@ -21,9 +21,7 @@ def GetMethodXref(dex_unit, method):
     actionContext = ActionContext(dex_unit, Actions.QUERY_XREFS, method.getItemId(), None)
     if dex_unit.prepareExecution(actionContext,actionXrefsData):
         for xref_addr in actionXrefsData.getAddresses():
-            addr = str(xref_addr)
-            method_name = addr[:addr.index("+")]
-            method = dex_unit.getMethod(method_name)
+            method = dex_unit.getMethod(xref_addr[:xref_addr.index("+")])
 
             if method.getIndex() not in methods_set:
                 methods_set.add(method.getIndex())
@@ -104,6 +102,10 @@ def FindPath(dex_unit, sources, sinks):
     
     return real_sinks
 def DFS(dex_unit, now_method, len, links, vis, maxlen):
+    # print("DEBUG INGO : ##########################")
+    # for i in range(len - 1, -1, -1):
+    #         print("[*] " + str(links[i]))
+
     if (now_method.getIndex() in vis and vis[now_method.getIndex()] == "Target"):
         print("************START************")
         for i in range(len - 1, -1, -1):
@@ -142,11 +144,22 @@ def GetPath(dex_unit, sources, sinks, maxlen):
 
 class jeb(IScript):
     def run(self, ctx):
-        if not len(ctx.getArguments()) == 1:
+        if not len(ctx.getArguments()) == 2:
             print("ERROR: args len illegal")
             return
 
+        unit = ctx.open(ctx.getArguments()[1]);                                    assert isinstance(unit,IUnit)
+        prj = ctx.getMainProject();                                     assert isinstance(prj,IRuntimeProject)
+        dex_unit = prj.findUnit(IDexUnit);                               assert isinstance(dex_unit,IDexUnit)
+
         input_path = ctx.getArguments()[0]
+        with open(input_path, "r") as input:
+            lines = input.readlines()
+            for line in lines:
+                self.Main(dex_unit, line.strip())
+
+    def Main(self, dex_unit, file_name):
+        input_path = file_name
         input = open(input_path, "r")
         apk_path = input.readline().strip()
         manifest_path = input.readline().strip()
@@ -156,7 +169,8 @@ class jeb(IScript):
         tmp_path = input.readline().strip()
         result_path = input.readline().strip()
         links_len = int(input.readline().strip())
-
+        # 重定向标准输入
+        sys.stdout = open(result_path, "w")
         print(apk_path)
         print(manifest_path)
         print(root_path)
@@ -165,26 +179,12 @@ class jeb(IScript):
         print(tmp_path)
         print(result_path)
         print(links_len)
-        # assert isinstance(ctx,IClientContext)
-        # input_path = r"/mnt/RAID/users_data/caijiajin/semgrep/data-test/apks/loadUrl.apk"
-        # method_sign = "Lcom/tencent/connect/common/AssistActivity;->setResult(ILandroid/content/Intent;)V"
 
-        # unit = ctx.open(input_path);                                    assert isinstance(unit,IUnit)
-        # prj = ctx.getMainProject();                                     assert isinstance(prj,IRuntimeProject)
-        # dex_unit = prj.findUnit(IDexUnit);                               assert isinstance(dex_unit,IDexUnit)
+        sources = ReturnMethods(dex_unit, manifest_path, int(st[1]), st[0])
+        sinks = ReturnMethods(dex_unit, manifest_path, int(ed[1]), ed[0])
 
-        # # methods = GetMethods(dexUnit, "setResult", 0)
-        # # print(methods)
 
-        # sources = ReturnMethods(dex_unit, 1, 3, "shouldOverrideUrlLoading")
-        # sinks = ReturnMethods(dex_unit, 1, 4, "Landroid/webkit/WebView;->loadUrl(Ljava/lang/String;)V")
+        GetPath(dex_unit, sources, sinks, links_len)
 
-        
-        # print("sources:")
-        # print(sources)
-
-        # print("sinks:")
-        # print(sinks)
-        # # print(GetMethodXref(dex_unit, dex_unit.getMethod(method_sign)))
-
-        # GetPath(dex_unit, sources, sinks, 5)
+        input.close()
+        sys.stdout.close()
