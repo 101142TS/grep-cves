@@ -10,8 +10,14 @@ from com.pnfsoftware.jeb.core.actions import ActionXrefsData, Actions, ActionCon
 from com.pnfsoftware.jeb.core.units import IUnit
 from com.pnfsoftware.jeb.core.units.code.android import IDexUnit
 from com.pnfsoftware.jeb.core.units.code.android.dex import IDexMethod, IDexClass
+
 import sys
 import Queue
+import subprocess
+
+def run_cmd_with_output(cmd):
+	return subprocess.check_output(cmd).rstrip("\n")
+
 def MyPrint(words, output):
     if output == "":
         print(words)
@@ -66,7 +72,7 @@ def GetMethods(dex_unit, name, ope):
 
     return return_methods
 
-def ReturnMethods(dex_unit, manifest, ope, name):
+def ReturnMethods(dex_unit, manifest, ope, name, root_path):
     # TO DO:
     # ope <= 3 的情况
 
@@ -76,8 +82,26 @@ def ReturnMethods(dex_unit, manifest, ope, name):
     if ope == 4:
         return GetMethods(dex_unit, name, 1)
     
-    # TO DO:
-    # ope == 5 的情况
+    if ope == 5:
+        dexClass = dex_unit.getClass(name);                              assert isinstance(dexClass,IDexClass)
+        ret = []
+        for method in dexClass.getMethods():
+            ret.append(method)
+        return ret
+        
+    if ope == 6:
+        cmd = ['grep', '-lr', name, root_path]
+
+        ret_value = run_cmd_with_output(cmd).split("\n")
+
+        ret = []
+        for file_name in ret_value:
+            print(file_name)
+            pos = file_name.rindex("sources")
+            class_name = "L" + file_name[pos + 8 : -5] + ";"
+            
+            ret = ret + ReturnMethods(dex_unit, manifest, 5, class_name, root_path)
+        return ret
 
 # 对每一个sink, BFS寻找其是否可到sources
 def FindPath(dex_unit, sources, sinks):
@@ -155,24 +179,29 @@ class jebtest(IScript):
         prj = ctx.getMainProject();                                     assert isinstance(prj,IRuntimeProject)
         dex_unit = prj.findUnit(IDexUnit);                               assert isinstance(dex_unit,IDexUnit)
 
-        if ctx.getArguments()[0] == "methods":
-            ope = int(ctx.getArguments()[1])
-            name = ""
-            if ope == 3 or ope == 4 or ope == 5:
-                name = ctx.getArguments()[2]
+        # if ctx.getArguments()[0] == "methods":
+        #     ope = int(ctx.getArguments()[1])
+        #     name = ""
+        #     if ope == 3 or ope == 4 or ope == 5:
+        #         name = ctx.getArguments()[2]
             
-            methods = ReturnMethods(dex_unit, "", ope, name)
+        #     methods = ReturnMethods(dex_unit, "", ope, name, "../../source/com.tencent.hobby_1398/files/sources")
 
-            for method in methods:
-                print "-----------------------------------------------"
-                print "1 ClassType         >>> ",method.getClassType()
-                print "2 ReturnType        >>> ",method.getReturnType()
-                print "3 getName           >>> ",method.getName()
-                print "4 getSignature      >>> ",method.getSignature()
-                print "5 getParameterTypes >>> "
-                for parm in method.getParameterTypes():
-                    print ">>> ",parm
-                print "6 isInternal        >>> ",method.isInternal()
-                print "7 isArtificial      >>> ",method.isArtificial()
-                print "7 isArtificial      >>> ",hex(method.getData().getAccessFlags())
-                print "-----------------------------------------------"
+        #     for method in methods:
+        #         print "-----------------------------------------------"
+        #         print "1 ClassType         >>> ",method.getClassType()
+        #         print "2 ReturnType        >>> ",method.getReturnType()
+        #         print "3 getName           >>> ",method.getName()
+        #         print "4 getSignature      >>> ",method.getSignature()
+        #         print "5 getParameterTypes >>> "
+        #         for parm in method.getParameterTypes():
+        #             print ">>> ",parm
+        #         print "6 isInternal        >>> ",method.isInternal()
+        #         print "7 isArtificial      >>> ",method.isArtificial()
+        #         print "7 isArtificial      >>> ",hex(method.getData().getAccessFlags())
+        #         print "-----------------------------------------------"
+
+        methods = ReturnMethods(dex_unit, "", 6, "@JavascriptInterface", "../../source/com.tencent.hobby_1398/files/sources")
+
+        for method in methods:
+            print(method)
