@@ -148,52 +148,31 @@ def GetPath(dex_unit, sources, sinks, maxlen, output):
         links[0] = sink
         DFS(dex_unit, sink, 1, links, vis, maxlen, output)
 
-class jeb(IScript):
+class jebtest(IScript):
+    # method ope name
     def run(self, ctx):
-        if not len(ctx.getArguments()) == 2:
-            print("ERROR: args len illegal")
-            return
-
-        unit = ctx.open(ctx.getArguments()[1]);                                    assert isinstance(unit,IUnit)
+        unit = ctx.open("/mnt/RAID/users_data/caijiajin/semgrep/data/apks/com.tencent.hobby_1398.apk");                                    assert isinstance(unit,IUnit)
         prj = ctx.getMainProject();                                     assert isinstance(prj,IRuntimeProject)
         dex_unit = prj.findUnit(IDexUnit);                               assert isinstance(dex_unit,IDexUnit)
 
-        input_path = ctx.getArguments()[0]
-        with open(input_path, "r") as input:
-            lines = input.readlines()
-            for line in lines:
-                print(line.strip())
-                self.Main(dex_unit, line.strip())
+        if ctx.getArguments()[0] == "methods":
+            ope = int(ctx.getArguments()[1])
+            name = ""
+            if ope == 3 or ope == 4 or ope == 5:
+                name = ctx.getArguments()[2]
+            
+            methods = ReturnMethods(dex_unit, "", ope, name)
 
-    def Main(self, dex_unit, file_name):
-        input_path = file_name
-        input = open(input_path, "r")
-        apk_path = input.readline().strip()
-        manifest_path = input.readline().strip()
-        root_path = input.readline().strip()
-        st = input.readline().strip().split()
-        ed = input.readline().strip().split()
-        tmp_path = input.readline().strip()
-        result_path = input.readline().strip()
-        links_len = int(input.readline().strip())
-
-        # result_file = ""
-        result_file = open(result_path, "w")
-        MyPrint(apk_path, result_file)
-        MyPrint(manifest_path, result_file)
-        MyPrint(root_path, result_file)
-        MyPrint(st, result_file)
-        MyPrint(ed, result_file)
-        MyPrint(tmp_path, result_file)
-        MyPrint(result_path, result_file)
-        MyPrint(links_len, result_file)
-
-        sources = ReturnMethods(dex_unit, manifest_path, int(st[1]), st[0])
-        sinks = ReturnMethods(dex_unit, manifest_path, int(ed[1]), ed[0])
-
-
-        GetPath(dex_unit, sources, sinks, links_len, result_file)
-
-        input.close()
-        if not result_file == "":
-            result_file.close()
+            for method in methods:
+                print "-----------------------------------------------"
+                print "1 ClassType         >>> ",method.getClassType()
+                print "2 ReturnType        >>> ",method.getReturnType()
+                print "3 getName           >>> ",method.getName()
+                print "4 getSignature      >>> ",method.getSignature()
+                print "5 getParameterTypes >>> "
+                for parm in method.getParameterTypes():
+                    print ">>> ",parm
+                print "6 isInternal        >>> ",method.isInternal()
+                print "7 isArtificial      >>> ",method.isArtificial()
+                print "7 isArtificial      >>> ",hex(method.getData().getAccessFlags())
+                print "-----------------------------------------------"
