@@ -10,19 +10,23 @@ from com.pnfsoftware.jeb.core.actions import ActionXrefsData, Actions, ActionCon
 from com.pnfsoftware.jeb.core.units import IUnit
 from com.pnfsoftware.jeb.core.units.code.android import IDexUnit
 from com.pnfsoftware.jeb.core.units.code.android.dex import IDexMethod, IDexClass
-
 import sys
 import Queue
 import subprocess
-
+import os
 def run_cmd_with_output(cmd):
-	return subprocess.check_output(cmd).rstrip("\n")
+    try:
+        res = subprocess.check_output(cmd)
+        res = res.rstrip("\n")
+    except subprocess.CalledProcessError as e:
+        res = ""
+    return res
 
 def MyPrint(words, output):
     if output == "":
         print(words)
     else:
-        output.write(str(words))
+        output.write(words)
         output.write("\n")
 # 对一个方法，得到所有调用它的方法，已去重
 def GetMethodXref(dex_unit, method):
@@ -85,18 +89,26 @@ def ReturnMethods(dex_unit, manifest, ope, name, root_path):
     if ope == 5:
         dexClass = dex_unit.getClass(name);                              assert isinstance(dexClass,IDexClass)
         ret = []
+
+        cnt = 0
         for method in dexClass.getMethods():
+            assert isinstance(method, IDexMethod)
+
             ret.append(method)
+            cnt = cnt + 1
         return ret
         
     if ope == 6:
         cmd = ['grep', '-lr', name, root_path]
 
-        ret_value = run_cmd_with_output(cmd).split("\n")
+        output = run_cmd_with_output(cmd)
+
+        ret_value = []
+        if not output == "":
+            ret_value = output.split("\n")
 
         ret = []
         for file_name in ret_value:
-            print(file_name)
             pos = file_name.rindex("sources")
             class_name = "L" + file_name[pos + 8 : -5] + ";"
             
@@ -139,7 +151,7 @@ def DFS(dex_unit, now_method, len, links, vis, maxlen, output):
     if (now_method.getIndex() in vis and vis[now_method.getIndex()] == "Target"):
         MyPrint("************START************", output)
         for i in range(len - 1, -1, -1):
-            MyPrint("[*] " + str(links[i]), output)
+            MyPrint("[*] " + links[i].toString().encode('utf-8'), output)
         
         MyPrint("*************END*************", output)
         return
@@ -179,29 +191,10 @@ class jebtest(IScript):
         prj = ctx.getMainProject();                                     assert isinstance(prj,IRuntimeProject)
         dex_unit = prj.findUnit(IDexUnit);                               assert isinstance(dex_unit,IDexUnit)
 
-        # if ctx.getArguments()[0] == "methods":
-        #     ope = int(ctx.getArguments()[1])
-        #     name = ""
-        #     if ope == 3 or ope == 4 or ope == 5:
-        #         name = ctx.getArguments()[2]
-            
-        #     methods = ReturnMethods(dex_unit, "", ope, name, "../../source/com.tencent.hobby_1398/files/sources")
+        # method = dex_unit.getMethod("Landroid/webkit/WebView;->getUrl()Ljava/lang/String;")
+        # print(method)
 
-        #     for method in methods:
-        #         print "-----------------------------------------------"
-        #         print "1 ClassType         >>> ",method.getClassType()
-        #         print "2 ReturnType        >>> ",method.getReturnType()
-        #         print "3 getName           >>> ",method.getName()
-        #         print "4 getSignature      >>> ",method.getSignature()
-        #         print "5 getParameterTypes >>> "
-        #         for parm in method.getParameterTypes():
-        #             print ">>> ",parm
-        #         print "6 isInternal        >>> ",method.isInternal()
-        #         print "7 isArtificial      >>> ",method.isArtificial()
-        #         print "7 isArtificial      >>> ",hex(method.getData().getAccessFlags())
-        #         print "-----------------------------------------------"
-
-        methods = ReturnMethods(dex_unit, "", 6, "@JavascriptInterface", "../../source/com.tencent.hobby_1398/files/sources")
+        methods = ReturnMethods(dex_unit, "", 6, "@JavascriptInterface", "/mnt/RAID/users_data/caijiajin/semgrep/source/com.tencent.hobby_1398")
 
         for method in methods:
-            print(method)
+            print(method.toString().encode('utf-8'))
