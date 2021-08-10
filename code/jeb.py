@@ -12,6 +12,11 @@ from com.pnfsoftware.jeb.core.units.code.android import IDexUnit
 from com.pnfsoftware.jeb.core.units.code.android.dex import IDexMethod, IDexClass
 import sys
 import Queue
+import subprocess
+
+def run_cmd_with_output(cmd):
+	return subprocess.check_output(cmd).rstrip("\n")
+
 def MyPrint(words, output):
     if output == "":
         print(words)
@@ -66,7 +71,7 @@ def GetMethods(dex_unit, name, ope):
 
     return return_methods
 
-def ReturnMethods(dex_unit, manifest, ope, name):
+def ReturnMethods(dex_unit, manifest, ope, name, root_path):
     # TO DO:
     # ope <= 3 的情况
 
@@ -76,8 +81,26 @@ def ReturnMethods(dex_unit, manifest, ope, name):
     if ope == 4:
         return GetMethods(dex_unit, name, 1)
     
-    # TO DO:
-    # ope == 5 的情况
+    if ope == 5:
+        dexClass = dex_unit.getClass(name);                              assert isinstance(dexClass,IDexClass)
+        ret = []
+        for method in dexClass.getMethods():
+            ret.append(method)
+        return ret
+        
+    if ope == 6:
+        cmd = ['grep', '-lr', name, root_path]
+
+        ret_value = run_cmd_with_output(cmd).split("\n")
+
+        ret = []
+        for file_name in ret_value:
+            print(file_name)
+            pos = file_name.rindex("sources")
+            class_name = "L" + file_name[pos + 8 : -5] + ";"
+            
+            ret = ret + ReturnMethods(dex_unit, manifest, 5, class_name, root_path)
+        return ret
 
 # 对每一个sink, BFS寻找其是否可到sources
 def FindPath(dex_unit, sources, sinks):
