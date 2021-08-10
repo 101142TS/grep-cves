@@ -13,15 +13,20 @@ from com.pnfsoftware.jeb.core.units.code.android.dex import IDexMethod, IDexClas
 import sys
 import Queue
 import subprocess
-
+import os
 def run_cmd_with_output(cmd):
-	return subprocess.check_output(cmd).rstrip("\n")
+    try:
+        res = subprocess.check_output(cmd)
+        res = res.rstrip("\n")
+    except subprocess.CalledProcessError as e:
+        res = ""
+    return res
 
 def MyPrint(words, output):
     if output == "":
         print(words)
     else:
-        output.write(str(words))
+        output.write(words)
         output.write("\n")
 # 对一个方法，得到所有调用它的方法，已去重
 def GetMethodXref(dex_unit, method):
@@ -84,18 +89,26 @@ def ReturnMethods(dex_unit, manifest, ope, name, root_path):
     if ope == 5:
         dexClass = dex_unit.getClass(name);                              assert isinstance(dexClass,IDexClass)
         ret = []
+
+        cnt = 0
         for method in dexClass.getMethods():
+            assert isinstance(method, IDexMethod)
+
             ret.append(method)
+            cnt = cnt + 1
         return ret
         
     if ope == 6:
         cmd = ['grep', '-lr', name, root_path]
 
-        ret_value = run_cmd_with_output(cmd).split("\n")
+        output = run_cmd_with_output(cmd)
+
+        ret_value = []
+        if not output == "":
+            ret_value = output.split("\n")
 
         ret = []
         for file_name in ret_value:
-            print(file_name)
             pos = file_name.rindex("sources")
             class_name = "L" + file_name[pos + 8 : -5] + ";"
             
@@ -138,7 +151,7 @@ def DFS(dex_unit, now_method, len, links, vis, maxlen, output):
     if (now_method.getIndex() in vis and vis[now_method.getIndex()] == "Target"):
         MyPrint("************START************", output)
         for i in range(len - 1, -1, -1):
-            MyPrint("[*] " + str(links[i]), output)
+            MyPrint("[*] " + links[i].toString().encode('utf-8'), output)
         
         MyPrint("*************END*************", output)
         return
@@ -200,20 +213,24 @@ class jeb(IScript):
         result_path = input.readline().strip()
         links_len = int(input.readline().strip())
 
-        # result_file = ""
+        if os.path.exists(result_path):
+            return
+
+        #想直接看输出就注释下一句
+        # result_file = ""  
         result_file = open(result_path, "w")
+
         MyPrint(apk_path, result_file)
         MyPrint(manifest_path, result_file)
         MyPrint(root_path, result_file)
-        MyPrint(st, result_file)
-        MyPrint(ed, result_file)
+        MyPrint(str(st), result_file)
+        MyPrint(str(ed), result_file)
         MyPrint(tmp_path, result_file)
         MyPrint(result_path, result_file)
-        MyPrint(links_len, result_file)
+        MyPrint(str(links_len), result_file)
 
-        sources = ReturnMethods(dex_unit, manifest_path, int(st[1]), st[0])
-        sinks = ReturnMethods(dex_unit, manifest_path, int(ed[1]), ed[0])
-
+        sources = ReturnMethods(dex_unit, manifest_path, int(st[1]), st[0], root_path)
+        sinks = ReturnMethods(dex_unit, manifest_path, int(ed[1]), ed[0], root_path)
 
         GetPath(dex_unit, sources, sinks, links_len, result_file)
 
