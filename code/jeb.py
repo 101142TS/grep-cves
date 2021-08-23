@@ -219,8 +219,8 @@ class jeb(IScript):
             return
 
         #想直接看输出就注释下一句
-        result_file = ""  
-        # result_file = open(result_path, "w")
+        # result_file = ""  
+        result_file = open(result_path, "w")
 
         MyPrint(apk_path, result_file)
         MyPrint(manifest_path, result_file)
@@ -233,7 +233,7 @@ class jeb(IScript):
 
         sources = ReturnMethods(dex_unit, manifest_path, int(st[1]), st[0], root_path)
         sinks = ReturnMethods(dex_unit, manifest_path, int(ed[1]), ed[0], root_path)
-        
+
         GetPath(dex_unit, sources, sinks, links_len, result_file)
 
         input.close()
