@@ -72,7 +72,9 @@ def GetMethods(dex_unit, name, ope):
             if method.getName(True) == name:
                 return_methods.append(method)
     elif ope == 1:
-        return_methods.append(dex_unit.getMethod(name))
+        method = dex_unit.getMethod(name)
+        if not method == None:
+            return_methods.append(method)
 
     return return_methods
 
@@ -169,6 +171,7 @@ def DFS(dex_unit, now_method, len, links, vis, maxlen, output):
         DFS(dex_unit, pre, len + 1, links, vis, maxlen, output)
     
     vis[now_method.getIndex()] = "False"
+
 def GetPath(dex_unit, sources, sinks, maxlen, output):
     real_sinks = FindPath(dex_unit, sources, sinks)
 
@@ -183,18 +186,42 @@ def GetPath(dex_unit, sources, sinks, maxlen, output):
         links = [0] * maxlen
         links[0] = sink
         DFS(dex_unit, sink, 1, links, vis, maxlen, output)
+# def CutFile(dex_unit, method, java_file, root_path):
+    
+def SemgrepMethods(dex_unit, methods, root_path, yml_file):
+    if yml_file == "default":
+        return methods
+    
+    res = []
 
+    for method in methods:
+        # method.getName(True)
+        sign = method.getSignature(True)
+        class_name = sign[1:sign.index(";")]
+
+        java_file = root_path + "/" + class_name + ".java"
+
+        if os.path.exists(java_file):
+            # 直接用semgrep 在文件中进行匹配，有可能出现匹配的结果不在所要的方法内
+
+            cmd = ['grep', '-lr', name, root_path]
+
+        output = run_cmd_with_output(cmd)
+            CutFile(dex_unit, method, java_file, root_path)
+            # 在该文件上去匹配
+        print(sign)
+        print(class_name)
+        print(java_file)
 class jebtest(IScript):
     # method ope name
     def run(self, ctx):
-        unit = ctx.open("/mnt/RAID/users_data/caijiajin/semgrep/data/apks/com.tencent.hobby_1398.apk");                                    assert isinstance(unit,IUnit)
+        unit = ctx.open("/mnt/RAID/users_data/caijiajin/semgrep/data-tencent/apks/com.tencent.news_6560.apk");                                    assert isinstance(unit,IUnit)
         prj = ctx.getMainProject();                                     assert isinstance(prj,IRuntimeProject)
         dex_unit = prj.findUnit(IDexUnit);                               assert isinstance(dex_unit,IDexUnit)
 
         # method = dex_unit.getMethod("Landroid/webkit/WebView;->getUrl()Ljava/lang/String;")
         # print(method)
 
-        methods = ReturnMethods(dex_unit, "", 6, "@JavascriptInterface", "/mnt/RAID/users_data/caijiajin/semgrep/source/com.tencent.hobby_1398")
+        methods = ReturnMethods(dex_unit, "", 6, "@JavascriptInterface", "/mnt/RAID/users_data/caijiajin/semgrep/source-tencent/com.tencent.news_6560")
 
-        for method in methods:
-            print(method.toString().encode('utf-8'))
+        SemgrepMethods(dex_unit, methods, "/mnt/RAID/users_data/caijiajin/semgrep/source-tencent/com.tencent.news_6560/files/sources", "1")
