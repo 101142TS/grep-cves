@@ -171,6 +171,7 @@ def DFS(dex_unit, now_method, len, links, vis, maxlen, output):
         DFS(dex_unit, pre, len + 1, links, vis, maxlen, output)
     
     vis[now_method.getIndex()] = "False"
+
 def GetPath(dex_unit, sources, sinks, maxlen, output):
     real_sinks = FindPath(dex_unit, sources, sinks)
 
@@ -186,6 +187,16 @@ def GetPath(dex_unit, sources, sinks, maxlen, output):
         links[0] = sink
         DFS(dex_unit, sink, 1, links, vis, maxlen, output)
 
+def SemgrepMethods(dex_unit, methods, yml_file):
+    if yml_file == "default":
+        return methods
+    
+    res = []
+
+    for method in methods:
+        # method.getName(True)
+        name = method.getName(True)
+        file
 class jeb(IScript):
     def run(self, ctx):
         if not len(ctx.getArguments()) == 2:
@@ -233,6 +244,10 @@ class jeb(IScript):
 
         sources = ReturnMethods(dex_unit, manifest_path, int(st[1]), st[0], root_path)
         sinks = ReturnMethods(dex_unit, manifest_path, int(ed[1]), ed[0], root_path)
+        
+        # 先把sources和sinks使用semgrep匹配一下，再求出路径
+        real_sources = SemgrepMethods(dex_unit, sources, st[2])
+        real_sinks = SemgrepMethods(dex_unit, sinks, ed[2])
 
         GetPath(dex_unit, sources, sinks, links_len, result_file)
 
