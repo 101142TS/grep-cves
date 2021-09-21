@@ -67,7 +67,7 @@ def generate_single_rule(r, d):
             output.write(config_file[:config_file.rindex("/")] + "/result.txt" + "\n")
 
             # 函数链的长度
-            output.write("5\n")
+            output.write(input.readline())
 
     return "../../data/apks/" + d[13:-6] + ".apk", config_file
 def run_rules(rules, dirs):

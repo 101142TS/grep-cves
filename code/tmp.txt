@@ -1,1 +1,2 @@
-../../results/loadUrl/1/com.tencent.android.duoduo_327/config.txt
+../../results/setResult/1/87701v15.1.6821.4825/config.txt
+../../results/loadUrl/1/87701v15.1.6821.4825/config.txt

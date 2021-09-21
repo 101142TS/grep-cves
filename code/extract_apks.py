@@ -18,23 +18,23 @@ def decompose_single_apk(in_app, out_dir, with_res=True, with_src=True):
         print("error: The file has been decomposed, please delete the corresponding directory")
         print("in_app: " + in_app)
         print("out_dir: " + out_dir)
-        return
+    else:
+        os.mkdir(out_dir)
 
-    os.mkdir(out_dir)
+        cmd = 'jadx ' + in_app + ' -d ' + out_dir + ' --quiet ';
 
-    cmd = 'jadx ' + in_app + ' -d ' + out_dir + ' --quiet ';
+        if not with_res:
+            cmd += ' --no-res'
+        if not with_src:
+            cmd += ' --no-src'
+        print(cmd)
+        run_cmd(cmd)
 
-    if not with_res:
-        cmd += ' --no-res'
-    if not with_src:
-        cmd += ' --no-src'
-    print(cmd)
-    run_cmd(cmd)
+        run_cmd("mv " + out_dir + "/resources/AndroidManifest.xml" + " " + out_dir)
+        run_cmd("rm -rf " + out_dir + "/resources/")
 
-    run_cmd("mv " + out_dir + "/resources/AndroidManifest.xml" + " " + out_dir)
-    run_cmd("rm -rf " + out_dir + "/resources/")
-
-    run_cmd("python ./get_components.py" + " " + out_dir + "/AndroidManifest.xml" + " > " + out_dir + "/ExportedComponents.txt")
+    if os.path.exists(out_dir + "/AndroidManifest.xml"):
+        run_cmd("python ./get_components.py" + " " + out_dir + "/AndroidManifest.xml" + " > " + out_dir + "/ExportedComponents.txt")
 def decompose_apks(in_dir, out_dir, with_res=True, with_src=True):
     apks = os.listdir(in_dir)
 

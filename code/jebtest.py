@@ -14,6 +14,13 @@ import sys
 import Queue
 import subprocess
 import os
+import ast
+
+
+def run_cmd(cmd):
+    res = subprocess.call(cmd)
+    return res
+
 def run_cmd_with_output(cmd):
     try:
         res = subprocess.check_output(cmd)
@@ -37,6 +44,7 @@ def GetMethodXref(dex_unit, method):
     actionContext = ActionContext(dex_unit, Actions.QUERY_XREFS, method.getItemId(), None)
     if dex_unit.prepareExecution(actionContext,actionXrefsData):
         for xref_addr in actionXrefsData.getAddresses():
+            print(xref_addr)
             method = dex_unit.getMethod(xref_addr[:xref_addr.index("+")])
 
             if method.getIndex() not in methods_set:
@@ -61,10 +69,13 @@ def GetMethodsXref(dex_unit, methods):
     return return_methods
 # ope == 0      name只是方法名
 # ope == 1      name是全称
+# ope == 2      name是class_list，里面的每一个都是类名
 # 返回list
 def GetMethods(dex_unit, name, ope):
 
     return_methods = []
+
+    print(name)
     if ope == 0:
         methods = dex_unit.getMethods()
 
@@ -75,12 +86,38 @@ def GetMethods(dex_unit, name, ope):
         method = dex_unit.getMethod(name)
         if not method == None:
             return_methods.append(method)
+    elif ope == 2:
+        for class_name in name:
+            print(class_name)
+            klass = dex_unit.getClass("L" + class_name.replace(".", "/") + ";")
+            return_methods = return_methods + klass.getMethods()
 
     return return_methods
 
 def ReturnMethods(dex_unit, manifest, ope, name, root_path):
-    # TO DO:
-    # ope <= 3 的情况
+    if ope < 3:
+
+        ExportedComponents = manifest.replace("AndroidManifest.xml", "ExportedComponents.txt")
+        if not os.path.exists(ExportedComponents):
+            return []
+
+        if ope == 0:
+            with open(ExportedComponents, "r") as f:
+                line1 = f.readline().rstrip()
+
+                class_list = ast.literal_eval(line1)
+        if ope == 1:
+            with open(ExportedComponents, "r") as f:
+                line1 = f.readline().rstrip()
+                line2 = f.readline().rstrip()
+                class_list = ast.literal_eval(line2)
+        if ope == 2:
+            with open(ExportedComponents, "r") as f:
+                line1 = f.readline().rstrip()
+                line2 = f.readline().rstrip()
+                class_list = ast.literal_eval(line1) + ast.literal_eval(line2)
+
+        return GetMethods(dex_unit, class_list, 2)
 
     if ope == 3:
         return GetMethods(dex_unit, name, 0)
@@ -162,7 +199,13 @@ def DFS(dex_unit, now_method, len, links, vis, maxlen, output):
         return
 
     vis[now_method.getIndex()] = "True"
+
+    
     pre_methods = GetMethodXref(dex_unit, now_method)
+
+    print("************NOW METHOD************", now_method)
+    for pre in pre_methods:
+        print(pre)
     for pre in pre_methods:
         if pre.getIndex() in vis and vis[pre.getIndex()] == "True":
             continue
@@ -186,7 +229,7 @@ def GetPath(dex_unit, sources, sinks, maxlen, output):
         links = [0] * maxlen
         links[0] = sink
         DFS(dex_unit, sink, 1, links, vis, maxlen, output)
-# def CutFile(dex_unit, method, java_file, root_path):
+
     
 def SemgrepMethods(dex_unit, methods, root_path, yml_file):
     if yml_file == "default":
@@ -204,24 +247,42 @@ def SemgrepMethods(dex_unit, methods, root_path, yml_file):
         if os.path.exists(java_file):
             # 直接用semgrep 在文件中进行匹配，有可能出现匹配的结果不在所要的方法内
 
-            cmd = ['grep', '-lr', name, root_path]
+            cmd = ['semgrep', '-f', yml_file, java_file, '--error']
 
-        output = run_cmd_with_output(cmd)
-            CutFile(dex_unit, method, java_file, root_path)
-            # 在该文件上去匹配
-        print(sign)
-        print(class_name)
-        print(java_file)
+            print(cmd)
+
+            output = run_cmd(cmd)
+            
+            print(output)
+            
+            if output == 1:
+                res.append(method)
+    return res
 class jebtest(IScript):
     # method ope name
     def run(self, ctx):
-        unit = ctx.open("/mnt/RAID/users_data/caijiajin/semgrep/data-tencent/apks/com.tencent.news_6560.apk");                                    assert isinstance(unit,IUnit)
+        unit = ctx.open("/mnt/RAID/users_data/caijiajin/semgrep/data/apks/87701v15.1.6821.4825.apk");                                    assert isinstance(unit,IUnit)
         prj = ctx.getMainProject();                                     assert isinstance(prj,IRuntimeProject)
         dex_unit = prj.findUnit(IDexUnit);                               assert isinstance(dex_unit,IDexUnit)
 
         # method = dex_unit.getMethod("Landroid/webkit/WebView;->getUrl()Ljava/lang/String;")
         # print(method)
 
-        methods = ReturnMethods(dex_unit, "", 6, "@JavascriptInterface", "/mnt/RAID/users_data/caijiajin/semgrep/source-tencent/com.tencent.news_6560")
+        # methods = ReturnMethods(dex_unit, "", 6, "@JavascriptInterface", "/mnt/RAID/users_data/caijiajin/semgrep/source-tencent/com.tencent.news_6560")
 
-        SemgrepMethods(dex_unit, methods, "/mnt/RAID/users_data/caijiajin/semgrep/source-tencent/com.tencent.news_6560/files/sources", "1")
+        # SemgrepMethods(dex_unit, methods, "/mnt/RAID/users_data/caijiajin/semgrep/source-tencent/com.tencent.news_6560/files/sources", "1")
+
+
+        # print(dex_unit.getClass("Lcom/tencent/news/ui/PushNewsDetailActivity;"))
+
+        print(dex_unit.getMethod(24799))
+        print(GetMethodXref(dex_unit, dex_unit.getMethod(24799)))
+        # sources = ReturnMethods(dex_unit, "/mnt/RAID/users_data/caijiajin/semgrep/source/87701v15.1.6821.4825/files/AndroidManifest.xml", 0, "exported", "/mnt/RAID/users_data/caijiajin/semgrep/source/c87701v15.1.6821.4825")
+
+        # sinks = ReturnMethods(dex_unit, "/mnt/RAID/users_data/caijiajin/semgrep/source/87701v15.1.6821.4825/files/AndroidManifest.xml", 3, "setResult", "/mnt/RAID/users_data/caijiajin/semgrep/source/c87701v15.1.6821.4825")
+
+        # real_sources = SemgrepMethods(dex_unit, sources, "/mnt/RAID/users_data/caijiajin/semgrep/source/c87701v15.1.6821.4825", "/mnt/RAID/users_data/caijiajin/semgrep/grep-cves/rules/setResult/setResult.yml")
+        # real_sinks = SemgrepMethods(dex_unit, sinks, "/mnt/RAID/users_data/caijiajin/semgrep/source/c87701v15.1.6821.4825", "/mnt/RAID/users_data/caijiajin/semgrep/grep-cves/rules/setResult/setResult.yml")
+
+
+        # GetPath(dex_unit, sources, sinks, 4, "")

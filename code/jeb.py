@@ -14,6 +14,13 @@ import sys
 import Queue
 import subprocess
 import os
+import ast
+
+
+def run_cmd(cmd):
+    res = subprocess.call(cmd)
+    return res
+
 def run_cmd_with_output(cmd):
     try:
         res = subprocess.check_output(cmd)
@@ -61,10 +68,13 @@ def GetMethodsXref(dex_unit, methods):
     return return_methods
 # ope == 0      name只是方法名
 # ope == 1      name是全称
+# ope == 2      name是class_list，里面的每一个都是类名
 # 返回list
 def GetMethods(dex_unit, name, ope):
 
     return_methods = []
+
+    print(name)
     if ope == 0:
         methods = dex_unit.getMethods()
 
@@ -75,12 +85,38 @@ def GetMethods(dex_unit, name, ope):
         method = dex_unit.getMethod(name)
         if not method == None:
             return_methods.append(method)
+    elif ope == 2:
+        for class_name in name:
+            print(class_name)
+            klass = dex_unit.getClass("L" + class_name.replace(".", "/") + ";")
+            return_methods = return_methods + klass.getMethods()
 
     return return_methods
 
 def ReturnMethods(dex_unit, manifest, ope, name, root_path):
-    # TO DO:
-    # ope <= 3 的情况
+    if ope < 3:
+
+        ExportedComponents = manifest.replace("AndroidManifest.xml", "ExportedComponents.txt")
+        if not os.path.exists(ExportedComponents):
+            return []
+
+        if ope == 0:
+            with open(ExportedComponents, "r") as f:
+                line1 = f.readline().rstrip()
+
+                class_list = ast.literal_eval(line1)
+        if ope == 1:
+            with open(ExportedComponents, "r") as f:
+                line1 = f.readline().rstrip()
+                line2 = f.readline().rstrip()
+                class_list = ast.literal_eval(line2)
+        if ope == 2:
+            with open(ExportedComponents, "r") as f:
+                line1 = f.readline().rstrip()
+                line2 = f.readline().rstrip()
+                class_list = ast.literal_eval(line1) + ast.literal_eval(line2)
+
+        return GetMethods(dex_unit, class_list, 2)
 
     if ope == 3:
         return GetMethods(dex_unit, name, 0)
@@ -187,7 +223,8 @@ def GetPath(dex_unit, sources, sinks, maxlen, output):
         links[0] = sink
         DFS(dex_unit, sink, 1, links, vis, maxlen, output)
 
-def SemgrepMethods(dex_unit, methods, yml_file):
+    
+def SemgrepMethods(dex_unit, methods, root_path, yml_file):
     if yml_file == "default":
         return methods
     
@@ -195,8 +232,25 @@ def SemgrepMethods(dex_unit, methods, yml_file):
 
     for method in methods:
         # method.getName(True)
-        name = method.getName(True)
-        file
+        sign = method.getSignature(True)
+        class_name = sign[1:sign.index(";")]
+
+        java_file = root_path + "/" + class_name + ".java"
+
+        if os.path.exists(java_file):
+            # 直接用semgrep 在文件中进行匹配，有可能出现匹配的结果不在所要的方法内
+
+            cmd = ['semgrep', '-f', yml_file, java_file, '--error']
+
+            print(cmd)
+
+            output = run_cmd(cmd)
+            
+            print(output)
+            
+            if output == 1:
+                res.append(method)
+    return res
 class jeb(IScript):
     def run(self, ctx):
         if not len(ctx.getArguments()) == 2:
@@ -246,8 +300,8 @@ class jeb(IScript):
         sinks = ReturnMethods(dex_unit, manifest_path, int(ed[1]), ed[0], root_path)
         
         # 先把sources和sinks使用semgrep匹配一下，再求出路径
-        real_sources = SemgrepMethods(dex_unit, sources, st[2])
-        real_sinks = SemgrepMethods(dex_unit, sinks, ed[2])
+        real_sources = SemgrepMethods(dex_unit, sources, root_path, st[2])
+        real_sinks = SemgrepMethods(dex_unit, sinks, root_path, ed[2])
 
         GetPath(dex_unit, sources, sinks, links_len, result_file)
 
