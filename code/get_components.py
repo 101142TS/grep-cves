@@ -19,12 +19,14 @@ def search_nodelist(nodelist):
         name = node.get('{http://schemas.android.com/apk/res/android}name')
         exported = node.get('{http://schemas.android.com/apk/res/android}exported')
 
-        if not exported == None:
-            if exported == "true":
+        x = node.findall('intent-filter')
+
+        if exported == "true":
+            if not (len(x) > 0):
                 explicit_ret.append(name)
-        else:
-            x = node.findall('intent-filter')
-            if len(x) > 0:
+        
+        if len(x) > 0:
+            if not (exported == "false"):
                 implicit_ret.append(name)
 
     return explicit_ret, implicit_ret
