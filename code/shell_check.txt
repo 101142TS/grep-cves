@@ -1,0 +1,19 @@
+360   com.stub.StubApp 887
+梆梆  com.secneo.apkwrapper.AW 82
+爱加密 s.h.e.l.l.S 93
+腾讯 MyWrapperProxyApplication 159
+梆梆  com.SecShell.SecShell.AW 15
+网易 com.netease.nis.wrapper.MyApplication 18
+
+共计： 1254
+
+2497
+
+
+
+
+770个 minSDK < 19
+
+19 4.4
+..
+30 11

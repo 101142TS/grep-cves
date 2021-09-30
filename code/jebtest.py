@@ -261,10 +261,14 @@ def SemgrepMethods(dex_unit, methods, root_path, yml_file):
 class jebtest(IScript):
     # method ope name
     def run(self, ctx):
-        unit = ctx.open("/mnt/RAID/users_data/caijiajin/semgrep/data/apks/87701v15.1.6821.4825.apk");                                    assert isinstance(unit,IUnit)
-        prj = ctx.getMainProject();                                     assert isinstance(prj,IRuntimeProject)
-        dex_unit = prj.findUnit(IDexUnit);                               assert isinstance(dex_unit,IDexUnit)
+        # unit = ctx.open("/mnt/RAID/users_data/caijiajin/semgrep/data/apks/87701v15.1.6821.4825.apk");                                    assert isinstance(unit,IUnit)
 
+        unit = ctx.open("/mnt/RAID/users_data/caijiajin/Desktop/tmp2/babyname.babyname/5388888_dexfile.dex");                                    assert isinstance(unit,IUnit)
+        prj = ctx.getMainProject();                                     assert isinstance(prj,IRuntimeProject)
+
+        for unit in 
+        # dex_unit = prj.findUnit(IDexUnit);                               assert isinstance(dex_unit,IDexUnit)
+        dex_unit = 
         # method = dex_unit.getMethod("Landroid/webkit/WebView;->getUrl()Ljava/lang/String;")
         # print(method)
 

@@ -240,13 +240,13 @@ def SemgrepMethods(dex_unit, methods, root_path, yml_file):
         if os.path.exists(java_file):
             # 直接用semgrep 在文件中进行匹配，有可能出现匹配的结果不在所要的方法内
 
-            cmd = ['semgrep', '-f', yml_file, java_file, '--error']
+            cmd = ['semgrep', '-f', yml_file, java_file, '--error', '-q']
 
-            print(cmd)
+            # print(cmd)
 
             output = run_cmd(cmd)
             
-            print(output)
+            # print(output)
             
             if output == 1:
                 res.append(method)
@@ -303,7 +303,7 @@ class jeb(IScript):
         real_sources = SemgrepMethods(dex_unit, sources, root_path, st[2])
         real_sinks = SemgrepMethods(dex_unit, sinks, root_path, ed[2])
 
-        GetPath(dex_unit, sources, sinks, links_len, result_file)
+        GetPath(dex_unit, real_sources, real_sinks, links_len, result_file)
 
         input.close()
         if not result_file == "":

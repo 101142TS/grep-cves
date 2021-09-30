@@ -1,0 +1,22 @@
+rules:
+- id: intent重定向2
+  patterns: 
+    - pattern: $X.getParcelableExtra(...)
+    - pattern-either:
+      - pattern-inside: |
+          $RETURNTYPE $FUNC  (...) {
+            ...
+            startActivityForResult($P0, $P1);
+            ...
+          }
+      - pattern-inside: |
+          $RETURNTYPE $FUNC  (...) {
+            ...
+            startActivityForResult($P0, $P1, $P2, $P3);
+            ...
+          }
+  languages: 
+    - java
+  message: |
+    startActivityForResult()
+  severity: WARNING
