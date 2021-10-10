@@ -89,7 +89,8 @@ def GetMethods(dex_unit, name, ope):
         for class_name in name:
             print(class_name)
             klass = dex_unit.getClass("L" + class_name.replace(".", "/") + ";")
-            return_methods = return_methods + klass.getMethods()
+            if isinstance(klass, IDexClass):
+                return_methods = return_methods + klass.getMethods()
 
     return return_methods
 

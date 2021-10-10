@@ -263,12 +263,12 @@ class jebtest(IScript):
     def run(self, ctx):
         # unit = ctx.open("/mnt/RAID/users_data/caijiajin/semgrep/data/apks/87701v15.1.6821.4825.apk");                                    assert isinstance(unit,IUnit)
 
-        unit = ctx.open("/mnt/RAID/users_data/caijiajin/Desktop/tmp2/babyname.babyname/5388888_dexfile.dex");                                    assert isinstance(unit,IUnit)
+        unit = ctx.open("/mnt/RAID/users_data/caijiajin/Desktop/tmp2/com.tencent.news/hook_1521340.dex");                                    assert isinstance(unit,IUnit)
         prj = ctx.getMainProject();                                     assert isinstance(prj,IRuntimeProject)
 
-        for unit in 
-        # dex_unit = prj.findUnit(IDexUnit);                               assert isinstance(dex_unit,IDexUnit)
-        dex_unit = 
+        dex_unit = prj.findUnit(IDexUnit);                               assert isinstance(dex_unit,IDexUnit)
+
+        print(dex_unit.getMethods())
         # method = dex_unit.getMethod("Landroid/webkit/WebView;->getUrl()Ljava/lang/String;")
         # print(method)
 
@@ -279,8 +279,8 @@ class jebtest(IScript):
 
         # print(dex_unit.getClass("Lcom/tencent/news/ui/PushNewsDetailActivity;"))
 
-        print(dex_unit.getMethod(24799))
-        print(GetMethodXref(dex_unit, dex_unit.getMethod(24799)))
+        # print(dex_unit.getMethod(24799))
+        # print(GetMethodXref(dex_unit, dex_unit.getMethod(24799)))
         # sources = ReturnMethods(dex_unit, "/mnt/RAID/users_data/caijiajin/semgrep/source/87701v15.1.6821.4825/files/AndroidManifest.xml", 0, "exported", "/mnt/RAID/users_data/caijiajin/semgrep/source/c87701v15.1.6821.4825")
 
         # sinks = ReturnMethods(dex_unit, "/mnt/RAID/users_data/caijiajin/semgrep/source/87701v15.1.6821.4825/files/AndroidManifest.xml", 3, "setResult", "/mnt/RAID/users_data/caijiajin/semgrep/source/c87701v15.1.6821.4825")

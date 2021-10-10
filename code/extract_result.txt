@@ -1,0 +1,666 @@
+adb: failed to install ../../data/apks/com.doudoubird.calendar.apk: Failure [INSTALL_PARSE_FAILED_NOT_APK: Failed to parse /data/app/vmdl1113653900.tmp/base.apk]
+Warning: Activity not started, intent has been delivered to currently running top-most instance.
+adb: failed to install ../../data/apks/com.mengdie.shuidi.apk: Failure [INSTALL_PARSE_FAILED_NOT_APK: Failed to parse /data/app/vmdl246081480.tmp/base.apk]
+Warning: Activity not started, intent has been delivered to currently running top-most instance.
+adb: failed to install ../../data/apks/com.heartide.xinchao.stressandroid.apk: Failure [INSTALL_PARSE_FAILED_NOT_APK: Failed to parse /data/app/vmdl1808122723.tmp/base.apk]
+Warning: Activity not started, intent has been delivered to currently running top-most instance.
+adb: failed to install ../../data/apks/com.best.android.bexrunner.apk: Failure [INSTALL_PARSE_FAILED_NOT_APK: Failed to parse /data/app/vmdl2078655468.tmp/base.apk]
+Warning: Activity not started, intent has been delivered to currently running top-most instance.
+adb: failed to install ../../data/apks/com.yiwugou.yiwukan.apk: Failure [INSTALL_PARSE_FAILED_NOT_APK: Failed to parse /data/app/vmdl1625816648.tmp/base.apk]
+Warning: Activity not started, intent has been delivered to currently running top-most instance.
+adb: failed to install ../../data/apks/com.yuetun.jianduixiang.apk: Failure [INSTALL_PARSE_FAILED_NOT_APK: Failed to parse /data/app/vmdl2087364497.tmp/base.apk]
+Warning: Activity not started, intent has been delivered to currently running top-most instance.
+adb: failed to install ../../data/apks/com.eyesafe.apk: Failure [INSTALL_PARSE_FAILED_NOT_APK: Failed to parse /data/app/vmdl2103739792.tmp/base.apk]
+Warning: Activity not started, intent has been delivered to currently running top-most instance.
+adb: failed to install ../../data/apks/com.yancheng.sppedtest.apk: Failure [INSTALL_PARSE_FAILED_NOT_APK: Failed to parse /data/app/vmdl1723882056.tmp/base.apk]
+Warning: Activity not started, intent has been delivered to currently running top-most instance.
+adb: failed to install ../../data/apks/com.jiankecom.jiankemall.apk: Failure [INSTALL_PARSE_FAILED_NOT_APK: Failed to parse /data/app/vmdl653999592.tmp/base.apk]
+Warning: Activity not started, intent has been delivered to currently running top-most instance.
+adb: failed to install ../../data/apks/com.uccb.mobile.apk: Failure [INSTALL_PARSE_FAILED_NOT_APK: Failed to parse /data/app/vmdl381146817.tmp/base.apk]
+Warning: Activity not started, intent has been delivered to currently running top-most instance.
+adb: failed to install ../../data/apks/com.bishijie.apk: Failure [INSTALL_PARSE_FAILED_NOT_APK: Failed to parse /data/app/vmdl1557715639.tmp/base.apk]
+Warning: Activity not started, intent has been delivered to currently running top-most instance.
+adb: failed to install ../../data/apks/com.pw.screenclicker.apk: Failure [INSTALL_PARSE_FAILED_NOT_APK: Failed to parse /data/app/vmdl973120452.tmp/base.apk]
+Warning: Activity not started, intent has been delivered to currently running top-most instance.
+adb: failed to install ../../data/apks/com.gaotu100.superclass.apk: Failure [INSTALL_PARSE_FAILED_NOT_APK: Failed to parse /data/app/vmdl2102807232.tmp/base.apk]
+Warning: Activity not started, intent has been delivered to currently running top-most instance.
+Warning: Activity not started, intent has been delivered to currently running top-most instance.
+Warning: Activity not started, intent has been delivered to currently running top-most instance.
+adb: failed to install ../../data/apks/com.shangbiao.activity.apk: Failure [INSTALL_PARSE_FAILED_NOT_APK: Failed to parse /data/app/vmdl1553337605.tmp/base.apk]
+adb: failed to install ../../data/apks/com.youxianwubian.gifzzq.apk: Failure [INSTALL_PARSE_FAILED_NOT_APK: Failed to parse /data/app/vmdl110313712.tmp/base.apk]
+Warning: Activity not started, intent has been delivered to currently running top-most instance.
+adb: failed to install ../../data/apks/com.xiaochang.easylive.apk: Failure [INSTALL_PARSE_FAILED_NOT_APK: Failed to parse /data/app/vmdl351889042.tmp/base.apk]
+Warning: Activity not started, intent has been delivered to currently running top-most instance.
+adb: failed to install ../../data/apks/com.morega.ldsg.apk: Failure [INSTALL_PARSE_FAILED_NOT_APK: Failed to parse /data/app/vmdl1920473197.tmp/base.apk]
+Warning: Activity not started, intent has been delivered to currently running top-most instance.
+Warning: Activity not started, intent has been delivered to currently running top-most instance.
+Warning: Activity not started, intent has been delivered to currently running top-most instance.
+Warning: Activity not started, intent has been delivered to currently running top-most instance.
+adb: failed to install ../../data/apks/com.lanjinger.choiassociatedpress.apk: Failure [INSTALL_PARSE_FAILED_NOT_APK: Failed to parse /data/app/vmdl1336701761.tmp/base.apk]
+Warning: Activity not started, intent has been delivered to currently running top-most instance.
+adb: failed to install ../../data/apks/io.dcloud.H514D19D6.apk: Failure [INSTALL_PARSE_FAILED_NOT_APK: Failed to parse /data/app/vmdl935573202.tmp/base.apk]
+Warning: Activity not started, intent has been delivered to currently running top-most instance.
+adb: failed to install ../../data/apks/com.jinr.core.apk: Failure [INSTALL_PARSE_FAILED_NOT_APK: Failed to parse /data/app/vmdl137209963.tmp/base.apk]
+Warning: Activity not started, intent has been delivered to currently running top-most instance.
+adb: failed to install ../../data/apks/com.qima.wxd.apk: Failure [INSTALL_PARSE_FAILED_NOT_APK: Failed to parse /data/app/vmdl303428874.tmp/base.apk]
+Warning: Activity not started, intent has been delivered to currently running top-most instance.
+adb: failed to install ../../data/apks/com.cld.nv.h.apk: Failure [INSTALL_PARSE_FAILED_NOT_APK: Failed to parse /data/app/vmdl1120195124.tmp/base.apk]
+Warning: Activity not started, intent has been delivered to currently running top-most instance.
+adb: failed to install ../../data/apks/com.sloth.removelogo.apk: Failure [INSTALL_PARSE_FAILED_NOT_APK: Failed to parse /data/app/vmdl558515463.tmp/base.apk]
+Warning: Activity not started, intent has been delivered to currently running top-most instance.
+adb: failed to install ../../data/apks/com.szzc.apk: Failure [INSTALL_PARSE_FAILED_NOT_APK: Failed to parse /data/app/vmdl807497077.tmp/base.apk]
+Warning: Activity not started, intent has been delivered to currently running top-most instance.
+adb: failed to install ../../data/apks/com.example.servyouappzhuhai.apk: Failure [INSTALL_PARSE_FAILED_NOT_APK: Failed to parse /data/app/vmdl1845807846.tmp/base.apk]
+Warning: Activity not started, intent has been delivered to currently running top-most instance.
+adb: failed to install ../../data/apks/com.kunxun.wjz.apk: Failure [INSTALL_PARSE_FAILED_NOT_APK: Failed to parse /data/app/vmdl1038760002.tmp/base.apk]
+Warning: Activity not started, intent has been delivered to currently running top-most instance.
+adb: failed to install ../../data/apks/com.yunxi.weather2.apk: Failure [INSTALL_PARSE_FAILED_NOT_APK: Failed to parse /data/app/vmdl280149074.tmp/base.apk]
+Warning: Activity not started, intent has been delivered to currently running top-most instance.
+Warning: Activity not started, intent has been delivered to currently running top-most instance.
+Warning: Activity not started, intent has been delivered to currently running top-most instance.
+Warning: Activity not started, intent has been delivered to currently running top-most instance.
+Warning: Activity not started, intent has been delivered to currently running top-most instance.
+adb: failed to install ../../data/apks/com.mop.catsports.apk: Failure [INSTALL_PARSE_FAILED_NOT_APK: Failed to parse /data/app/vmdl452447989.tmp/base.apk]
+Warning: Activity not started, intent has been delivered to currently running top-most instance.
+adb: failed to install ../../data/apks/cn.gogpay.dcb.apk: Failure [INSTALL_PARSE_FAILED_NOT_APK: Failed to parse /data/app/vmdl370571108.tmp/base.apk]
+Warning: Activity not started, intent has been delivered to currently running top-most instance.
+Warning: Activity not started, intent has been delivered to currently running top-most instance.
+adb: failed to install ../../data/apks/com.yunhui.weiduoqun.apk: Failure [INSTALL_PARSE_FAILED_NOT_APK: Failed to parse /data/app/vmdl1472995877.tmp/base.apk]
+adb: failed to install ../../data/apks/com.koudai.weishop.apk: Failure [INSTALL_PARSE_FAILED_NOT_APK: Failed to parse /data/app/vmdl2140828176.tmp/base.apk]
+Warning: Activity not started, intent has been delivered to currently running top-most instance.
+adb: failed to install ../../data/apks/com.medapp.man.apk: Failure [INSTALL_PARSE_FAILED_NOT_APK: Failed to parse /data/app/vmdl45339907.tmp/base.apk]
+Warning: Activity not started, intent has been delivered to currently running top-most instance.
+adb: failed to install ../../data/apks/com.android.yzd.habit.apk: Failure [INSTALL_PARSE_FAILED_NOT_APK: Failed to parse /data/app/vmdl387938959.tmp/base.apk]
+Warning: Activity not started, intent has been delivered to currently running top-most instance.
+adb: failed to install ../../data/apks/io.dcloud.H576E6CC7.apk: Failure [INSTALL_PARSE_FAILED_NOT_APK: Failed to parse /data/app/vmdl109667970.tmp/base.apk]
+Warning: Activity not started, intent has been delivered to currently running top-most instance.
+adb: failed to install ../../data/apks/cn.boccfc.loan.finance.apk: Failure [INSTALL_PARSE_FAILED_NOT_APK: Failed to parse /data/app/vmdl20123191.tmp/base.apk]
+Warning: Activity not started, intent has been delivered to currently running top-most instance.
+Warning: Activity not started, intent has been delivered to currently running top-most instance.
+adb: failed to install ../../data/apks/com.rwx.ishop.apk: Failure [INSTALL_PARSE_FAILED_NOT_APK: Failed to parse /data/app/vmdl281091216.tmp/base.apk]
+adb: failed to install ../../data/apks/com.baidu.tieba.apk: Failure [INSTALL_PARSE_FAILED_NOT_APK: Failed to parse /data/app/vmdl1367040248.tmp/base.apk]
+Warning: Activity not started, intent has been delivered to currently running top-most instance.
+adb: failed to install ../../data/apks/com.zhulong.eduvideo.apk: Failure [INSTALL_PARSE_FAILED_NOT_APK: Failed to parse /data/app/vmdl589951658.tmp/base.apk]
+Warning: Activity not started, intent has been delivered to currently running top-most instance.
+adb: failed to install ../../data/apks/com.jesson.meishi.apk: Failure [INSTALL_PARSE_FAILED_NOT_APK: Failed to parse /data/app/vmdl1655549989.tmp/base.apk]
+Warning: Activity not started, intent has been delivered to currently running top-most instance.
+adb: failed to install ../../data/apks/com.cankaoxiaoxi.app1.apk: Failure [INSTALL_PARSE_FAILED_NOT_APK: Failed to parse /data/app/vmdl1062158127.tmp/base.apk]
+Warning: Activity not started, intent has been delivered to currently running top-most instance.
+adb: failed to install ../../data/apks/com.juanpi.ui.apk: Failure [INSTALL_PARSE_FAILED_NOT_APK: Failed to parse /data/app/vmdl398109193.tmp/base.apk]
+Warning: Activity not started, intent has been delivered to currently running top-most instance.
+adb: failed to install ../../data/apks/com.shibaqiang.forum.apk: Failure [INSTALL_PARSE_FAILED_NOT_APK: Failed to parse /data/app/vmdl961080579.tmp/base.apk]
+Warning: Activity not started, intent has been delivered to currently running top-most instance.
+Warning: Activity not started, intent has been delivered to currently running top-most instance.
+adb: failed to install ../../data/apks/com.meiyou.sheep.apk: Failure [INSTALL_PARSE_FAILED_NOT_APK: Failed to parse /data/app/vmdl554361560.tmp/base.apk]
+Warning: Activity not started, intent has been delivered to currently running top-most instance.
+adb: failed to install ../../data/apks/com.tjd.tjdmainS2.apk: Failure [INSTALL_PARSE_FAILED_NOT_APK: Failed to parse /data/app/vmdl621509931.tmp/base.apk]
+Warning: Activity not started, intent has been delivered to currently running top-most instance.
+adb: failed to install ../../data/apks/com.adtech.apk: Failure [INSTALL_PARSE_FAILED_NOT_APK: Failed to parse /data/app/vmdl681573496.tmp/base.apk]
+Warning: Activity not started, intent has been delivered to currently running top-most instance.
+adb: failed to install ../../data/apks/com.logansoft.zcbao.apk: Failure [INSTALL_PARSE_FAILED_NOT_APK: Failed to parse /data/app/vmdl334516890.tmp/base.apk]
+Warning: Activity not started, intent has been delivered to currently running top-most instance.
+adb: failed to install ../../data/apks/com.wanmeizhensuo.zhensuo.apk: Failure [INSTALL_PARSE_FAILED_NOT_APK: Failed to parse /data/app/vmdl1556703295.tmp/base.apk]
+Warning: Activity not started, intent has been delivered to currently running top-most instance.
+adb: failed to install ../../data/apks/cn.com.njxmxbank.mbank.apk: Failure [INSTALL_PARSE_FAILED_NOT_APK: Failed to parse /data/app/vmdl1547218148.tmp/base.apk]
+Warning: Activity not started, intent has been delivered to currently running top-most instance.
+adb: failed to install ../../data/apks/com.pocket.calculators.apk: Failure [INSTALL_PARSE_FAILED_NOT_APK: Failed to parse /data/app/vmdl973959998.tmp/base.apk]
+Warning: Activity not started, intent has been delivered to currently running top-most instance.
+adb: failed to install ../../data/apks/com.apicloud.A6989430876027.apk: Failure [INSTALL_PARSE_FAILED_NOT_APK: Failed to parse /data/app/vmdl1383287953.tmp/base.apk]
+Warning: Activity not started, intent has been delivered to currently running top-most instance.
+adb: failed to install ../../data/apks/com.dingdingyijian.ddyj.apk: Failure [INSTALL_PARSE_FAILED_NOT_APK: Failed to parse /data/app/vmdl1674096835.tmp/base.apk]
+Warning: Activity not started, intent has been delivered to currently running top-most instance.
+adb: failed to install ../../data/apks/com.ws.lite.worldscan.apk: Failure [INSTALL_PARSE_FAILED_NOT_APK: Failed to parse /data/app/vmdl1092835569.tmp/base.apk]
+Warning: Activity not started, intent has been delivered to currently running top-most instance.
+adb: failed to install ../../data/apks/com.xinmang.voicechanger.apk: Failure [INSTALL_PARSE_FAILED_NOT_APK: Failed to parse /data/app/vmdl1393739074.tmp/base.apk]
+Warning: Activity not started, intent has been delivered to currently running top-most instance.
+Warning: Activity not started, intent has been delivered to currently running top-most instance.
+adb: failed to install ../../data/apks/com.sinyee.babybus.dailysafety.apk: Failure [INSTALL_PARSE_FAILED_NOT_APK: Failed to parse /data/app/vmdl1482287580.tmp/base.apk]
+Warning: Activity not started, intent has been delivered to currently running top-most instance.
+adb: failed to install ../../data/apks/cn.mucang.kaka.android.apk: Failure [INSTALL_PARSE_FAILED_NOT_APK: Failed to parse /data/app/vmdl1516155559.tmp/base.apk]
+Warning: Activity not started, intent has been delivered to currently running top-most instance.
+adb: failed to install ../../data/apks/cn.ji_cloud.android.apk: Failure [INSTALL_PARSE_FAILED_NOT_APK: Failed to parse /data/app/vmdl634982430.tmp/base.apk]
+Warning: Activity not started, intent has been delivered to currently running top-most instance.
+adb: failed to install ../../data/apks/com.sinyee.babybus.dentist.apk: Failure [INSTALL_PARSE_FAILED_NOT_APK: Failed to parse /data/app/vmdl1561487930.tmp/base.apk]
+Warning: Activity not started, intent has been delivered to currently running top-most instance.
+adb: failed to install ../../data/apks/com.timeweekly.timefinance.apk: Failure [INSTALL_PARSE_FAILED_NOT_APK: Failed to parse /data/app/vmdl926255818.tmp/base.apk]
+Warning: Activity not started, intent has been delivered to currently running top-most instance.
+adb: failed to install ../../data/apks/com.jm.analyse.apk: Failure [INSTALL_PARSE_FAILED_NOT_APK: Failed to parse /data/app/vmdl1964165488.tmp/base.apk]
+Warning: Activity not started, intent has been delivered to currently running top-most instance.
+adb: failed to install ../../data/apks/com.qingclass.jgdc.apk: Failure [INSTALL_PARSE_FAILED_NOT_APK: Failed to parse /data/app/vmdl414488164.tmp/base.apk]
+Warning: Activity not started, intent has been delivered to currently running top-most instance.
+adb: failed to install ../../data/apks/com.ziyi18.shortvideo.apk: Failure [INSTALL_PARSE_FAILED_NOT_APK: Failed to parse /data/app/vmdl1636555106.tmp/base.apk]
+Warning: Activity not started, intent has been delivered to currently running top-most instance.
+adb: failed to install ../../data/apks/com.pdc.paodingche.apk: Failure [INSTALL_PARSE_FAILED_NOT_APK: Failed to parse /data/app/vmdl1853420998.tmp/base.apk]
+Warning: Activity not started, intent has been delivered to currently running top-most instance.
+adb: failed to install ../../data/apks/com.jyq.note.apk: Failure [INSTALL_PARSE_FAILED_NOT_APK: Failed to parse /data/app/vmdl1741895436.tmp/base.apk]
+Warning: Activity not started, intent has been delivered to currently running top-most instance.
+adb: failed to install ../../data/apks/com.andaijia.main.apk: Failure [INSTALL_PARSE_FAILED_NOT_APK: Failed to parse /data/app/vmdl694580811.tmp/base.apk]
+Warning: Activity not started, intent has been delivered to currently running top-most instance.
+adb: failed to install ../../data/apks/com.rosevision.ofashion.apk: Failure [INSTALL_PARSE_FAILED_NOT_APK: Failed to parse /data/app/vmdl1084325508.tmp/base.apk]
+Warning: Activity not started, intent has been delivered to currently running top-most instance.
+adb: failed to install ../../data/apks/com.czb.chezhubang.apk: Failure [INSTALL_PARSE_FAILED_NO_CERTIFICATES: Failed to collect certificates from /data/app/vmdl74472050.tmp/base.apk using APK Signature Scheme v3: Size of APK Signing Block is not a multiple of 4096: 4126]
+Warning: Activity not started, intent has been delivered to currently running top-most instance.
+adb: failed to install ../../data/apks/com.tuicool.activity.apk: Failure [INSTALL_PARSE_FAILED_NOT_APK: Failed to parse /data/app/vmdl51173407.tmp/base.apk]
+Warning: Activity not started, intent has been delivered to currently running top-most instance.
+adb: failed to install ../../data/apks/com.xianghu.company.apk: Failure [INSTALL_PARSE_FAILED_NOT_APK: Failed to parse /data/app/vmdl275023496.tmp/base.apk]
+Warning: Activity not started, intent has been delivered to currently running top-most instance.
+adb: failed to install ../../data/apks/com.taihai.app2.apk: Failure [INSTALL_PARSE_FAILED_NOT_APK: Failed to parse /data/app/vmdl601800722.tmp/base.apk]
+Warning: Activity not started, intent has been delivered to currently running top-most instance.
+adb: failed to install ../../data/apks/io.moreless.tide.apk: Failure [INSTALL_PARSE_FAILED_NOT_APK: Failed to parse /data/app/vmdl1727113421.tmp/base.apk]
+Warning: Activity not started, intent has been delivered to currently running top-most instance.
+adb: failed to install ../../data/apks/com.tuliu.tuliuapp.apk: Failure [INSTALL_PARSE_FAILED_NOT_APK: Failed to parse /data/app/vmdl524189159.tmp/base.apk]
+Warning: Activity not started, intent has been delivered to currently running top-most instance.
+adb: failed to install ../../data/apks/com.woaika.kashen.apk: Failure [INSTALL_PARSE_FAILED_NOT_APK: Failed to parse /data/app/vmdl190668933.tmp/base.apk]
+Warning: Activity not started, intent has been delivered to currently running top-most instance.
+adb: failed to install ../../data/apks/com.cnki.client.apk: Failure [INSTALL_PARSE_FAILED_NOT_APK: Failed to parse /data/app/vmdl1113890666.tmp/base.apk]
+Warning: Activity not started, intent has been delivered to currently running top-most instance.
+adb: failed to install ../../data/apks/com.lu.calendar.apk: Failure [INSTALL_PARSE_FAILED_NOT_APK: Failed to parse /data/app/vmdl1869424938.tmp/base.apk]
+Warning: Activity not started, intent has been delivered to currently running top-most instance.
+Warning: Activity not started, intent has been delivered to currently running top-most instance.
+Warning: Activity not started, intent has been delivered to currently running top-most instance.
+adb: failed to install ../../data/apks/com.picahealth.yunque.apk: Failure [INSTALL_PARSE_FAILED_NOT_APK: Failed to parse /data/app/vmdl497738670.tmp/base.apk]
+adb: failed to install ../../data/apks/com.cq.government.apk: Failure [INSTALL_PARSE_FAILED_NOT_APK: Failed to parse /data/app/vmdl1832361854.tmp/base.apk]
+Warning: Activity not started, intent has been delivered to currently running top-most instance.
+adb: failed to install ../../data/apks/com.alibaba.wireless.microsupply.apk: Failure [INSTALL_PARSE_FAILED_NOT_APK: Failed to parse /data/app/vmdl717748492.tmp/base.apk]
+Warning: Activity not started, intent has been delivered to currently running top-most instance.
+adb: failed to install ../../data/apks/com.myzaker.ZAKER_Phone.apk: Failure [INSTALL_PARSE_FAILED_NOT_APK: Failed to parse /data/app/vmdl977179996.tmp/base.apk]
+Warning: Activity not started, intent has been delivered to currently running top-most instance.
+adb: failed to install ../../data/apks/com.shi.se.apk: Failure [INSTALL_PARSE_FAILED_NOT_APK: Failed to parse /data/app/vmdl161783603.tmp/base.apk]
+Warning: Activity not started, intent has been delivered to currently running top-most instance.
+adb: failed to install ../../data/apks/com.qkkj.wallet.apk: Failure [INSTALL_PARSE_FAILED_NOT_APK: Failed to parse /data/app/vmdl1717391922.tmp/base.apk]
+Warning: Activity not started, intent has been delivered to currently running top-most instance.
+adb: failed to install ../../data/apks/com.dnurse.apk: Failure [INSTALL_PARSE_FAILED_NOT_APK: Failed to parse /data/app/vmdl272137533.tmp/base.apk]
+Warning: Activity not started, intent has been delivered to currently running top-most instance.
+adb: failed to install ../../data/apks/com.kouyuyi.kyystuapp.apk: Failure [INSTALL_PARSE_FAILED_NOT_APK: Failed to parse /data/app/vmdl719932930.tmp/base.apk]
+Warning: Activity not started, intent has been delivered to currently running top-most instance.
+adb: failed to install ../../data/apks/DDT.QQ78551393.apk: Failure [INSTALL_PARSE_FAILED_NOT_APK: Failed to parse /data/app/vmdl163866391.tmp/base.apk]
+Warning: Activity not started, intent has been delivered to currently running top-most instance.
+adb: failed to install ../../data/apks/aihuishou.aihuishouapp.apk: Failure [INSTALL_PARSE_FAILED_NOT_APK: Failed to parse /data/app/vmdl925978798.tmp/base.apk]
+Warning: Activity not started, intent has been delivered to currently running top-most instance.
+adb: failed to install ../../data/apks/com.lixiangdong.textscanner.apk: Failure [INSTALL_PARSE_FAILED_NOT_APK: Failed to parse /data/app/vmdl973123578.tmp/base.apk]
+Warning: Activity not started, intent has been delivered to currently running top-most instance.
+adb: failed to install ../../data/apks/com.iflytts.texttospeech.apk: Failure [INSTALL_PARSE_FAILED_NOT_APK: Failed to parse /data/app/vmdl540907470.tmp/base.apk]
+Warning: Activity not started, intent has been delivered to currently running top-most instance.
+adb: failed to install ../../data/apks/com.enhance.greapp.apk: Failure [INSTALL_PARSE_FAILED_NOT_APK: Failed to parse /data/app/vmdl2127468514.tmp/base.apk]
+Warning: Activity not started, intent has been delivered to currently running top-most instance.
+adb: failed to install ../../data/apks/com.eelly.seller.apk: Failure [INSTALL_PARSE_FAILED_NOT_APK: Failed to parse /data/app/vmdl724479792.tmp/base.apk]
+Warning: Activity not started, intent has been delivered to currently running top-most instance.
+adb: failed to install ../../data/apks/andr.members1.apk: Failure [INSTALL_PARSE_FAILED_NOT_APK: Failed to parse /data/app/vmdl383331483.tmp/base.apk]
+Warning: Activity not started, intent has been delivered to currently running top-most instance.
+Warning: Activity not started, intent has been delivered to currently running top-most instance.
+Warning: Activity not started, intent has been delivered to currently running top-most instance.
+adb: failed to install ../../data/apks/com.quyue.android.apk: Failure [INSTALL_PARSE_FAILED_NOT_APK: Failed to parse /data/app/vmdl808336240.tmp/base.apk]
+adb: failed to install ../../data/apks/com.lt.lighting.apk: Failure [INSTALL_PARSE_FAILED_NOT_APK: Failed to parse /data/app/vmdl1972645834.tmp/base.apk]
+Warning: Activity not started, intent has been delivered to currently running top-most instance.
+adb: failed to install ../../data/apks/com.kugou.android.kuqunapp.apk: Failure [INSTALL_PARSE_FAILED_NOT_APK: Failed to parse /data/app/vmdl1084220606.tmp/base.apk]
+Warning: Activity not started, intent has been delivered to currently running top-most instance.
+adb: failed to install ../../data/apks/com.knowbox.rc.student.apk: Failure [INSTALL_PARSE_FAILED_NOT_APK: Failed to parse /data/app/vmdl1507014507.tmp/base.apk]
+Warning: Activity not started, intent has been delivered to currently running top-most instance.
+adb: failed to install ../../data/apks/com.sinyee.babybus.drawII.apk: Failure [INSTALL_PARSE_FAILED_NOT_APK: Failed to parse /data/app/vmdl1452625898.tmp/base.apk]
+Warning: Activity not started, intent has been delivered to currently running top-most instance.
+Warning: Activity not started, intent has been delivered to currently running top-most instance.
+Warning: Activity not started, intent has been delivered to currently running top-most instance.
+Warning: Activity not started, intent has been delivered to currently running top-most instance.
+adb: failed to install ../../data/apks/com.pingan.papd.apk: Failure [INSTALL_PARSE_FAILED_NOT_APK: Failed to parse /data/app/vmdl1806495684.tmp/base.apk]
+Warning: Activity not started, intent has been delivered to currently running top-most instance.
+Warning: Activity not started, intent has been delivered to currently running top-most instance.
+adb: failed to install ../../data/apks/org.fungo.a8sport.apk: Failure [INSTALL_PARSE_FAILED_NOT_APK: Failed to parse /data/app/vmdl1120329705.tmp/base.apk]
+Warning: Activity not started, intent has been delivered to currently running top-most instance.
+adb: failed to install ../../data/apks/com.rwy.Eshiming.apk: Failure [INSTALL_PARSE_FAILED_NOT_APK: Failed to parse /data/app/vmdl1093818795.tmp/base.apk]
+Warning: Activity not started, intent has been delivered to currently running top-most instance.
+adb: failed to install ../../data/apks/com.wandaloans.timesloan.apk: Failure [INSTALL_PARSE_FAILED_NOT_APK: Failed to parse /data/app/vmdl285678726.tmp/base.apk]
+Warning: Activity not started, intent has been delivered to currently running top-most instance.
+adb: failed to install ../../data/apks/com.jiuman.album.store.apk: Failure [INSTALL_PARSE_FAILED_NOT_APK: Failed to parse /data/app/vmdl1756173867.tmp/base.apk]
+Warning: Activity not started, intent has been delivered to currently running top-most instance.
+adb: failed to install ../../data/apks/com.house365.newhouse.apk: Failure [INSTALL_PARSE_FAILED_NOT_APK: Failed to parse /data/app/vmdl477218797.tmp/base.apk]
+Warning: Activity not started, intent has been delivered to currently running top-most instance.
+adb: failed to install ../../data/apks/com.hongxia.location.apk: Failure [INSTALL_PARSE_FAILED_NOT_APK: Failed to parse /data/app/vmdl258842284.tmp/base.apk]
+Warning: Activity not started, intent has been delivered to currently running top-most instance.
+adb: failed to install ../../data/apks/com.jujing.stock.apk: Failure [INSTALL_PARSE_FAILED_NOT_APK: Failed to parse /data/app/vmdl377595776.tmp/base.apk]
+Warning: Activity not started, intent has been delivered to currently running top-most instance.
+adb: failed to install ../../data/apks/com.haodf.android.doctor.apk: Failure [INSTALL_PARSE_FAILED_NOT_APK: Failed to parse /data/app/vmdl924291628.tmp/base.apk]
+Warning: Activity not started, intent has been delivered to currently running top-most instance.
+adb: failed to install ../../data/apks/com.futurefleet.pandabus.ui.apk: Failure [INSTALL_PARSE_FAILED_NOT_APK: Failed to parse /data/app/vmdl1197466628.tmp/base.apk]
+Warning: Activity not started, intent has been delivered to currently running top-most instance.
+adb: failed to install ../../data/apks/com.Tiange.ChatRoom.apk: Failure [INSTALL_PARSE_FAILED_NOT_APK: Failed to parse /data/app/vmdl1414132964.tmp/base.apk]
+Warning: Activity not started, intent has been delivered to currently running top-most instance.
+adb: failed to install ../../data/apks/com.deppon.dpapp.apk: Failure [INSTALL_PARSE_FAILED_NO_CERTIFICATES: Failed to collect certificates from /data/app/vmdl330199046.tmp/base.apk: File kotlin/collections/IndexedValue.kotlin_metadata in manifest does not exist]
+Warning: Activity not started, intent has been delivered to currently running top-most instance.
+Warning: Activity not started, intent has been delivered to currently running top-most instance.
+adb: failed to install ../../data/apks/cn.nineton.recordpro.apk: Failure [INSTALL_PARSE_FAILED_NOT_APK: Failed to parse /data/app/vmdl1106738244.tmp/base.apk]
+Warning: Activity not started, intent has been delivered to currently running top-most instance.
+adb: failed to install ../../data/apks/com.changdu.apk: Failure [INSTALL_PARSE_FAILED_NOT_APK: Failed to parse /data/app/vmdl1589316256.tmp/base.apk]
+adb: failed to install ../../data/apks/com.golink.tun.apk: Failure [INSTALL_PARSE_FAILED_NOT_APK: Failed to parse /data/app/vmdl873650604.tmp/base.apk]
+Warning: Activity not started, intent has been delivered to currently running top-most instance.
+adb: failed to install ../../data/apks/com.besto.beautifultv.apk: Failure [INSTALL_PARSE_FAILED_NOT_APK: Failed to parse /data/app/vmdl921460623.tmp/base.apk]
+Warning: Activity not started, intent has been delivered to currently running top-most instance.
+adb: failed to install ../../data/apks/io.dcloud.H55BDF6BE.apk: Failure [INSTALL_PARSE_FAILED_NOT_APK: Failed to parse /data/app/vmdl2147120500.tmp/base.apk]
+Warning: Activity not started, intent has been delivered to currently running top-most instance.
+adb: failed to install ../../data/apks/com.csliyu.listenhigh.apk: Failure [INSTALL_PARSE_FAILED_NOT_APK: Failed to parse /data/app/vmdl984970855.tmp/base.apk]
+Warning: Activity not started, intent has been delivered to currently running top-most instance.
+adb: failed to install ../../data/apks/com.to8to.zxtyg.apk: Failure [INSTALL_PARSE_FAILED_NOT_APK: Failed to parse /data/app/vmdl88009257.tmp/base.apk]
+Warning: Activity not started, intent has been delivered to currently running top-most instance.
+adb: failed to install ../../data/apks/com.financial.quantgroup.apk: Failure [INSTALL_PARSE_FAILED_NOT_APK: Failed to parse /data/app/vmdl1288697017.tmp/base.apk]
+Warning: Activity not started, intent has been delivered to currently running top-most instance.
+adb: failed to install ../../data/apks/com.ablesky.simpleness.activity.apk: Failure [INSTALL_PARSE_FAILED_NOT_APK: Failed to parse /data/app/vmdl1673033782.tmp/base.apk]
+Warning: Activity not started, intent has been delivered to currently running top-most instance.
+adb: failed to install ../../data/apks/com.qihoo.loan.apk: Failure [INSTALL_PARSE_FAILED_NOT_APK: Failed to parse /data/app/vmdl858931052.tmp/base.apk]
+Warning: Activity not started, intent has been delivered to currently running top-most instance.
+adb: failed to install ../../data/apks/com.iwanpa.play.apk: Failure [INSTALL_PARSE_FAILED_NO_CERTIFICATES: Failed to collect certificates from /data/app/vmdl1699631105.tmp/base.apk using APK Signature Scheme v2: APK verity digest of contents did not verify]
+Warning: Activity not started, intent has been delivered to currently running top-most instance.
+adb: failed to install ../../data/apks/com.feimaotuikeji.feimaotui.apk: Failure [INSTALL_PARSE_FAILED_NOT_APK: Failed to parse /data/app/vmdl1313716027.tmp/base.apk]
+Warning: Activity not started, intent has been delivered to currently running top-most instance.
+adb: failed to install ../../data/apks/net.ffrj.pinkwallet.apk: Failure [INSTALL_PARSE_FAILED_NOT_APK: Failed to parse /data/app/vmdl2141237827.tmp/base.apk]
+Warning: Activity not started, intent has been delivered to currently running top-most instance.
+adb: failed to install ../../data/apks/com.lecai.apk: Failure [INSTALL_PARSE_FAILED_NOT_APK: Failed to parse /data/app/vmdl2006766402.tmp/base.apk]
+Warning: Activity not started, intent has been delivered to currently running top-most instance.
+adb: failed to install ../../data/apks/com.wshifu.app.jiedanyi.apk: Failure [INSTALL_PARSE_FAILED_NOT_APK: Failed to parse /data/app/vmdl663859860.tmp/base.apk]
+Warning: Activity not started, intent has been delivered to currently running top-most instance.
+Warning: Activity not started, intent has been delivered to currently running top-most instance.
+Warning: Activity not started, intent has been delivered to currently running top-most instance.
+adb: failed to install ../../data/apks/com.voltmemo.xz_cidao.apk: Failure [INSTALL_PARSE_FAILED_NOT_APK: Failed to parse /data/app/vmdl404892099.tmp/base.apk]
+adb: failed to install ../../data/apks/com.android.benlailife.activity.apk: Failure [INSTALL_PARSE_FAILED_NOT_APK: Failed to parse /data/app/vmdl970635987.tmp/base.apk]
+Warning: Activity not started, intent has been delivered to currently running top-most instance.
+adb: failed to install ../../data/apks/com.inesanet.yuntong.apk: Failure [INSTALL_PARSE_FAILED_NOT_APK: Failed to parse /data/app/vmdl1663437524.tmp/base.apk]
+Warning: Activity not started, intent has been delivered to currently running top-most instance.
+adb: failed to install ../../data/apks/com.qinlin.ahaschool.apk: Failure [INSTALL_PARSE_FAILED_NOT_APK: Failed to parse /data/app/vmdl2021722735.tmp/base.apk]
+Warning: Activity not started, intent has been delivered to currently running top-most instance.
+adb: failed to install ../../data/apks/com.jtjsb.yjzf.apk: Failure [INSTALL_PARSE_FAILED_NOT_APK: Failed to parse /data/app/vmdl1190547797.tmp/base.apk]
+Warning: Activity not started, intent has been delivered to currently running top-most instance.
+adb: failed to install ../../data/apks/com.theotino.chinadaily.apk: Failure [INSTALL_PARSE_FAILED_NOT_APK: Failed to parse /data/app/vmdl1678042302.tmp/base.apk]
+Warning: Activity not started, intent has been delivered to currently running top-most instance.
+adb: failed to install ../../data/apks/com.qinsilk.app.apk: Failure [INSTALL_PARSE_FAILED_NOT_APK: Failed to parse /data/app/vmdl1514328371.tmp/base.apk]
+Warning: Activity not started, intent has been delivered to currently running top-most instance.
+Warning: Activity not started, intent has been delivered to currently running top-most instance.
+adb: failed to install ../../data/apks/com.huoban.apk: Failure [INSTALL_PARSE_FAILED_NOT_APK: Failed to parse /data/app/vmdl297215125.tmp/base.apk]
+Warning: Activity not started, intent has been delivered to currently running top-most instance.
+adb: failed to install ../../data/apks/com.jm.android.jumei.apk: Failure [INSTALL_PARSE_FAILED_NOT_APK: Failed to parse /data/app/vmdl1654466759.tmp/base.apk]
+Warning: Activity not started, intent has been delivered to currently running top-most instance.
+adb: failed to install ../../data/apks/comm.cchong.BloodAssistant.apk: Failure [INSTALL_PARSE_FAILED_NOT_APK: Failed to parse /data/app/vmdl1520151460.tmp/base.apk]
+Warning: Activity not started, intent has been delivered to currently running top-most instance.
+adb: failed to install ../../data/apks/com.sinyee.babybus.expedition.apk: Failure [INSTALL_PARSE_FAILED_NOT_APK: Failed to parse /data/app/vmdl455231984.tmp/base.apk]
+Warning: Activity not started, intent has been delivered to currently running top-most instance.
+adb: failed to install ../../data/apks/com.we.keyuan.apk: Failure [INSTALL_PARSE_FAILED_NOT_APK: Failed to parse /data/app/vmdl460331256.tmp/base.apk]
+Warning: Activity not started, intent has been delivered to currently running top-most instance.
+adb: failed to install ../../data/apks/com.jskj.youxuetong.apk: Failure [INSTALL_PARSE_FAILED_NOT_APK: Failed to parse /data/app/vmdl169511487.tmp/base.apk]
+Warning: Activity not started, intent has been delivered to currently running top-most instance.
+adb: failed to install ../../data/apks/com.master.onelockscreen.apk: Failure [INSTALL_PARSE_FAILED_NOT_APK: Failed to parse /data/app/vmdl3271087.tmp/base.apk]
+Warning: Activity not started, intent has been delivered to currently running top-most instance.
+Warning: Activity not started, intent has been delivered to currently running top-most instance.
+Warning: Activity not started, intent has been delivered to currently running top-most instance.
+adb: failed to install ../../data/apks/com.chartcross.gpstestplus.apk: Failure [INSTALL_PARSE_FAILED_NOT_APK: Failed to parse /data/app/vmdl1500280302.tmp/base.apk]
+adb: failed to install ../../data/apks/com.ayibang.ayb.apk: Failure [INSTALL_PARSE_FAILED_NOT_APK: Failed to parse /data/app/vmdl1862242193.tmp/base.apk]
+Warning: Activity not started, intent has been delivered to currently running top-most instance.
+adb: failed to install ../../data/apks/com.pycredit.txxy.apk: Failure [INSTALL_PARSE_FAILED_NOT_APK: Failed to parse /data/app/vmdl515354467.tmp/base.apk]
+Warning: Activity not started, intent has been delivered to currently running top-most instance.
+adb: failed to install ../../data/apks/com.wisedu.cpdaily.apk: Failure [INSTALL_PARSE_FAILED_NOT_APK: Failed to parse /data/app/vmdl298648174.tmp/base.apk]
+Warning: Activity not started, intent has been delivered to currently running top-most instance.
+adb: failed to install ../../data/apks/com.feiyi.p21.apk: Failure [INSTALL_PARSE_FAILED_NOT_APK: Failed to parse /data/app/vmdl456554384.tmp/base.apk]
+Warning: Activity not started, intent has been delivered to currently running top-most instance.
+Warning: Activity not started, intent has been delivered to currently running top-most instance.
+Warning: Activity not started, intent has been delivered to currently running top-most instance.
+Warning: Activity not started, intent has been delivered to currently running top-most instance.
+adb: failed to install ../../data/apks/com.tencent.reading.apk: Failure [INSTALL_PARSE_FAILED_NOT_APK: Failed to parse /data/app/vmdl2004909710.tmp/base.apk]
+Warning: Activity not started, intent has been delivered to currently running top-most instance.
+adb: failed to install ../../data/apks/com.jiuyan.infashion.apk: Failure [INSTALL_PARSE_FAILED_NOT_APK: Failed to parse /data/app/vmdl1653234321.tmp/base.apk]
+Warning: Activity not started, intent has been delivered to currently running top-most instance.
+adb: failed to install ../../data/apks/yilanTech.EduYunClient.apk: Failure [INSTALL_PARSE_FAILED_NOT_APK: Failed to parse /data/app/vmdl14906752.tmp/base.apk]
+Warning: Activity not started, intent has been delivered to currently running top-most instance.
+adb: failed to install ../../data/apks/com.leisu.sports.apk: Failure [INSTALL_PARSE_FAILED_NOT_APK: Failed to parse /data/app/vmdl350333468.tmp/base.apk]
+Warning: Activity not started, intent has been delivered to currently running top-most instance.
+adb: failed to install ../../data/apks/com.guixingtang.huohunjia_driver.apk: Failure [INSTALL_PARSE_FAILED_NOT_APK: Failed to parse /data/app/vmdl1370722814.tmp/base.apk]
+Warning: Activity not started, intent has been delivered to currently running top-most instance.
+adb: failed to install ../../data/apks/com.sinyee.babybus.greening.apk: Failure [INSTALL_PARSE_FAILED_NOT_APK: Failed to parse /data/app/vmdl1775549926.tmp/base.apk]
+Warning: Activity not started, intent has been delivered to currently running top-most instance.
+adb: failed to install ../../data/apks/com.duia.duiba.teacherCard.apk: Failure [INSTALL_PARSE_FAILED_NOT_APK: Failed to parse /data/app/vmdl1171369415.tmp/base.apk]
+Warning: Activity not started, intent has been delivered to currently running top-most instance.
+Warning: Activity not started, intent has been delivered to currently running top-most instance.
+Warning: Activity not started, intent has been delivered to currently running top-most instance.
+adb: failed to install ../../data/apks/com.sinyee.babybus.memory.apk: Failure [INSTALL_PARSE_FAILED_NOT_APK: Failed to parse /data/app/vmdl1738642123.tmp/base.apk]
+adb: failed to install ../../data/apks/com.perfectcorp.ycf.apk: Failure [INSTALL_PARSE_FAILED_NOT_APK: Failed to parse /data/app/vmdl361647764.tmp/base.apk]
+Warning: Activity not started, intent has been delivered to currently running top-most instance.
+adb: failed to install ../../data/apks/com.gstarmc.android.apk: Failure [INSTALL_PARSE_FAILED_NOT_APK: Failed to parse /data/app/vmdl599452222.tmp/base.apk]
+Warning: Activity not started, intent has been delivered to currently running top-most instance.
+adb: failed to install ../../data/apks/com.smxxy.sc.apk: Failure [INSTALL_PARSE_FAILED_NOT_APK: Failed to parse /data/app/vmdl684424928.tmp/base.apk]
+Warning: Activity not started, intent has been delivered to currently running top-most instance.
+adb: failed to install ../../data/apks/com.yumi.me.apk: Failure [INSTALL_PARSE_FAILED_NOT_APK: Failed to parse /data/app/vmdl200457902.tmp/base.apk]
+Warning: Activity not started, intent has been delivered to currently running top-most instance.
+adb: failed to install ../../data/apks/tv.acfundanmaku.video.apk: Failure [INSTALL_PARSE_FAILED_NOT_APK: Failed to parse /data/app/vmdl1716872725.tmp/base.apk]
+Warning: Activity not started, intent has been delivered to currently running top-most instance.
+adb: failed to install ../../data/apks/com.sobey.cloud.view.jiangxi.apk: Failure [INSTALL_PARSE_FAILED_NOT_APK: Failed to parse /data/app/vmdl77635780.tmp/base.apk]
+Warning: Activity not started, intent has been delivered to currently running top-most instance.
+adb: failed to install ../../data/apks/com.qeeyou.app.accelerator.apk: Failure [INSTALL_PARSE_FAILED_NOT_APK: Failed to parse /data/app/vmdl1431658181.tmp/base.apk]
+Warning: Activity not started, intent has been delivered to currently running top-most instance.
+adb: failed to install ../../data/apks/com.baidu.finance.apk: Failure [INSTALL_PARSE_FAILED_NOT_APK: Failed to parse /data/app/vmdl1682066987.tmp/base.apk]
+Warning: Activity not started, intent has been delivered to currently running top-most instance.
+adb: failed to install ../../data/apks/com.sinyee.babybus.tailor.apk: Failure [INSTALL_PARSE_FAILED_NOT_APK: Failed to parse /data/app/vmdl1320144023.tmp/base.apk]
+Warning: Activity not started, intent has been delivered to currently running top-most instance.
+adb: failed to install ../../data/apks/com.moyun365.android.zkchemistry.apk: Failure [INSTALL_PARSE_FAILED_NOT_APK: Failed to parse /data/app/vmdl371728017.tmp/base.apk]
+Warning: Activity not started, intent has been delivered to currently running top-most instance.
+adb: failed to install ../../data/apks/mobi.htjsq.accelerator.apk: Failure [INSTALL_PARSE_FAILED_NOT_APK: Failed to parse /data/app/vmdl1657775691.tmp/base.apk]
+Warning: Activity not started, intent has been delivered to currently running top-most instance.
+adb: failed to install ../../data/apks/com.gxdqh.kstore.apk: Failure [INSTALL_PARSE_FAILED_NOT_APK: Failed to parse /data/app/vmdl1922711232.tmp/base.apk]
+Warning: Activity not started, intent has been delivered to currently running top-most instance.
+Warning: Activity not started, intent has been delivered to currently running top-most instance.
+Warning: Activity not started, intent has been delivered to currently running top-most instance.
+adb: failed to install ../../data/apks/com.autohome.usedcar.apk: Failure [INSTALL_PARSE_FAILED_NOT_APK: Failed to parse /data/app/vmdl1227786013.tmp/base.apk]
+Warning: Activity not started, intent has been delivered to currently running top-most instance.
+adb: failed to install ../../data/apks/com.dealmoon.android.apk: Failure [INSTALL_PARSE_FAILED_NOT_APK: Failed to parse /data/app/vmdl792006555.tmp/base.apk]
+Warning: Activity not started, intent has been delivered to currently running top-most instance.
+adb: failed to install ../../data/apks/com.baidu.dict.apk: Failure [INSTALL_PARSE_FAILED_NOT_APK: Failed to parse /data/app/vmdl1435458230.tmp/base.apk]
+Warning: Activity not started, intent has been delivered to currently running top-most instance.
+adb: failed to install ../../data/apks/com.lft.turn.apk: Failure [INSTALL_PARSE_FAILED_NOT_APK: Failed to parse /data/app/vmdl703206366.tmp/base.apk]
+Warning: Activity not started, intent has been delivered to currently running top-most instance.
+adb: failed to install ../../data/apks/com.example.countdown.apk: Failure [INSTALL_PARSE_FAILED_NOT_APK: Failed to parse /data/app/vmdl484043577.tmp/base.apk]
+Warning: Activity not started, intent has been delivered to currently running top-most instance.
+Warning: Activity not started, intent has been delivered to currently running top-most instance.
+Warning: Activity not started, intent has been delivered to currently running top-most instance.
+adb: failed to install ../../data/apks/com.guanaitong.apk: Failure [INSTALL_PARSE_FAILED_NOT_APK: Failed to parse /data/app/vmdl622118747.tmp/base.apk]
+adb: failed to install ../../data/apks/com.ehaier.shunguang.apk: Failure [INSTALL_PARSE_FAILED_NOT_APK: Failed to parse /data/app/vmdl587168509.tmp/base.apk]
+Warning: Activity not started, intent has been delivered to currently running top-most instance.
+Warning: Activity not started, intent has been delivered to currently running top-most instance.
+Warning: Activity not started, intent has been delivered to currently running top-most instance.
+adb: failed to install ../../data/apks/com.sharetwo.goods.apk: Failure [INSTALL_PARSE_FAILED_NOT_APK: Failed to parse /data/app/vmdl306627786.tmp/base.apk]
+Warning: Activity not started, intent has been delivered to currently running top-most instance.
+adb: failed to install ../../data/apks/com.dailyyoga.cn.apk: Failure [INSTALL_PARSE_FAILED_NOT_APK: Failed to parse /data/app/vmdl2049862329.tmp/base.apk]
+Warning: Activity not started, intent has been delivered to currently running top-most instance.
+adb: failed to install ../../data/apks/cld.navi.mainframe.apk: Failure [INSTALL_PARSE_FAILED_NOT_APK: Failed to parse /data/app/vmdl1512767553.tmp/base.apk]
+Warning: Activity not started, intent has been delivered to currently running top-most instance.
+adb: failed to install ../../data/apks/com.suyanapps.metronome.apk: Failure [INSTALL_PARSE_FAILED_NOT_APK: Failed to parse /data/app/vmdl1704978799.tmp/base.apk]
+Warning: Activity not started, intent has been delivered to currently running top-most instance.
+adb: failed to install ../../data/apks/com.zh.carbyticket.apk: Failure [INSTALL_PARSE_FAILED_NOT_APK: Failed to parse /data/app/vmdl274290791.tmp/base.apk]
+Warning: Activity not started, intent has been delivered to currently running top-most instance.
+adb: failed to install ../../data/apks/com.shanbay.speak.apk: Failure [INSTALL_PARSE_FAILED_NOT_APK: Failed to parse /data/app/vmdl2109385734.tmp/base.apk]
+Warning: Activity not started, intent has been delivered to currently running top-most instance.
+adb: failed to install ../../data/apks/com.example.artilleryandroid.apk: Failure [INSTALL_PARSE_FAILED_NOT_APK: Failed to parse /data/app/vmdl984921370.tmp/base.apk]
+Warning: Activity not started, intent has been delivered to currently running top-most instance.
+adb: failed to install ../../data/apks/com.homedo.homedoapp.apk: Failure [INSTALL_PARSE_FAILED_NOT_APK: Failed to parse /data/app/vmdl1821342978.tmp/base.apk]
+Warning: Activity not started, intent has been delivered to currently running top-most instance.
+adb: failed to install ../../data/apks/com.bill99.kuaiqian.apk: Failure [INSTALL_PARSE_FAILED_NOT_APK: Failed to parse /data/app/vmdl1765674783.tmp/base.apk]
+Warning: Activity not started, intent has been delivered to currently running top-most instance.
+adb: failed to install ../../data/apks/com.sinyee.babybus.tadpole.apk: Failure [INSTALL_PARSE_FAILED_NOT_APK: Failed to parse /data/app/vmdl1582353355.tmp/base.apk]
+Warning: Activity not started, intent has been delivered to currently running top-most instance.
+Warning: Activity not started, intent has been delivered to currently running top-most instance.
+Warning: Activity not started, intent has been delivered to currently running top-most instance.
+Warning: Activity not started, intent has been delivered to currently running top-most instance.
+Warning: Activity not started, intent has been delivered to currently running top-most instance.
+adb: failed to install ../../data/apks/com.veepoo.hband.apk: Failure [INSTALL_PARSE_FAILED_NOT_APK: Failed to parse /data/app/vmdl1947175031.tmp/base.apk]
+Warning: Activity not started, intent has been delivered to currently running top-most instance.
+adb: failed to install ../../data/apks/com.justexceptions.loc_weather.apk: Failure [INSTALL_PARSE_FAILED_NOT_APK: Failed to parse /data/app/vmdl534945582.tmp/base.apk]
+Warning: Activity not started, intent has been delivered to currently running top-most instance.
+adb: failed to install ../../data/apks/com.yyxx.greengrass.apk: Failure [INSTALL_PARSE_FAILED_NOT_APK: Failed to parse /data/app/vmdl1137788958.tmp/base.apk]
+Warning: Activity not started, intent has been delivered to currently running top-most instance.
+adb: failed to install ../../data/apks/cn.eclicks.wzsearch.apk: Failure [INSTALL_PARSE_FAILED_NOT_APK: Failed to parse /data/app/vmdl1190017991.tmp/base.apk]
+Warning: Activity not started, intent has been delivered to currently running top-most instance.
+adb: failed to install ../../data/apks/com.teambition.teambition.apk: Failure [INSTALL_PARSE_FAILED_NOT_APK: Failed to parse /data/app/vmdl1375011641.tmp/base.apk]
+Warning: Activity not started, intent has been delivered to currently running top-most instance.
+adb: failed to install ../../data/apks/com.huofar.apk: Failure [INSTALL_PARSE_FAILED_NOT_APK: Failed to parse /data/app/vmdl1514203119.tmp/base.apk]
+Warning: Activity not started, intent has been delivered to currently running top-most instance.
+adb: failed to install ../../data/apks/com.nyato.client.apk: Failure [INSTALL_PARSE_FAILED_NOT_APK: Failed to parse /data/app/vmdl2059226966.tmp/base.apk]
+Warning: Activity not started, intent has been delivered to currently running top-most instance.
+adb: failed to install ../../data/apks/com.donghailuopan.apk: Failure [INSTALL_PARSE_FAILED_NOT_APK: Failed to parse /data/app/vmdl563161955.tmp/base.apk]
+Warning: Activity not started, intent has been delivered to currently running top-most instance.
+adb: failed to install ../../data/apks/com.chinaums.onlineservice.apk: Failure [INSTALL_PARSE_FAILED_NOT_APK: Failed to parse /data/app/vmdl1882113750.tmp/base.apk]
+Warning: Activity not started, intent has been delivered to currently running top-most instance.
+adb: failed to install ../../data/apks/com.sctv.scfocus.apk: Failure [INSTALL_PARSE_FAILED_NOT_APK: Failed to parse /data/app/vmdl1130339694.tmp/base.apk]
+Warning: Activity not started, intent has been delivered to currently running top-most instance.
+adb: failed to install ../../data/apks/com.nandasoftech.med.fen.apk: Failure [INSTALL_PARSE_FAILED_NOT_APK: Failed to parse /data/app/vmdl1122434780.tmp/base.apk]
+Warning: Activity not started, intent has been delivered to currently running top-most instance.
+adb: failed to install ../../data/apks/cc.kaipao.dongjia.apk: Failure [INSTALL_PARSE_FAILED_NOT_APK: Failed to parse /data/app/vmdl1648775243.tmp/base.apk]
+Warning: Activity not started, intent has been delivered to currently running top-most instance.
+adb: failed to install ../../data/apks/com.donghaisc.apk: Failure [INSTALL_PARSE_FAILED_NOT_APK: Failed to parse /data/app/vmdl1368626842.tmp/base.apk]
+Warning: Activity not started, intent has been delivered to currently running top-most instance.
+adb: failed to install ../../data/apks/com.huitouche.android.app.apk: Failure [INSTALL_PARSE_FAILED_NOT_APK: Failed to parse /data/app/vmdl2003882546.tmp/base.apk]
+Warning: Activity not started, intent has been delivered to currently running top-most instance.
+adb: failed to install ../../data/apks/com.xiaoyu.com.xueba.apk: Failure [INSTALL_PARSE_FAILED_NOT_APK: Failed to parse /data/app/vmdl942676924.tmp/base.apk]
+Warning: Activity not started, intent has been delivered to currently running top-most instance.
+Warning: Activity not started, intent has been delivered to currently running top-most instance.
+adb: failed to install ../../data/apks/com.hoge.android.yancwireless.apk: Failure [INSTALL_PARSE_FAILED_NOT_APK: Failed to parse /data/app/vmdl2076825798.tmp/base.apk]
+Warning: Activity not started, intent has been delivered to currently running top-most instance.
+adb: failed to install ../../data/apks/com.kk.dict.apk: Failure [INSTALL_PARSE_FAILED_NOT_APK: Failed to parse /data/app/vmdl1702533883.tmp/base.apk]
+adb: failed to install ../../data/apks/com.yuliao.myapp.apk: Failure [INSTALL_PARSE_FAILED_NOT_APK: Failed to parse /data/app/vmdl247824423.tmp/base.apk]
+Warning: Activity not started, intent has been delivered to currently running top-most instance.
+adb: failed to install ../../data/apks/com.yucheng.android.yiguan.apk: Failure [INSTALL_PARSE_FAILED_NOT_APK: Failed to parse /data/app/vmdl1907600066.tmp/base.apk]
+Warning: Activity not started, intent has been delivered to currently running top-most instance.
+adb: failed to install ../../data/apks/com.twentyfirstcbh.epaper.apk: Failure [INSTALL_PARSE_FAILED_NOT_APK: Failed to parse /data/app/vmdl891601773.tmp/base.apk]
+Warning: Activity not started, intent has been delivered to currently running top-most instance.
+adb: failed to install ../../data/apks/com.seewo.easicare.pro.apk: Failure [INSTALL_PARSE_FAILED_NOT_APK: Failed to parse /data/app/vmdl760710230.tmp/base.apk]
+Warning: Activity not started, intent has been delivered to currently running top-most instance.
+adb: failed to install ../../data/apks/com.digitalchina.guiyang.apk: Failure [INSTALL_PARSE_FAILED_NOT_APK: Failed to parse /data/app/vmdl1490360051.tmp/base.apk]
+Warning: Activity not started, intent has been delivered to currently running top-most instance.
+adb: failed to install ../../data/apks/com.sinyee.babybus.snacks.apk: Failure [INSTALL_PARSE_FAILED_NOT_APK: Failed to parse /data/app/vmdl563146311.tmp/base.apk]
+Warning: Activity not started, intent has been delivered to currently running top-most instance.
+adb: failed to install ../../data/apks/com.gongyinruixin.apk: Failure [INSTALL_PARSE_FAILED_NOT_APK: Failed to parse /data/app/vmdl1800101143.tmp/base.apk]
+Warning: Activity not started, intent has been delivered to currently running top-most instance.
+adb: failed to install ../../data/apks/com.cib.qdzg.apk: Failure [INSTALL_PARSE_FAILED_NOT_APK: Failed to parse /data/app/vmdl130422364.tmp/base.apk]
+Warning: Activity not started, intent has been delivered to currently running top-most instance.
+adb: failed to install ../../data/apks/com.galaxy.stock.apk: Failure [INSTALL_PARSE_FAILED_NOT_APK: Failed to parse /data/app/vmdl341273583.tmp/base.apk]
+Warning: Activity not started, intent has been delivered to currently running top-most instance.
+adb: failed to install ../../data/apks/com.android.icredit.apk: Failure [INSTALL_PARSE_FAILED_NOT_APK: Failed to parse /data/app/vmdl720246951.tmp/base.apk]
+Warning: Activity not started, intent has been delivered to currently running top-most instance.
+adb: failed to install ../../data/apks/com.sina.weibolite.apk: Failure [INSTALL_PARSE_FAILED_NOT_APK: Failed to parse /data/app/vmdl1949177831.tmp/base.apk]
+Warning: Activity not started, intent has been delivered to currently running top-most instance.
+adb: failed to install ../../data/apks/com.eclite.activity.apk: Failure [INSTALL_PARSE_FAILED_NOT_APK: Failed to parse /data/app/vmdl1156697735.tmp/base.apk]
+Warning: Activity not started, intent has been delivered to currently running top-most instance.
+adb: failed to install ../../data/apks/com.gankaowangxiao.gkwx.apk: Failure [INSTALL_PARSE_FAILED_NOT_APK: Failed to parse /data/app/vmdl635798823.tmp/base.apk]
+Warning: Activity not started, intent has been delivered to currently running top-most instance.
+Warning: Activity not started, intent has been delivered to currently running top-most instance.
+Warning: Activity not started, intent has been delivered to currently running top-most instance.
+adb: failed to install ../../data/apks/com.sistalk.misio.apk: Failure [INSTALL_PARSE_FAILED_NOT_APK: Failed to parse /data/app/vmdl337041372.tmp/base.apk]
+Warning: Activity not started, intent has been delivered to currently running top-most instance.
+adb: failed to install ../../data/apks/com.chengxin.talk.apk: Failure [INSTALL_PARSE_FAILED_NOT_APK: Failed to parse /data/app/vmdl2090821363.tmp/base.apk]
+Warning: Activity not started, intent has been delivered to currently running top-most instance.
+adb: failed to install ../../data/apks/com.haizileyuan.bakecake.apk: Failure [INSTALL_PARSE_FAILED_NOT_APK: Failed to parse /data/app/vmdl450895489.tmp/base.apk]
+Warning: Activity not started, intent has been delivered to currently running top-most instance.
+adb: failed to install ../../data/apks/cn.wangxiao.cpazhuntiku.apk: Failure [INSTALL_PARSE_FAILED_NOT_APK: Failed to parse /data/app/vmdl567840932.tmp/base.apk]
+Warning: Activity not started, intent has been delivered to currently running top-most instance.
+adb: failed to install ../../data/apks/com.seca.live.apk: Failure [INSTALL_PARSE_FAILED_NOT_APK: Failed to parse /data/app/vmdl1641101138.tmp/base.apk]
+Warning: Activity not started, intent has been delivered to currently running top-most instance.
+adb: failed to install ../../data/apks/com.pdmi.guangzhou.media.apk: Failure [INSTALL_PARSE_FAILED_NOT_APK: Failed to parse /data/app/vmdl1868054610.tmp/base.apk]
+Warning: Activity not started, intent has been delivered to currently running top-most instance.
+Warning: Activity not started, intent has been delivered to currently running top-most instance.
+Warning: Activity not started, intent has been delivered to currently running top-most instance.
+adb: failed to install ../../data/apks/com.QuanWai.WanZhu.apk: Failure [INSTALL_PARSE_FAILED_NOT_APK: Failed to parse /data/app/vmdl842946994.tmp/base.apk]
+Warning: Activity not started, intent has been delivered to currently running top-most instance.
+adb: failed to install ../../data/apks/com.jxrs.jxrsapp.apk: Failure [INSTALL_PARSE_FAILED_NOT_APK: Failed to parse /data/app/vmdl368179857.tmp/base.apk]
+Warning: Activity not started, intent has been delivered to currently running top-most instance.
+adb: failed to install ../../data/apks/ch999.app.UI.apk: Failure [INSTALL_PARSE_FAILED_NOT_APK: Failed to parse /data/app/vmdl1865474910.tmp/base.apk]
+Warning: Activity not started, intent has been delivered to currently running top-most instance.
+adb: failed to install ../../data/apks/com.ucar.app.apk: Failure [INSTALL_PARSE_FAILED_NOT_APK: Failed to parse /data/app/vmdl1317485209.tmp/base.apk]
+Warning: Activity not started, intent has been delivered to currently running top-most instance.
+adb: failed to install ../../data/apks/com.maoqilai.paizhaoquzi.apk: Failure [INSTALL_PARSE_FAILED_NOT_APK: Failed to parse /data/app/vmdl425652699.tmp/base.apk]
+Warning: Activity not started, intent has been delivered to currently running top-most instance.
+adb: failed to install ../../data/apks/com.bullcome.phonepush.apk: Failure [INSTALL_PARSE_FAILED_NOT_APK: Failed to parse /data/app/vmdl310231409.tmp/base.apk]
+Warning: Activity not started, intent has been delivered to currently running top-most instance.
+adb: failed to install ../../data/apks/com.yunliao.yunbo.apk: Failure [INSTALL_PARSE_FAILED_NOT_APK: Failed to parse /data/app/vmdl286803471.tmp/base.apk]
+Warning: Activity not started, intent has been delivered to currently running top-most instance.
+adb: failed to install ../../data/apks/com.kidswant.ss.apk: Failure [INSTALL_PARSE_FAILED_NOT_APK: Failed to parse /data/app/vmdl1072665999.tmp/base.apk]
+Warning: Activity not started, intent has been delivered to currently running top-most instance.
+adb: failed to install ../../data/apks/cn.com.whty.hfcard.apk: Failure [INSTALL_PARSE_FAILED_NOT_APK: Failed to parse /data/app/vmdl1468823467.tmp/base.apk]
+Warning: Activity not started, intent has been delivered to currently running top-most instance.
+adb: failed to install ../../data/apks/com.hzhealth.medicalcare.apk: Failure [INSTALL_PARSE_FAILED_NOT_APK: Failed to parse /data/app/vmdl1338539416.tmp/base.apk]
+Warning: Activity not started, intent has been delivered to currently running top-most instance.
+adb: failed to install ../../data/apks/com.miotone.example.apk: Failure [INSTALL_PARSE_FAILED_NOT_APK: Failed to parse /data/app/vmdl793977596.tmp/base.apk]
+Warning: Activity not started, intent has been delivered to currently running top-most instance.
+adb: failed to install ../../data/apks/com.morega.stronguninstall.apk: Failure [INSTALL_PARSE_FAILED_NOT_APK: Failed to parse /data/app/vmdl290795361.tmp/base.apk]
+Warning: Activity not started, intent has been delivered to currently running top-most instance.
+Warning: Activity not started, intent has been delivered to currently running top-most instance.
+adb: failed to install ../../data/apks/com.qiangqu.sjlh.apk: Failure [INSTALL_PARSE_FAILED_NOT_APK: Failed to parse /data/app/vmdl180939592.tmp/base.apk]
+Warning: Activity not started, intent has been delivered to currently running top-most instance.
+adb: failed to install ../../data/apks/cn.wlantv.kznk.apk: Failure [INSTALL_PARSE_FAILED_NOT_APK: Failed to parse /data/app/vmdl150545986.tmp/base.apk]
+Warning: Activity not started, intent has been delivered to currently running top-most instance.
+adb: failed to install ../../data/apks/com.ZWSoft.ZWCAD.apk: Failure [INSTALL_PARSE_FAILED_NOT_APK: Failed to parse /data/app/vmdl1733913093.tmp/base.apk]
+Warning: Activity not started, intent has been delivered to currently running top-most instance.
+adb: failed to install ../../data/apks/net.cnmaps.googlemap.apk: Failure [INSTALL_PARSE_FAILED_NOT_APK: Failed to parse /data/app/vmdl1889840666.tmp/base.apk]
+Warning: Activity not started, intent has been delivered to currently running top-most instance.
+adb: failed to install ../../data/apks/com.china.hunbohui.apk: Failure [INSTALL_PARSE_FAILED_NOT_APK: Failed to parse /data/app/vmdl1553078991.tmp/base.apk]
+Warning: Activity not started, intent has been delivered to currently running top-most instance.
+adb: failed to install ../../data/apks/com.jlzb.android.apk: Failure [INSTALL_PARSE_FAILED_NOT_APK: Failed to parse /data/app/vmdl2035937596.tmp/base.apk]
+Warning: Activity not started, intent has been delivered to currently running top-most instance.
+adb: failed to install ../../data/apks/com.mvtrail.logomaker.apk: Failure [INSTALL_PARSE_FAILED_NOT_APK: Failed to parse /data/app/vmdl1545439068.tmp/base.apk]
+Warning: Activity not started, intent has been delivered to currently running top-most instance.
+Warning: Activity not started, intent has been delivered to currently running top-most instance.
+Warning: Activity not started, intent has been delivered to currently running top-most instance.
+adb: failed to install ../../data/apks/com.tencent.gamestick.apk: Failure [INSTALL_PARSE_FAILED_NOT_APK: Failed to parse /data/app/vmdl382714934.tmp/base.apk]
+adb: failed to install ../../data/apks/com.yiche.autoeasy.apk: Failure [INSTALL_PARSE_FAILED_NOT_APK: Failed to parse /data/app/vmdl1516291887.tmp/base.apk]
+Warning: Activity not started, intent has been delivered to currently running top-most instance.
+adb: failed to install ../../data/apks/cn.xiaolongonly.andpodsop.apk: Failure [INSTALL_PARSE_FAILED_NOT_APK: Failed to parse /data/app/vmdl1674640915.tmp/base.apk]
+Warning: Activity not started, intent has been delivered to currently running top-most instance.
+adb: failed to install ../../data/apks/com.qinsilk.appUniverse.apk: Failure [INSTALL_PARSE_FAILED_NOT_APK: Failed to parse /data/app/vmdl1160891048.tmp/base.apk]
+Warning: Activity not started, intent has been delivered to currently running top-most instance.
+adb: failed to install ../../data/apks/com.woyaobid.lslx.apk: Failure [INSTALL_PARSE_FAILED_NOT_APK: Failed to parse /data/app/vmdl1549097998.tmp/base.apk]
+Warning: Activity not started, intent has been delivered to currently running top-most instance.
+adb: failed to install ../../data/apks/com.oray.sunlogin.apk: Failure [INSTALL_PARSE_FAILED_NOT_APK: Failed to parse /data/app/vmdl624325288.tmp/base.apk]
+Warning: Activity not started, intent has been delivered to currently running top-most instance.
+adb: failed to install ../../data/apks/com.ytxf.bobo.fqsq.apk: Failure [INSTALL_PARSE_FAILED_NOT_APK: Failed to parse /data/app/vmdl738360812.tmp/base.apk]
+Warning: Activity not started, intent has been delivered to currently running top-most instance.
+adb: failed to install ../../data/apks/com.xunrui.duokai_box.apk: Failure [INSTALL_PARSE_FAILED_NOT_APK: Failed to parse /data/app/vmdl463819419.tmp/base.apk]
+Warning: Activity not started, intent has been delivered to currently running top-most instance.
+adb: failed to install ../../data/apks/net.xinhuamm.mainclient.apk: Failure [INSTALL_PARSE_FAILED_NOT_APK: Failed to parse /data/app/vmdl1945233901.tmp/base.apk]
+Warning: Activity not started, intent has been delivered to currently running top-most instance.
+adb: failed to install ../../data/apks/com.feiyi.p2.apk: Failure [INSTALL_PARSE_FAILED_NOT_APK: Failed to parse /data/app/vmdl935809309.tmp/base.apk]
+Warning: Activity not started, intent has been delivered to currently running top-most instance.
+adb: failed to install ../../data/apks/com.joyintech.wise.seller.apk: Failure [INSTALL_PARSE_FAILED_NOT_APK: Failed to parse /data/app/vmdl889339863.tmp/base.apk]
+Warning: Activity not started, intent has been delivered to currently running top-most instance.
+Warning: Activity not started, intent has been delivered to currently running top-most instance.
+adb: failed to install ../../data/apks/com.kookong.app.apk: Failure [INSTALL_PARSE_FAILED_NOT_APK: Failed to parse /data/app/vmdl672584761.tmp/base.apk]
+Warning: Activity not started, intent has been delivered to currently running top-most instance.
+adb: failed to install ../../data/apks/com.saicmobility.user.apk: Failure [INSTALL_PARSE_FAILED_NOT_APK: Failed to parse /data/app/vmdl1190647918.tmp/base.apk]
+Warning: Activity not started, intent has been delivered to currently running top-most instance.
+adb: failed to install ../../data/apks/com.account.book.quanzi.apk: Failure [INSTALL_PARSE_FAILED_NOT_APK: Failed to parse /data/app/vmdl644058868.tmp/base.apk]
+Warning: Activity not started, intent has been delivered to currently running top-most instance.
+adb: failed to install ../../data/apks/com.afa.recovery.apk: Failure [INSTALL_PARSE_FAILED_NOT_APK: Failed to parse /data/app/vmdl2039635055.tmp/base.apk]
+Warning: Activity not started, intent has been delivered to currently running top-most instance.
+adb: failed to install ../../data/apks/com.wisforce.product.wisae.apk: Failure [INSTALL_PARSE_FAILED_NOT_APK: Failed to parse /data/app/vmdl573023416.tmp/base.apk]
+Warning: Activity not started, intent has been delivered to currently running top-most instance.
+adb: failed to install ../../data/apks/appcan.jerei.zgzq.client.apk: Failure [INSTALL_PARSE_FAILED_NOT_APK: Failed to parse /data/app/vmdl1900720724.tmp/base.apk]
+Warning: Activity not started, intent has been delivered to currently running top-most instance.
+adb: failed to install ../../data/apks/cn.com.nbcard.apk: Failure [INSTALL_PARSE_FAILED_NOT_APK: Failed to parse /data/app/vmdl712329843.tmp/base.apk]
+Warning: Activity not started, intent has been delivered to currently running top-most instance.
+adb: failed to install ../../data/apks/com.geek.jk.weather.apk: Failure [INSTALL_PARSE_FAILED_NOT_APK: Failed to parse /data/app/vmdl1089939527.tmp/base.apk]
+Warning: Activity not started, intent has been delivered to currently running top-most instance.
+adb: failed to install ../../data/apks/com.dunkhome.dunkshoe.apk: Failure [INSTALL_PARSE_FAILED_NOT_APK: Failed to parse /data/app/vmdl1430007858.tmp/base.apk]
+Warning: Activity not started, intent has been delivered to currently running top-most instance.
+adb: failed to install ../../data/apks/cn.com.yunma.school.app.apk: Failure [INSTALL_PARSE_FAILED_NOT_APK: Failed to parse /data/app/vmdl1233192780.tmp/base.apk]
+Warning: Activity not started, intent has been delivered to currently running top-most instance.
+Warning: Activity not started, intent has been delivered to currently running top-most instance.
+Warning: Activity not started, intent has been delivered to currently running top-most instance.
+adb: failed to install ../../data/apks/zhidanhyb.huozhu.apk: Failure [INSTALL_PARSE_FAILED_NOT_APK: Failed to parse /data/app/vmdl1741521766.tmp/base.apk]
+Warning: Activity not started, intent has been delivered to currently running top-most instance.
+adb: failed to install ../../data/apks/com.thestore.main.apk: Failure [INSTALL_PARSE_FAILED_NOT_APK: Failed to parse /data/app/vmdl19885415.tmp/base.apk]
+Warning: Activity not started, intent has been delivered to currently running top-most instance.
+adb: failed to install ../../data/apks/com.qima.mars.apk: Failure [INSTALL_PARSE_FAILED_NOT_APK: Failed to parse /data/app/vmdl648075703.tmp/base.apk]
+Warning: Activity not started, intent has been delivered to currently running top-most instance.
+adb: failed to install ../../data/apks/com.imxiaoyu.masterofformat.apk: Failure [INSTALL_PARSE_FAILED_NOT_APK: Failed to parse /data/app/vmdl2129932770.tmp/base.apk]
+Warning: Activity not started, intent has been delivered to currently running top-most instance.
+adb: failed to install ../../data/apks/com.melon.clean.apk: Failure [INSTALL_PARSE_FAILED_NOT_APK: Failed to parse /data/app/vmdl1006333640.tmp/base.apk]
+Warning: Activity not started, intent has been delivered to currently running top-most instance.
+adb: failed to install ../../data/apks/com.shwatch.news.apk: Failure [INSTALL_PARSE_FAILED_NOT_APK: Failed to parse /data/app/vmdl1931865741.tmp/base.apk]
+Warning: Activity not started, intent has been delivered to currently running top-most instance.
+adb: failed to install ../../data/apks/com.touchtv.touchtv.apk: Failure [INSTALL_PARSE_FAILED_NOT_APK: Failed to parse /data/app/vmdl574835017.tmp/base.apk]
+Warning: Activity not started, intent has been delivered to currently running top-most instance.
+adb: failed to install ../../data/apks/com.cheyipai.ui.apk: Failure [INSTALL_PARSE_FAILED_NOT_APK: Failed to parse /data/app/vmdl1654814515.tmp/base.apk]
+Warning: Activity not started, intent has been delivered to currently running top-most instance.
+adb: failed to install ../../data/apks/com.sparke.fsclean.apk: Failure [INSTALL_PARSE_FAILED_NOT_APK: Failed to parse /data/app/vmdl1615364510.tmp/base.apk]
+Warning: Activity not started, intent has been delivered to currently running top-most instance.
+Warning: Activity not started, intent has been delivered to currently running top-most instance.
+adb: failed to install ../../data/apks/com.zzw.october.apk: Failure [INSTALL_PARSE_FAILED_NOT_APK: Failed to parse /data/app/vmdl2048697161.tmp/base.apk]
+Warning: Activity not started, intent has been delivered to currently running top-most instance.
+adb: failed to install ../../data/apks/com.shensu.jmb.apk: Failure [INSTALL_PARSE_FAILED_NOT_APK: Failed to parse /data/app/vmdl703149588.tmp/base.apk]
+Warning: Activity not started, intent has been delivered to currently running top-most instance.
+adb: failed to install ../../data/apks/com.moyun365.android.zkyuwentong.apk: Failure [INSTALL_PARSE_FAILED_NOT_APK: Failed to parse /data/app/vmdl2102141393.tmp/base.apk]
+Warning: Activity not started, intent has been delivered to currently running top-most instance.
+adb: failed to install ../../data/apks/czh.mindnode.apk: Failure [INSTALL_PARSE_FAILED_NOT_APK: Failed to parse /data/app/vmdl249893260.tmp/base.apk]
+Warning: Activity not started, intent has been delivered to currently running top-most instance.
+adb: failed to install ../../data/apks/com.mmmono.mono.apk: Failure [INSTALL_PARSE_FAILED_NOT_APK: Failed to parse /data/app/vmdl944931554.tmp/base.apk]
+Warning: Activity not started, intent has been delivered to currently running top-most instance.
+adb: failed to install ../../data/apks/com.joyintech.wise.seller.free.apk: Failure [INSTALL_PARSE_FAILED_NOT_APK: Failed to parse /data/app/vmdl2094210588.tmp/base.apk]
+Warning: Activity not started, intent has been delivered to currently running top-most instance.
+adb: failed to install ../../data/apks/com.imoblife.now.apk: Failure [INSTALL_PARSE_FAILED_NOT_APK: Failed to parse /data/app/vmdl592685915.tmp/base.apk]
+Warning: Activity not started, intent has been delivered to currently running top-most instance.
+adb: failed to install ../../data/apks/com.csliyu.junior.apk: Failure [INSTALL_PARSE_FAILED_NOT_APK: Failed to parse /data/app/vmdl1131519471.tmp/base.apk]
+Warning: Activity not started, intent has been delivered to currently running top-most instance.
+adb: failed to install ../../data/apks/com.jiywmaster.apk: Failure [INSTALL_PARSE_FAILED_NOT_APK: Failed to parse /data/app/vmdl1855392963.tmp/base.apk]
+Warning: Activity not started, intent has been delivered to currently running top-most instance.
+adb: failed to install ../../data/apks/com.tencent.igame.apk: Failure [INSTALL_PARSE_FAILED_NOT_APK: Failed to parse /data/app/vmdl2060707422.tmp/base.apk]
+Warning: Activity not started, intent has been delivered to currently running top-most instance.
+Warning: Activity not started, intent has been delivered to currently running top-most instance.
+adb: failed to install ../../data/apks/com.duoduo.games.dragon.apk: Failure [INSTALL_PARSE_FAILED_NOT_APK: Failed to parse /data/app/vmdl918769574.tmp/base.apk]
+Warning: Activity not started, intent has been delivered to currently running top-most instance.
+adb: failed to install ../../data/apks/com.zc.hubei_news.apk: Failure [INSTALL_PARSE_FAILED_NOT_APK: Failed to parse /data/app/vmdl1174989188.tmp/base.apk]
+Warning: Activity not started, intent has been delivered to currently running top-most instance.
+Warning: Activity not started, intent has been delivered to currently running top-most instance.
+adb: failed to install ../../data/apks/com.foundao.xinhua_android.apk: Failure [INSTALL_PARSE_FAILED_NOT_APK: Failed to parse /data/app/vmdl427684464.tmp/base.apk]
+Warning: Activity not started, intent has been delivered to currently running top-most instance.
+adb: failed to install ../../data/apks/com.chinamworld.klb.apk: Failure [INSTALL_PARSE_FAILED_NOT_APK: Failed to parse /data/app/vmdl296684405.tmp/base.apk]
+Warning: Activity not started, intent has been delivered to currently running top-most instance.
+adb: failed to install ../../data/apks/com.sinyee.babybus.karting.apk: Failure [INSTALL_PARSE_FAILED_NOT_APK: Failed to parse /data/app/vmdl694088215.tmp/base.apk]
+Warning: Activity not started, intent has been delivered to currently running top-most instance.
+adb: failed to install ../../data/apks/com.yasoon.smartscool.k12_student.apk: Failure [INSTALL_PARSE_FAILED_NOT_APK: Failed to parse /data/app/vmdl2081347347.tmp/base.apk]
+Warning: Activity not started, intent has been delivered to currently running top-most instance.
+adb: failed to install ../../data/apks/com.document.cam.scanner.apk: Failure [INSTALL_PARSE_FAILED_NOT_APK: Failed to parse /data/app/vmdl943469702.tmp/base.apk]
+Warning: Activity not started, intent has been delivered to currently running top-most instance.
+adb: failed to install ../../data/apks/com.android.weici.senior.student.apk: Failure [INSTALL_PARSE_FAILED_NOT_APK: Failed to parse /data/app/vmdl2011838069.tmp/base.apk]
+Warning: Activity not started, intent has been delivered to currently running top-most instance.
+adb: failed to install ../../data/apks/com.fujian.daily.apk: Failure [INSTALL_PARSE_FAILED_NO_CERTIFICATES: Failed to collect certificates from /data/app/vmdl347548466.tmp/base.apk using APK Signature Scheme v2: APK verity digest of contents did not verify]
+Warning: Activity not started, intent has been delivered to currently running top-most instance.
+adb: failed to install ../../data/apks/com.seblong.idream.apk: Failure [INSTALL_PARSE_FAILED_NOT_APK: Failed to parse /data/app/vmdl1500005890.tmp/base.apk]
+Warning: Activity not started, intent has been delivered to currently running top-most instance.
+adb: failed to install ../../data/apks/com.jinying.mobile.apk: Failure [INSTALL_PARSE_FAILED_NOT_APK: Failed to parse /data/app/vmdl923597327.tmp/base.apk]
+Warning: Activity not started, intent has been delivered to currently running top-most instance.
+adb: failed to install ../../data/apks/com.nxnresearch.apk: Failure [INSTALL_PARSE_FAILED_NOT_APK: Failed to parse /data/app/vmdl576710416.tmp/base.apk]
+Warning: Activity not started, intent has been delivered to currently running top-most instance.
+adb: failed to install ../../data/apks/com.lisaview.wewer.apk: Failure [INSTALL_PARSE_FAILED_NOT_APK: Failed to parse /data/app/vmdl1605555096.tmp/base.apk]
+Warning: Activity not started, intent has been delivered to currently running top-most instance.
+adb: failed to install ../../data/apks/com.sinyee.babybus.paintingIII.apk: Failure [INSTALL_PARSE_FAILED_NOT_APK: Failed to parse /data/app/vmdl1629734879.tmp/base.apk]
+Warning: Activity not started, intent has been delivered to currently running top-most instance.
+Warning: Activity not started, intent has been delivered to currently running top-most instance.
+adb: failed to install ../../data/apks/com.xubei.shop.apk: Failure [INSTALL_PARSE_FAILED_NOT_APK: Failed to parse /data/app/vmdl1297843512.tmp/base.apk]
+Warning: Activity not started, intent has been delivered to currently running top-most instance.
+adb: failed to install ../../data/apks/com.bentai.photorestore.apk: Failure [INSTALL_PARSE_FAILED_NOT_APK: Failed to parse /data/app/vmdl694376092.tmp/base.apk]
+adb: failed to install ../../data/apks/com.qqyx.dkh.jy.apk: Failure [INSTALL_PARSE_FAILED_NOT_APK: Failed to parse /data/app/vmdl721551834.tmp/base.apk]
+Warning: Activity not started, intent has been delivered to currently running top-most instance.
+Warning: Activity not started, intent has been delivered to currently running top-most instance.
+Warning: Activity not started, intent has been delivered to currently running top-most instance.
+adb: failed to install ../../data/apks/com.ljw.kanpianzhushou.apk: Failure [INSTALL_PARSE_FAILED_NOT_APK: Failed to parse /data/app/vmdl1331914797.tmp/base.apk]
+Warning: Activity not started, intent has been delivered to currently running top-most instance.
+adb: failed to install ../../data/apks/com.babybar.headking.apk: Failure [INSTALL_PARSE_FAILED_NOT_APK: Failed to parse /data/app/vmdl2065293598.tmp/base.apk]
+Warning: Activity not started, intent has been delivered to currently running top-most instance.
+adb: failed to install ../../data/apks/com.yuewen.authorapp.apk: Failure [INSTALL_PARSE_FAILED_NOT_APK: Failed to parse /data/app/vmdl493180733.tmp/base.apk]
+Warning: Activity not started, intent has been delivered to currently running top-most instance.
+adb: failed to install ../../data/apks/com.nfdaily.nfplus.apk: Failure [INSTALL_PARSE_FAILED_NOT_APK: Failed to parse /data/app/vmdl782251866.tmp/base.apk]
+Warning: Activity not started, intent has been delivered to currently running top-most instance.
+adb: failed to install ../../data/apks/com.biku.diary.apk: Failure [INSTALL_PARSE_FAILED_NOT_APK: Failed to parse /data/app/vmdl562091177.tmp/base.apk]
+Warning: Activity not started, intent has been delivered to currently running top-most instance.
+adb: failed to install ../../data/apks/com.yyw.cloudoffice.apk: Failure [INSTALL_PARSE_FAILED_NOT_APK: Failed to parse /data/app/vmdl333518927.tmp/base.apk]
+Warning: Activity not started, intent has been delivered to currently running top-most instance.
+adb: failed to install ../../data/apks/com.jingdian.tianxiameishi.android.apk: Failure [INSTALL_PARSE_FAILED_NOT_APK: Failed to parse /data/app/vmdl1548613961.tmp/base.apk]
+Warning: Activity not started, intent has been delivered to currently running top-most instance.
+adb: failed to install ../../data/apks/ditu.gaode.duienba.apk: Failure [INSTALL_PARSE_FAILED_NOT_APK: Failed to parse /data/app/vmdl214095250.tmp/base.apk]
+Warning: Activity not started, intent has been delivered to currently running top-most instance.
+adb: failed to install ../../data/apks/com.smart_invest.marathonappforandroid.apk: Failure [INSTALL_PARSE_FAILED_NOT_APK: Failed to parse /data/app/vmdl903445550.tmp/base.apk]
+Warning: Activity not started, intent has been delivered to currently running top-most instance.
+adb: failed to install ../../data/apks/com.fanliddzs.apk: Failure [INSTALL_PARSE_FAILED_NOT_APK: Failed to parse /data/app/vmdl501311476.tmp/base.apk]
+Warning: Activity not started, intent has been delivered to currently running top-most instance.
+adb: failed to install ../../data/apks/com.autohome.mycar.apk: Failure [INSTALL_PARSE_FAILED_NOT_APK: Failed to parse /data/app/vmdl1765753141.tmp/base.apk]
+Warning: Activity not started, intent has been delivered to currently running top-most instance.
+adb: failed to install ../../data/apks/com.cashtoutiao.apk: Failure [INSTALL_PARSE_FAILED_NOT_APK: Failed to parse /data/app/vmdl1772732540.tmp/base.apk]
+Warning: Activity not started, intent has been delivered to currently running top-most instance.
+adb: failed to install ../../data/apks/com.gaokaozhiyuan.apk: Failure [INSTALL_PARSE_FAILED_NOT_APK: Failed to parse /data/app/vmdl1722126101.tmp/base.apk]
+Warning: Activity not started, intent has been delivered to currently running top-most instance.
+adb: failed to install ../../data/apks/org.vv.song300.apk: Failure [INSTALL_PARSE_FAILED_NOT_APK: Failed to parse /data/app/vmdl1067300891.tmp/base.apk]
+Warning: Activity not started, intent has been delivered to currently running top-most instance.
+adb: failed to install ../../data/apks/com.caijing.apk: Failure [INSTALL_PARSE_FAILED_NOT_APK: Failed to parse /data/app/vmdl599810631.tmp/base.apk]
+Warning: Activity not started, intent has been delivered to currently running top-most instance.
+adb: failed to install ../../data/apks/net.iusky.yijiayou.apk: Failure [INSTALL_PARSE_FAILED_NOT_APK: Failed to parse /data/app/vmdl1389915684.tmp/base.apk]
+Warning: Activity not started, intent has been delivered to currently running top-most instance.
+adb: failed to install ../../data/apks/taluo.jumeng.com.tarot.apk: Failure [INSTALL_PARSE_FAILED_NOT_APK: Failed to parse /data/app/vmdl1373559055.tmp/base.apk]
+Warning: Activity not started, intent has been delivered to currently running top-most instance.
+adb: failed to install ../../data/apks/com.acc5.chuji.apk: Failure [INSTALL_PARSE_FAILED_NOT_APK: Failed to parse /data/app/vmdl1701685920.tmp/base.apk]
+Warning: Activity not started, intent has been delivered to currently running top-most instance.
+Warning: Activity not started, intent has been delivered to currently running top-most instance.
+Warning: Activity not started, intent has been delivered to currently running top-most instance.
+adb: failed to install ../../data/apks/cn.gov.tax.its.apk: Failure [INSTALL_PARSE_FAILED_NOT_APK: Failed to parse /data/app/vmdl524091929.tmp/base.apk]
+Warning: Activity not started, intent has been delivered to currently running top-most instance.
+adb: failed to install ../../data/apks/com.mistong.ewt360.apk: Failure [INSTALL_PARSE_FAILED_NOT_APK: Failed to parse /data/app/vmdl814610512.tmp/base.apk]
+Warning: Activity not started, intent has been delivered to currently running top-most instance.
