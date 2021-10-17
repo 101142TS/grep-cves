@@ -126,7 +126,10 @@ def ReturnMethods(dex_unit, manifest, ope, name, root_path):
         return GetMethods(dex_unit, name, 1)
     
     if ope == 5:
-        dexClass = dex_unit.getClass(name);                              assert isinstance(dexClass,IDexClass)
+        dexClass = dex_unit.getClass(name);                              
+        if not isinstance(dexClass,IDexClass):
+            return []
+            
         ret = []
 
         cnt = 0
@@ -262,6 +265,7 @@ class jeb(IScript):
         prj = ctx.getMainProject();                                     assert isinstance(prj,IRuntimeProject)
         dex_unit = prj.findUnit(IDexUnit);                               assert isinstance(dex_unit,IDexUnit)
 
+        # print(dex_unit.getMethods())
         input_path = ctx.getArguments()[0]
         with open(input_path, "r") as input:
             lines = input.readlines()

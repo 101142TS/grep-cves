@@ -19,17 +19,20 @@ def decompose_single_apk(in_app, out_dir, package_name):
     cmd = ['adb', 'install', in_app]
     print(cmd)
     run_cmd_with_output(cmd)
-
+    time.sleep(10)
+    
     cmd = ['adb', 'shell', 'am', 'start', '-n', 'top.niunaijun.blackdexa32/top.niunaijun.blackdex.view.main.MainActivity', '--es', 'unpack', package_name]
     print(cmd)
     run_cmd_with_output(cmd)
 
-    time.sleep(120)
+    time.sleep(60)
 
     cmd = ['adb', 'pull', '/storage/emulated/0/Android/data/top.niunaijun.blackdexa32/dump/' + package_name, out_dir]
     print(cmd)
     run_cmd_with_output(cmd)
     
+    time.sleep(60)
+
     cmd = ['adb', 'uninstall', package_name]
     print(cmd)
     run_cmd_with_output(cmd)
