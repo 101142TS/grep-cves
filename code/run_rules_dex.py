@@ -70,7 +70,9 @@ def generate_single_rule(r, dex):
 
     return "../../data/apks/" + dex[15 : dex.rfind('/')] + ".apk", config_file
 def run_rules(rules, dirs):
-    for d in dirs:
+    for i in range(0, len(dirs)):
+        print("number %d of %d " % (i, len(dirs)))
+        d = dirs[i]
         configs = []
         apk_path = ""
         for r in rules:
