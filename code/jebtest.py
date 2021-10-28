@@ -15,7 +15,7 @@ import Queue
 import subprocess
 import os
 import ast
-
+import re
 
 def run_cmd(cmd):
     res = subprocess.call(cmd)
@@ -44,7 +44,6 @@ def GetMethodXref(dex_unit, method):
     actionContext = ActionContext(dex_unit, Actions.QUERY_XREFS, method.getItemId(), None)
     if dex_unit.prepareExecution(actionContext,actionXrefsData):
         for xref_addr in actionXrefsData.getAddresses():
-            print(xref_addr)
             method = dex_unit.getMethod(xref_addr[:xref_addr.index("+")])
 
             if method.getIndex() not in methods_set:
@@ -74,8 +73,6 @@ def GetMethodsXref(dex_unit, methods):
 def GetMethods(dex_unit, name, ope):
 
     return_methods = []
-
-    print(name)
     if ope == 0:
         methods = dex_unit.getMethods()
 
@@ -88,12 +85,18 @@ def GetMethods(dex_unit, name, ope):
             return_methods.append(method)
     elif ope == 2:
         for class_name in name:
-            print(class_name)
             klass = dex_unit.getClass("L" + class_name.replace(".", "/") + ";")
-            return_methods = return_methods + klass.getMethods()
+            if isinstance(klass, IDexClass):
+                return_methods = return_methods + klass.getMethods()
 
     return return_methods
 
+def RegexMatchingMethods(pattern, methods):
+    ret = []
+    for method in methods:
+        if re.search(pattern, method.getName()):
+            ret.append(method)
+    return ret
 def ReturnMethods(dex_unit, manifest, ope, name, root_path):
     if ope < 3:
 
@@ -117,8 +120,9 @@ def ReturnMethods(dex_unit, manifest, ope, name, root_path):
                 line2 = f.readline().rstrip()
                 class_list = ast.literal_eval(line1) + ast.literal_eval(line2)
 
-        return GetMethods(dex_unit, class_list, 2)
+        mm = GetMethods(dex_unit, class_list, 2)
 
+        return RegexMatchingMethods(name, mm)
     if ope == 3:
         return GetMethods(dex_unit, name, 0)
     
@@ -126,7 +130,10 @@ def ReturnMethods(dex_unit, manifest, ope, name, root_path):
         return GetMethods(dex_unit, name, 1)
     
     if ope == 5:
-        dexClass = dex_unit.getClass(name);                              assert isinstance(dexClass,IDexClass)
+        dexClass = dex_unit.getClass(name);                              
+        if not isinstance(dexClass,IDexClass):
+            return []
+            
         ret = []
 
         cnt = 0
@@ -153,9 +160,15 @@ def ReturnMethods(dex_unit, manifest, ope, name, root_path):
             
             ret = ret + ReturnMethods(dex_unit, manifest, 5, class_name, root_path)
         return ret
+    
+    if ope == 7:
+        return RegexMatchingMethods(name, dex_unit.getMethods())
+
 
 # 对每一个sink, BFS寻找其是否可到sources
 def FindPath(dex_unit, sources, sinks):
+    #sinks可能等于sources
+
     target = set()
     for source in sources:
         target.add(source.getIndex())
@@ -199,13 +212,7 @@ def DFS(dex_unit, now_method, len, links, vis, maxlen, output):
         return
 
     vis[now_method.getIndex()] = "True"
-
-    
     pre_methods = GetMethodXref(dex_unit, now_method)
-
-    print("************NOW METHOD************", now_method)
-    for pre in pre_methods:
-        print(pre)
     for pre in pre_methods:
         if pre.getIndex() in vis and vis[pre.getIndex()] == "True":
             continue
@@ -247,13 +254,13 @@ def SemgrepMethods(dex_unit, methods, root_path, yml_file):
         if os.path.exists(java_file):
             # 直接用semgrep 在文件中进行匹配，有可能出现匹配的结果不在所要的方法内
 
-            cmd = ['semgrep', '-f', yml_file, java_file, '--error']
+            cmd = ['semgrep', '-f', yml_file, java_file, '--error', '-q']
 
-            print(cmd)
+            # print(cmd)
 
             output = run_cmd(cmd)
             
-            print(output)
+            # print(output)
             
             if output == 1:
                 res.append(method)
@@ -261,15 +268,21 @@ def SemgrepMethods(dex_unit, methods, root_path, yml_file):
 class jebtest(IScript):
     # method ope name
     def run(self, ctx):
-        # unit = ctx.open("/mnt/RAID/users_data/caijiajin/semgrep/data/apks/87701v15.1.6821.4825.apk");                                    assert isinstance(unit,IUnit)
+        unit = ctx.open("/mnt/RAID/users_data/caijiajin/semgrep/data/apks/me.ele.apk");                                    assert isinstance(unit,IUnit)
 
-        unit = ctx.open("/mnt/RAID/users_data/caijiajin/Desktop/tmp2/com.tencent.news/hook_1521340.dex");                                    assert isinstance(unit,IUnit)
+        # unit = ctx.open("/mnt/RAID/users_data/caijiajin/Desktop/tmp2/com.tencent.news/hook_1521340.dex");                                    assert isinstance(unit,IUnit)
         prj = ctx.getMainProject();                                     assert isinstance(prj,IRuntimeProject)
 
         dex_unit = prj.findUnit(IDexUnit);                               assert isinstance(dex_unit,IDexUnit)
 
-        print(dex_unit.getMethods())
-        # method = dex_unit.getMethod("Landroid/webkit/WebView;->getUrl()Ljava/lang/String;")
+        mm = ReturnMethods(dex_unit, "/mnt/RAID/users_data/caijiajin/semgrep/source/me.ele/files/AndroidManifest.xml", 2, "^on.*$", "/mnt/RAID/users_data/caijiajin/semgrep/source/me.ele/files/AndroidManifest.xml")
+
+        for m in mm:
+            print(m)
+        # method = dex_unit.getMethods()
+
+        # for i in method:
+        #     print(i)
         # print(method)
 
         # methods = ReturnMethods(dex_unit, "", 6, "@JavascriptInterface", "/mnt/RAID/users_data/caijiajin/semgrep/source-tencent/com.tencent.news_6560")

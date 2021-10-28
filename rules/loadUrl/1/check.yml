@@ -1,0 +1,10 @@
+rules:
+- id: loadUrl检测
+  patterns:
+    - pattern: $X.loadUrl($Y)
+    - pattern-not: $X.loadUrl("...")
+  languages: 
+    - java
+  message: |
+    排除固定的loadUrl
+  severity: WARNING

@@ -15,7 +15,7 @@ import Queue
 import subprocess
 import os
 import ast
-
+import re
 
 def run_cmd(cmd):
     res = subprocess.call(cmd)
@@ -73,8 +73,6 @@ def GetMethodsXref(dex_unit, methods):
 def GetMethods(dex_unit, name, ope):
 
     return_methods = []
-
-    print(name)
     if ope == 0:
         methods = dex_unit.getMethods()
 
@@ -87,13 +85,17 @@ def GetMethods(dex_unit, name, ope):
             return_methods.append(method)
     elif ope == 2:
         for class_name in name:
-            print(class_name)
             klass = dex_unit.getClass("L" + class_name.replace(".", "/") + ";")
             if isinstance(klass, IDexClass):
                 return_methods = return_methods + klass.getMethods()
 
     return return_methods
-
+def RegexMatchingMethods(pattern, methods):
+    ret = []
+    for method in methods:
+        if re.search(pattern, method.getName()):
+            ret.append(method)
+    return ret
 def ReturnMethods(dex_unit, manifest, ope, name, root_path):
     if ope < 3:
 
@@ -117,8 +119,9 @@ def ReturnMethods(dex_unit, manifest, ope, name, root_path):
                 line2 = f.readline().rstrip()
                 class_list = ast.literal_eval(line1) + ast.literal_eval(line2)
 
-        return GetMethods(dex_unit, class_list, 2)
+        mm = GetMethods(dex_unit, class_list, 2)
 
+        return RegexMatchingMethods(name, mm)
     if ope == 3:
         return GetMethods(dex_unit, name, 0)
     
@@ -156,9 +159,14 @@ def ReturnMethods(dex_unit, manifest, ope, name, root_path):
             
             ret = ret + ReturnMethods(dex_unit, manifest, 5, class_name, root_path)
         return ret
+    
+    if ope == 7:
+        return RegexMatchingMethods(name, dex_unit.getMethods())
 
 # 对每一个sink, BFS寻找其是否可到sources
 def FindPath(dex_unit, sources, sinks):
+    #sinks可能等于sources
+
     target = set()
     for source in sources:
         target.add(source.getIndex())
@@ -302,13 +310,30 @@ class jeb(IScript):
         MyPrint(str(links_len), result_file)
 
         sources = ReturnMethods(dex_unit, manifest_path, int(st[1]), st[0], root_path)
-        sinks = ReturnMethods(dex_unit, manifest_path, int(ed[1]), ed[0], root_path)
+
+        sinks = GetMethodsXref(dex_unit, ReturnMethods(dex_unit, manifest_path, int(ed[1]), ed[0], root_path))
         
         # 先把sources和sinks使用semgrep匹配一下，再求出路径
+        
         real_sources = SemgrepMethods(dex_unit, sources, root_path, st[2])
-        real_sinks = SemgrepMethods(dex_unit, sinks, root_path, ed[2])
 
-        GetPath(dex_unit, real_sources, real_sinks, links_len, result_file)
+        # grep的不是sinks函数，而是调用了sinks函数的函数体
+        real_sinks = SemgrepMethods(dex_unit, sinks, root_path, ed[2])
+        
+        if links_len == 0:
+            S = set()
+            for i in real_sources:
+                s = i.address.encode('utf-8')
+                S.add(s[:s.index(';')])
+            
+            if len(S) > 0:
+                MyPrint("************START************", result_file)
+                for i in S:
+                    MyPrint(i, result_file)
+
+                MyPrint("*************END*************", result_file)
+        else:
+            GetPath(dex_unit, real_sources, real_sinks, links_len, result_file)
 
         input.close()
         if not result_file == "":

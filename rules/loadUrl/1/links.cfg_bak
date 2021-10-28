@@ -1,3 +1,0 @@
-@JavascriptInterface 6 default
-Landroid/webkit/WebView;->getUrl()Ljava/lang/String; 4 default
-4

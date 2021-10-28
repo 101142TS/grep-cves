@@ -1,0 +1,21 @@
+rules:
+- id: new File检测
+  patterns:
+    - pattern: new File($X, $Y)
+    - metavariable-pattern:
+        metavariable: $Y
+        patterns:
+            - pattern-not-regex: ^[^\.]+\.[^\.]+$
+    - pattern-not: new File($X, "...")
+  languages: 
+    - java
+  message: |
+    重点关注$Y，$Y不能是常量字符串
+    常量字符串可用"..."匹配出来
+    常量字符串也有可能是 applicationInfo.sourceDir 这种东西，这些一般都是常量
+    所以把只含一个.的字符串去掉
+    这样不会影响以下情况
+    new File($X, a + File.separator + str);
+
+    TODO: 将全局变量提前完成替换，再合并
+  severity: WARNING

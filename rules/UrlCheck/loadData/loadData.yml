@@ -1,0 +1,10 @@
+rules:
+- id: loadData
+  patterns:
+    - pattern: $X.loadData(...)
+    - pattern-not: $X.loadData("...", ...)
+  languages: 
+    - java
+  message: |
+    只要不是固定加载就好
+  severity: WARNING

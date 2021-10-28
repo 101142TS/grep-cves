@@ -1,0 +1,10 @@
+rules:
+- id: new File检测
+  patterns:
+    - pattern: new File($X)
+    - pattern-not: new File("...")
+  languages: 
+    - java
+  message: |
+    排除固定名字的newFile
+  severity: WARNING

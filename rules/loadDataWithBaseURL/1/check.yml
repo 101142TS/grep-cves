@@ -1,0 +1,11 @@
+rules:
+- id: loadDataWithBaseURL检测
+  patterns:
+    - pattern: $A.loadDataWithBaseURL($X, $Y, ...)
+    - pattern-not: $A.loadDataWithBaseURL("...", ...)
+    - pattern-not: $A.loadDataWithBaseURL($X, "...", ...)
+  languages: 
+    - java
+  message: |
+    排除固定的loadDataWithBaseURL
+  severity: WARNING

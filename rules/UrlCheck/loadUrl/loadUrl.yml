@@ -1,0 +1,10 @@
+rules:
+- id: loadUrl
+  patterns:
+    - pattern: $X.loadUrl(...)
+    - pattern-not: $X.loadUrl("...")
+  languages: 
+    - java
+  message: |
+    只要不是固定加载就好
+  severity: WARNING

@@ -1,0 +1,10 @@
+rules:
+- id: evaluateJavascript
+  patterns:
+    - pattern: $X.evaluateJavascript(...)
+    - pattern-not: $X.evaluateJavascript("...", ...)
+  languages: 
+    - java
+  message: |
+    只要不是固定加载就好
+  severity: WARNING

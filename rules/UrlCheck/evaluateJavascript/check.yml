@@ -1,0 +1,41 @@
+rules:
+- id: evaluateJavascript检测
+  patterns:
+    - pattern-inside: |
+        $RETURNTYPE $FUNC  (...) {
+          ...
+          $Y.evaluateJavascript(...);
+          ...
+        }
+    - pattern-either:
+      - patterns:
+        - pattern: $X.equals($S)
+        - metavariable-regex:
+            metavariable: $S
+            regex: \"\D*\"
+      - patterns:
+        - pattern: $X.endsWith($S)
+        - metavariable-regex:
+            metavariable: $S
+            regex: \"\D*\"
+      - patterns:
+        - pattern: $X.startsWith($S)
+        - metavariable-regex:
+            metavariable: $S
+            regex: \"\D*\"
+      - patterns:
+        - pattern: $X.contains($S)
+        - metavariable-regex:
+            metavariable: $S
+            regex: \"\D*\"
+      - patterns:
+        - pattern: $X.indexOf($S)
+        - metavariable-regex:
+            metavariable: $S
+            regex: \"\D*\"
+  languages: 
+    - java
+  message: |
+    加载的前置判断
+    因为java源文件太多了，不可能全都过一遍，所以比较好的办法是配合grep先筛一部分出来，grep的时候选择loadUrl,loadData,loadDataWithBaseURL,evaluateJavascript
+  severity: WARNING

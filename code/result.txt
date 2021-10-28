@@ -1,0 +1,36 @@
+JEB 3.19.1.202005071620 (null) is starting...
+Current directory: /mnt/RAID/users_data/caijiajin/semgrep/grep-cves/code
+Base directory: /mnt/RAID/users_data/caijiajin/Desktop/jeb
+Program directory: /mnt/RAID/users_data/caijiajin/Desktop/jeb/bin
+System: Linux 4.15.0-88-generic (amd64) en_US
+Java: Private Build 1.8.0_292
+Plugin loaded: com.pnf.plugin.androidjnihelper.DynamicJNIDetectionPlugin
+Plugin loaded: com.pnf.libravm.LibraIdentifier
+Plugin loaded: com.pnf.libravm.LibraDisassemblerPlugin
+Plugin loaded: com.pnf.libravm.LibraDecompilerPlugin
+Plugin loaded: com.pnf.plugin.oat.OATPlugin
+Plugin loaded: com.pnf.androsig.gen.AndroidSigGenPlugin
+Plugin loaded: com.pnf.androsig.apply.andsig.AndroidSigApplyPlugin
+Plugin loaded: com.pnf.plugin.pdf.PdfPlugin
+Initializing Jython, please wait...
+{hook_11699964.dex > hook_11699964.dex}: Invalid DEX checksum (expected=B861CF3E, actual=1423D8A4)
+{hook_11699964.dex > hook_11699964.dex}: Invalid DEX signature (expected=F9 53 C8 42 D9 DA DF F4 16 F2 54 E0 15 78 EA B2 BA 43 66 3E , actual=23 FE 6D E6 42 F4 92 CD C0 31 49 67 60 11 E0 07 CC 7D 40 5B )
+number 0 of 20 
+../../data/dex/me.ele/hook_11699964.dex ../rules/webview/2/links.cfg
+../../results/webview/2/me.ele/hook_11699964/
+../../data/dex/me.ele/hook_11699964.dex ../rules/webview/1/links.cfg
+../../results/webview/1/me.ele/hook_11699964/
+../../data/dex/me.ele/hook_11699964.dex ../rules/setResult/1/links.cfg
+../../results/setResult/1/me.ele/hook_11699964/
+../../data/dex/me.ele/hook_11699964.dex ../rules/startActivity/1/links.cfg
+../../results/startActivity/1/me.ele/hook_11699964/
+../../data/dex/me.ele/hook_11699964.dex ../rules/UrlCheck/loadUrl/links.cfg
+../../results/UrlCheck/loadUrl/me.ele/hook_11699964/
+../../data/dex/me.ele/hook_11699964.dex ../rules/UrlCheck/loadData/links.cfg
+../../results/UrlCheck/loadData/me.ele/hook_11699964/
+../../data/dex/me.ele/hook_11699964.dex ../rules/UrlCheck/loadDataWithBaseURL/links.cfg
+../../results/UrlCheck/loadDataWithBaseURL/me.ele/hook_11699964/
+../../data/dex/me.ele/hook_11699964.dex ../rules/UrlCheck/evaluateJavascript/links.cfg
+../../results/UrlCheck/evaluateJavascript/me.ele/hook_11699964/
+['../../results/webview/2/me.ele/hook_11699964/config.txt', '../../results/webview/1/me.ele/hook_11699964/config.txt', '../../results/setResult/1/me.ele/hook_11699964/config.txt', '../../results/startActivity/1/me.ele/hook_11699964/config.txt', '../../results/UrlCheck/loadUrl/me.ele/hook_11699964/config.txt', '../../results/UrlCheck/loadData/me.ele/hook_11699964/config.txt', '../../results/UrlCheck/loadDataWithBaseURL/me.ele/hook_11699964/config.txt', '../../results/UrlCheck/evaluateJavascript/me.ele/hook_11699964/config.txt']
+java -jar /mnt/RAID/users_data/caijiajin/Desktop/jeb/bin/app/jeb.jar --srv2 --script=./jeb.py -- ./tmp.txt ../../data/dex/me.ele/hook_11699964.dex
