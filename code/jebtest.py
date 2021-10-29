@@ -37,13 +37,20 @@ def MyPrint(words, output):
         output.write("\n")
 # 对一个方法，得到所有调用它的方法，已去重
 def GetMethodXref(dex_unit, method):
+    # jeb的诡异bug, onCreate, onResume
+    if method.getName() == "onCreate" or method.getName() == "onResume":
+        return []
+
     return_methods = []
+    
+
     methods_set = set()
 
     actionXrefsData = ActionXrefsData()
     actionContext = ActionContext(dex_unit, Actions.QUERY_XREFS, method.getItemId(), None)
     if dex_unit.prepareExecution(actionContext,actionXrefsData):
         for xref_addr in actionXrefsData.getAddresses():
+            print(xref_addr)
             method = dex_unit.getMethod(xref_addr[:xref_addr.index("+")])
 
             if method.getIndex() not in methods_set:
@@ -268,15 +275,16 @@ def SemgrepMethods(dex_unit, methods, root_path, yml_file):
 class jebtest(IScript):
     # method ope name
     def run(self, ctx):
-        unit = ctx.open("/mnt/RAID/users_data/caijiajin/semgrep/data/apks/me.ele.apk");                                    assert isinstance(unit,IUnit)
+        unit = ctx.open("/mnt/RAID/users_data/caijiajin/semgrep/data/dex/com.doupin.show/hook_7297560.dex");                                    assert isinstance(unit,IUnit)
 
         # unit = ctx.open("/mnt/RAID/users_data/caijiajin/Desktop/tmp2/com.tencent.news/hook_1521340.dex");                                    assert isinstance(unit,IUnit)
         prj = ctx.getMainProject();                                     assert isinstance(prj,IRuntimeProject)
 
         dex_unit = prj.findUnit(IDexUnit);                               assert isinstance(dex_unit,IDexUnit)
 
-        mm = ReturnMethods(dex_unit, "/mnt/RAID/users_data/caijiajin/semgrep/source/me.ele/files/AndroidManifest.xml", 2, "^on.*$", "/mnt/RAID/users_data/caijiajin/semgrep/source/me.ele/files/AndroidManifest.xml")
+        mm = ReturnMethods(dex_unit, "/mnt/RAID/users_data/caijiajin/semgrep/source/com.doupin.show/files/AndroidManifest.xml", 4, "Lcom/doupin/show/activitys/MainActivity;->onDestroy()V", "/mnt/RAID/users_data/caijiajin/semgrep/source/com.doupin.show/files/AndroidManifest.xml")
 
+        print(GetMethodXref(dex_unit, mm[0]))
         for m in mm:
             print(m)
         # method = dex_unit.getMethods()

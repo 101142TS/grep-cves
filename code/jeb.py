@@ -37,7 +37,13 @@ def MyPrint(words, output):
         output.write("\n")
 # 对一个方法，得到所有调用它的方法，已去重
 def GetMethodXref(dex_unit, method):
+    # jeb的诡异bug, onCreate, onResume, onNewIntent, onActivityResult, onDestroy 
+    if method.getName() == "onCreate" or method.getName() == "onResume" or method.getName() == "onNewIntent" or method.getName() == "onActivityResult" or method.getName() == "onDestroy":
+        return []
+
     return_methods = []
+    
+
     methods_set = set()
 
     actionXrefsData = ActionXrefsData()
@@ -199,6 +205,11 @@ def DFS(dex_unit, now_method, len, links, vis, maxlen, output):
     #         print("[*] " + str(links[i]))
 
     if (now_method.getIndex() in vis and vis[now_method.getIndex()] == "Target"):
+        # # 规避恶心的onXXX递归super，如onCreate调用onCreate
+        # for i in range(len - 2, -1, -1):
+        #     if (links[i].getName() == links[i + 1].getName() and links[i].getName().encode('utf-8').startsWith("on")):
+        #         return
+
         MyPrint("************START************", output)
         for i in range(len - 1, -1, -1):
             MyPrint("[*] " + links[i].toString().encode('utf-8'), output)

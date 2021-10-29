@@ -1,8 +1,18 @@
 rules:
 - id: loadUrl检测
-  patterns:
-    - pattern: $X.loadUrl($Y)
-    - pattern-not: $X.loadUrl("...")
+  pattern-either:
+    - patterns:
+      - pattern: loadUrl($Y, ...)
+      - pattern-not: loadUrl("...", ...)
+    - patterns:
+      - pattern: loadUrl($Y)
+      - pattern-not: loadUrl("...")
+    - patterns:
+      - pattern: $X.loadUrl($Y)
+      - pattern-not: $X.loadUrl("...")
+    - patterns:
+      - pattern: $X.loadUrl($Y, ...)
+      - pattern-not: $X.loadUrl("...", ...)
   languages: 
     - java
   message: |

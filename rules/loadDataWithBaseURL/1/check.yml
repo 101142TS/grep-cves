@@ -1,9 +1,14 @@
 rules:
 - id: loadDataWithBaseURL检测
-  patterns:
-    - pattern: $A.loadDataWithBaseURL($X, $Y, ...)
-    - pattern-not: $A.loadDataWithBaseURL("...", ...)
-    - pattern-not: $A.loadDataWithBaseURL($X, "...", ...)
+  pattern-either:
+    - patterns:
+      - pattern: loadDataWithBaseURL($X, $Y, ...)
+      - pattern-not: loadDataWithBaseURL("...", ...)
+      - pattern-not: loadDataWithBaseURL($X, "...", ...)
+    - patterns:
+      - pattern: $Z.loadDataWithBaseURL($X, $Y, ...)
+      - pattern-not: $Z.loadDataWithBaseURL("...", ...)
+      - pattern-not: $Z.loadDataWithBaseURL($X, "...", ...)
   languages: 
     - java
   message: |

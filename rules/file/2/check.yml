@@ -2,6 +2,10 @@ rules:
 - id: new File检测
   patterns:
     - pattern: new File($X)
+    - metavariable-pattern:
+        metavariable: $X
+        patterns:
+            - pattern-not-regex: ^[^\.]+\.[^\.]+$
     - pattern-not: new File("...")
   languages: 
     - java
