@@ -153,7 +153,6 @@ def ReturnMethods(dex_unit, manifest, ope, name, root_path):
         cmd = ['grep', '-lr', name, root_path]
 
         output = run_cmd_with_output(cmd)
-
         ret_value = []
         if not output == "":
             ret_value = output.split("\n")
