@@ -1,0 +1,10 @@
+rules:
+  - id: parseUri
+    pattern-either:
+      - pattern: $Y.parseUri($X, 1)
+      - pattern: $Y.parseUri($X, 2)
+    languages:
+      - java
+    message: |
+      parseUri
+    severity: WARNING

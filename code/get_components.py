@@ -30,6 +30,20 @@ def search_nodelist(nodelist):
                 implicit_ret.append(name)
 
     return explicit_ret, implicit_ret
+def getExportedProvider(doc):
+    nodelist = doc.findall('application/provider')
+
+    explicit_ret = []
+    implicit_ret = []
+    for node in nodelist:
+        name = node.get('{http://schemas.android.com/apk/res/android}name')
+        exported = node.get('{http://schemas.android.com/apk/res/android}exported')
+
+        if not (exported == "false"):
+            explicit_ret.append(name)
+            
+    return explicit_ret, implicit_ret
+
 def getExportedService(doc):
     nodelist = doc.findall('application/service')
 
@@ -70,6 +84,12 @@ def getComponentsTypes(source_doc):
     ret1, ret2 = getExportedService(nodelist)
     explicit_ret = explicit_ret + ret1
     implicit_ret = implicit_ret + ret2
+
+    # provider
+    ret1, ret2 = getExportedProvider(nodelist)
+    explicit_ret = explicit_ret + ret1
+    implicit_ret = implicit_ret + ret2
+
 
     return explicit_ret, implicit_ret
 

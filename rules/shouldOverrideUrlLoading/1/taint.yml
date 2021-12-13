@@ -1,0 +1,15 @@
+rules:
+  - id: shouldOverrideUrlLoading
+    languages:
+      - java
+    message: shouldOverrideUrlLoading()
+    mode: taint
+    pattern-sinks:
+      - pattern: startActivity(...)
+      - pattern: $X.startActivity(...)
+      - pattern: startActivityForResult(...)
+      - pattern: $X.startActivityForResult(...)
+    pattern-sources:
+      - pattern: str
+      - pattern: $Y.getUrl()
+    severity: WARNING

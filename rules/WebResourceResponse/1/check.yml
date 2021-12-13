@@ -1,0 +1,11 @@
+rules:
+  - id: shouldInterceptRequest
+    languages:
+      - java
+    message: shouldInterceptRequest() + new File
+    mode: taint
+    pattern-sinks:
+      - pattern: new File(...)
+    pattern-sources:
+      - pattern: uri
+    severity: WARNING

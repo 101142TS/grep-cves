@@ -1,0 +1,11 @@
+rules:
+  - id: content-provider
+    languages:
+      - java
+    message: openFile()
+    mode: taint
+    pattern-sinks:
+      - pattern: new File(...)
+    pattern-sources:
+      - pattern: uri
+    severity: WARNING

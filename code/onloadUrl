@@ -1,0 +1,7 @@
+rules:
+  - id: taint-tracking
+    languages:
+      - java
+    message: 数据流跟踪
+    mode: taint
+    pattern-sinks:

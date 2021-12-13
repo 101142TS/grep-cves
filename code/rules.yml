@@ -1,0 +1,14 @@
+rules:
+  - id: taint-tracking
+    languages:
+      - java
+    message: 数据流跟踪
+    mode: taint
+    pattern-sinks:
+      - pattern: $OBJ.loadUrl(...)
+      - pattern: loadUrl(...)
+    pattern-sources:
+      - patterns:
+        - pattern-inside: $RETURNTYPE onloadUrl(..., $TYPE $ARG, ...) {...}
+        - pattern: $ARG
+    severity: WARNING

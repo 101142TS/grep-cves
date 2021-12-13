@@ -1,0 +1,16 @@
+rules:
+- id: loadClassandinvoke
+  pattern-either: 
+    - pattern: |
+        $CLS = $X.loadClass(...);
+        ...
+        $CLS.getMethod(...).invoke(...);
+    - pattern: |
+        $CLS = $X.loadClass(...);
+        ...
+        $OBJ = $CLS.getMethod(...).invoke(...);
+  languages: 
+    - java
+  message: |
+    loadClass and invoke
+  severity: WARNING
