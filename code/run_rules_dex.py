@@ -2,6 +2,8 @@
 import os
 import sys
 import subprocess
+from multiprocessing import Pool
+from concurrent.futures import ThreadPoolExecutor
 from basic_func import run_cmd_with_output
 from basic_func import run_cmd
 from basic_func import iterate_dir
@@ -68,8 +70,20 @@ def generate_single_rule(r, dex):
             # 函数链的长度
             output.write(input.readline())
 
+            # 切片时的污点跟踪规则文件所在路径及生成头部污点跟踪配置文件
+            if int((input.readline()).rstrip()) == 1:
+
+                taint_file = config_file[:config_file.rindex("/")] + "/taint"
+                output.write(taint_file + "\n")
+                output.write(r[:-9] + "taint_source")
+            else:
+                output.write("no_taint" + "\n")
+                output.write("no_taint" + "\n")
+
     return "../../data/apks/" + dex[15 : dex.rfind('/')] + ".apk", config_file
-def run_rules(rules, dirs):
+def run_rules(rules, dirs, processes_num = 1):
+
+    inputs = []
     for i in range(0, len(dirs)):
         print("number %d of %d " % (i, len(dirs)))
         d = dirs[i]
@@ -82,13 +96,22 @@ def run_rules(rules, dirs):
 
         print(configs)
 
-        with open("./tmp.txt", "w") as f:
+        config_file = d.replace(".dex", ".config")
+        with open(config_file, "w") as f:
             for config in configs:
                 f.write(config + "\n")
-        cmd = "java -jar /mnt/RAID/users_data/caijiajin/Desktop/jeb/bin/app/jeb.jar --srv2 --script=./jeb.py -- ./tmp.txt " + d
-        print(cmd)
-        run_cmd(cmd)
+        cmd = "java -jar /mnt/RAID/users_data/caijiajin/Desktop/jeb/bin/app/jeb.jar --srv2 --script=./jeb.py -- " + config_file + " " + d
+        # print(cmd)
+        # run_cmd(cmd)
+        inputs.append(cmd)
 
-run_rules(rules, dirs)
+    pool = Pool(processes_num)
+    for cmd in inputs:
+        pool.apply_async(run_cmd, (cmd, ))
+
+    pool.close()
+    pool.join()
+
+run_rules(rules, dirs, 4)
 
 # generate_single_rule("../rules/loadUrl/1/links.cfg", "me.ele")

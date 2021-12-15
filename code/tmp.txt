@@ -1,9 +1,3 @@
-../../results/setResult/1/yesorno.sb.org.yesorno/classes/config.txt
-../../results/WebResourceResponse/1/yesorno.sb.org.yesorno/classes/config.txt
-../../results/loadUrl/1/yesorno.sb.org.yesorno/classes/config.txt
-../../results/startActivity/2/yesorno.sb.org.yesorno/classes/config.txt
-../../results/startActivity/1/yesorno.sb.org.yesorno/classes/config.txt
-../../results/createPackageContext/1/yesorno.sb.org.yesorno/classes/config.txt
-../../results/shouldOverrideUrlLoading/1/yesorno.sb.org.yesorno/classes/config.txt
-../../results/contentprovider/1/yesorno.sb.org.yesorno/classes/config.txt
-../../results/loadDataWithBaseURL/1/yesorno.sb.org.yesorno/classes/config.txt
+../../results/setResult/1/com.sogou.novel/cookie_5376/config.txt
+../../results/startActivity/2/com.sogou.novel/cookie_5376/config.txt
+../../results/startActivity/1/com.sogou.novel/cookie_5376/config.txt

@@ -69,6 +69,16 @@ def generate_single_rule(r, d):
             # 函数链的长度
             output.write(input.readline())
 
+            # 切片时的污点跟踪规则文件所在路径及生成头部污点跟踪配置文件
+            if int((input.readline()).rstrip()) == 1:
+
+                taint_file = config_file[:config_file.rindex("/")] + "/taint"
+                output.write(taint_file + "\n")
+                output.write(r[:-9] + "taint_source")
+            else:
+                output.write("no_taint" + "\n")
+                output.write("no_taint" + "\n")
+
     return "../../data/apks/" + d[13:-6] + ".apk", config_file
 def run_rules(rules, dirs):
     for d in dirs:

@@ -3,6 +3,7 @@ rules:
     languages:
       - java
     message: 数据流跟踪
+    severity: WARNING
     mode: taint
     pattern-sinks:
       - pattern: $OBJ.loadUrl(...)
@@ -11,4 +12,6 @@ rules:
       - patterns:
         - pattern-inside: $RETURNTYPE onloadUrl(..., $TYPE $ARG, ...) {...}
         - pattern: $ARG
-    severity: WARNING
+      - patterns:
+        - pattern-inside: $RETURNTYPE onloadUrl(...) {...}
+        - pattern: getIntent(...)

@@ -38,6 +38,8 @@ def MyPrint(words, output):
 # 对一个方法，得到所有调用它的方法，已去重
 def GetMethodXref(dex_unit, method):
     # jeb的诡异bug, onCreate, onResume, onNewIntent, onActivityResult, onDestroy 
+
+    # jeb存在bug，一些函数的父函数错误被识别
     if method.getName() == "onCreate" or method.getName() == "onResume" or method.getName() == "onNewIntent" or method.getName() == "onActivityResult" or method.getName() == "onDestroy":
         return []
 
@@ -198,17 +200,39 @@ def FindPath(dex_unit, sources, sinks):
                     Q.put(pre)
     
     return real_sinks
-def DFS(dex_unit, now_method, len, links, vis, maxlen, output):
+def GetFileName(root_path, method):
+    sign = method.getSignature(True)
+    class_name = sign[1 : sign.index(";")]
+    return root_path + "/" + class_name + ".java"
+
+def DFS(dex_unit, root_path, taint_file, taint_sources, now_method, len, links, vis, maxlen, output):
     # print("DEBUG INGO : ##########################")
     # for i in range(len - 1, -1, -1):
     #         print("[*] " + str(links[i]))
 
     if (now_method.getIndex() in vis and vis[now_method.getIndex()] == "Target"):
-        # # 规避恶心的onXXX递归super，如onCreate调用onCreate
-        # for i in range(len - 2, -1, -1):
-        #     if (links[i].getName() == links[i + 1].getName() and links[i].getName().encode('utf-8').startsWith("on")):
-        #         return
+        # 头部特殊污点跟踪
+        
+        if not (taint_file == "no_taint"):
+            from_name = links[len - 1].getName()
+            to_name = links[len - 2].getName()
 
+            # 获取links[len - 1]函数所在的文件名
+            java_file = GetFileName(root_path, links[len - 1])
+            
+            if os.path.exists(java_file):
+                # 生成污点文件
+                cmd = ['python', './gen_taint_tracking.py', taint_file, from_name, to_name]
+
+                cmd = cmd + taint_sources.split(' ')
+                run_cmd(cmd)
+    
+                # 开始扫描
+                cmd = ['semgrep', '-f', taint_file, java_file, '--error', '-q']
+                if not run_cmd(cmd) == 1:
+                    return
+
+        # TODO : 对links做一遍semgrep
         MyPrint("************START************", output)
         for i in range(len - 1, -1, -1):
             MyPrint("[*] " + links[i].toString().encode('utf-8'), output)
@@ -225,12 +249,28 @@ def DFS(dex_unit, now_method, len, links, vis, maxlen, output):
         if pre.getIndex() in vis and vis[pre.getIndex()] == "True":
             continue
 
+        # 污点跟踪
+        if not (pre.getIndex() in vis and vis[pre.getIndex()] == "Target") and (not (taint_file == "no_taint")):
+            from_name = pre.getName()
+            to_name = now_method.getName()
+            # 获取pre函数所在的文件名
+            java_file = GetFileName(root_path, pre)
+            
+            if os.path.exists(java_file):
+                # 生成污点跟踪文件
+                cmd = ['python', './gen_taint_tracking.py', taint_file, from_name, to_name, '0']
+                run_cmd(cmd)
+
+                cmd = ['semgrep', '-f', taint_file, java_file, '--error', '-q']
+                if not run_cmd(cmd) == 1:
+                    continue
+
         links[len] = pre
-        DFS(dex_unit, pre, len + 1, links, vis, maxlen, output)
+        DFS(dex_unit, root_path, taint_file, taint_sources, pre, len + 1, links, vis, maxlen, output)
     
     vis[now_method.getIndex()] = "False"
 
-def GetPath(dex_unit, sources, sinks, maxlen, output):
+def GetPath(dex_unit, root_path, taint_file, taint_sources, sources, sinks, maxlen, output):
     real_sinks = FindPath(dex_unit, sources, sinks)
 
     if real_sinks == []:
@@ -243,7 +283,7 @@ def GetPath(dex_unit, sources, sinks, maxlen, output):
     for sink in sinks:
         links = [0] * maxlen
         links[0] = sink
-        DFS(dex_unit, sink, 1, links, vis, maxlen, output)
+        DFS(dex_unit, root_path, taint_file, taint_sources, sink, 1, links, vis, maxlen, output)
 
     
 def SemgrepMethods(dex_unit, methods, root_path, yml_file):
@@ -253,11 +293,7 @@ def SemgrepMethods(dex_unit, methods, root_path, yml_file):
     res = []
 
     for method in methods:
-        # method.getName(True)
-        sign = method.getSignature(True)
-        class_name = sign[1:sign.index(";")]
-
-        java_file = root_path + "/" + class_name + ".java"
+        java_file = GetFileName(root_path, method)
 
         if os.path.exists(java_file):
             # 直接用semgrep 在文件中进行匹配，有可能出现匹配的结果不在所要的方法内
@@ -302,6 +338,8 @@ class jeb(IScript):
         tmp_path = input.readline().strip()
         result_path = input.readline().strip()
         links_len = int(input.readline().strip())
+        taint_file = input.readline().strip()
+        taint_source = input.readline().strip()
 
         if os.path.exists(result_path):
             return
@@ -318,21 +356,16 @@ class jeb(IScript):
         MyPrint(tmp_path, result_file)
         MyPrint(result_path, result_file)
         MyPrint(str(links_len), result_file)
+        MyPrint(taint_file, result_file)
+        MyPrint(taint_source, result_file)
 
         sources = ReturnMethods(dex_unit, manifest_path, int(st[1]), st[0], root_path)
 
-        sinks = GetMethodsXref(dex_unit, ReturnMethods(dex_unit, manifest_path, int(ed[1]), ed[0], root_path))
+        sinks = ReturnMethods(dex_unit, manifest_path, int(ed[1]), ed[0], root_path)
         
-        # 先把sources和sinks使用semgrep匹配一下，再求出路径
-        
-        real_sources = SemgrepMethods(dex_unit, sources, root_path, st[2])
-
-        # grep的不是sinks函数，而是调用了sinks函数的函数体
-        real_sinks = SemgrepMethods(dex_unit, sinks, root_path, ed[2])
-        
-        if links_len == 0:
+        if links_len == 1:
             S = set()
-            for i in real_sources:
+            for i in sources:
                 s = i.address.encode('utf-8')
                 S.add(s[:s.index(';')])
             
@@ -343,7 +376,11 @@ class jeb(IScript):
 
                 MyPrint("*************END*************", result_file)
         else:
-            GetPath(dex_unit, real_sources, real_sinks, links_len, result_file)
+
+            with open(taint_source, "r") as f:
+                taint_sources = f.readline().rstrip()
+
+            GetPath(dex_unit, root_path, taint_file, taint_sources, sources, sinks, links_len, result_file)
 
         input.close()
         if not result_file == "":
