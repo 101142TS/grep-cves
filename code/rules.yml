@@ -6,12 +6,9 @@ rules:
     severity: WARNING
     mode: taint
     pattern-sinks:
-      - pattern: $OBJ.loadUrl(...)
-      - pattern: loadUrl(...)
+      - pattern: $OBJ.exists(...)
+      - pattern: exists(...)
     pattern-sources:
       - patterns:
-        - pattern-inside: $RETURNTYPE onloadUrl(..., $TYPE $ARG, ...) {...}
+        - pattern-inside: $RETURNTYPE a(..., $TYPE $ARG, ...) {...}
         - pattern: $ARG
-      - patterns:
-        - pattern-inside: $RETURNTYPE onloadUrl(...) {...}
-        - pattern: getIntent(...)

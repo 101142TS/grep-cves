@@ -1,0 +1,16 @@
+rules:
+- id: readandwrite
+  pattern: |
+    $RETURNTYPE $FUNC(...) {
+      ...
+      $SIZ = $INPUT.read($BARR, ...);
+      ...
+      $OUTPUT.write($BARR, $Y, $SIZ);
+      ...
+    }
+
+  languages: 
+    - java
+  message: |
+    read to write
+  severity: WARNING

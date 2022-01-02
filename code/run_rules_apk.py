@@ -6,7 +6,7 @@ from basic_func import run_cmd_with_output
 from basic_func import run_cmd
 from basic_func import iterate_dir
 from basic_func import semgrep_exclude
-from filter_components import filter_output
+# from filter_components import filter_output
 
 def path_filter(x):
     return x.endswith(".cfg")

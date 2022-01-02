@@ -38,6 +38,8 @@ def MyPrint(words, output):
 # 对一个方法，得到所有调用它的方法，已去重
 def GetMethodXref(dex_unit, method):
     # jeb的诡异bug, onCreate, onResume, onNewIntent, onActivityResult, onDestroy 
+
+    # jeb存在bug，一些函数的父函数错误被识别
     if method.getName() == "onCreate" or method.getName() == "onResume" or method.getName() == "onNewIntent" or method.getName() == "onActivityResult" or method.getName() == "onDestroy":
         return []
 
@@ -50,7 +52,6 @@ def GetMethodXref(dex_unit, method):
     actionContext = ActionContext(dex_unit, Actions.QUERY_XREFS, method.getItemId(), None)
     if dex_unit.prepareExecution(actionContext,actionXrefsData):
         for xref_addr in actionXrefsData.getAddresses():
-            print(xref_addr)
             method = dex_unit.getMethod(xref_addr[:xref_addr.index("+")])
 
             if method.getIndex() not in methods_set:
@@ -204,7 +205,7 @@ def GetFileName(root_path, method):
     class_name = sign[1 : sign.index(";")]
     return root_path + "/" + class_name + ".java"
 
-def DFS(dex_unit, root_path, taint_file, taint_sources, now_method, len, links, vis, maxlen, output):
+def DFS(dex_unit, root_path, taint_file, taint_sources, now_method, len, links, vis, maxlen, output, yml_st, yml_ed):
     # print("DEBUG INGO : ##########################")
     # for i in range(len - 1, -1, -1):
     #         print("[*] " + str(links[i]))
@@ -219,6 +220,9 @@ def DFS(dex_unit, root_path, taint_file, taint_sources, now_method, len, links, 
             # 获取links[len - 1]函数所在的文件名
             java_file = GetFileName(root_path, links[len - 1])
             
+            if SemgrepFile(dex_unit, java_file, yml_st) == False:
+                return
+
             if os.path.exists(java_file):
                 # 生成污点文件
                 cmd = ['python', './gen_taint_tracking.py', taint_file, from_name, to_name]
@@ -232,6 +236,7 @@ def DFS(dex_unit, root_path, taint_file, taint_sources, now_method, len, links, 
                     return
 
         # TODO : 对links做一遍semgrep
+        
         MyPrint("************START************", output)
         for i in range(len - 1, -1, -1):
             MyPrint("[*] " + links[i].toString().encode('utf-8'), output)
@@ -255,6 +260,10 @@ def DFS(dex_unit, root_path, taint_file, taint_sources, now_method, len, links, 
             # 获取pre函数所在的文件名
             java_file = GetFileName(root_path, pre)
             
+            if len == 1:
+                if SemgrepFile(dex_unit, java_file, yml_ed) == False:
+                    continue
+
             if os.path.exists(java_file):
                 # 生成污点跟踪文件
                 cmd = ['python', './gen_taint_tracking.py', taint_file, from_name, to_name, '0']
@@ -265,11 +274,11 @@ def DFS(dex_unit, root_path, taint_file, taint_sources, now_method, len, links, 
                     continue
 
         links[len] = pre
-        DFS(dex_unit, root_path, taint_file, taint_sources, pre, len + 1, links, vis, maxlen, output)
+        DFS(dex_unit, root_path, taint_file, taint_sources, pre, len + 1, links, vis, maxlen, output, yml_st, yml_ed)
     
     vis[now_method.getIndex()] = "False"
 
-def GetPath(dex_unit, root_path, taint_file, taint_sources, sources, sinks, maxlen, output):
+def GetPath(dex_unit, root_path, taint_file, taint_sources, sources, sinks, maxlen, output, yml_st, yml_ed):
     real_sinks = FindPath(dex_unit, sources, sinks)
 
     if real_sinks == []:
@@ -282,43 +291,36 @@ def GetPath(dex_unit, root_path, taint_file, taint_sources, sources, sinks, maxl
     for sink in sinks:
         links = [0] * maxlen
         links[0] = sink
-        DFS(dex_unit, root_path, taint_file, taint_sources, sink, 1, links, vis, maxlen, output)
+        DFS(dex_unit, root_path, taint_file, taint_sources, sink, 1, links, vis, maxlen, output, yml_st, yml_ed)
 
     
-def SemgrepMethods(dex_unit, methods, root_path, yml_file):
+def SemgrepFile(dex_unit, java_file, yml_file):
     if yml_file == "default":
-        return methods
-    
-    res = []
+        return True
 
-    for method in methods:
-        java_file = GetFileName(root_path, method)
+    if os.path.exists(java_file):
+        # 直接用semgrep 在文件中进行匹配，有可能出现匹配的结果不在所要的方法内
+        cmd = ['semgrep', '-f', yml_file, java_file, '--error', '-q']
 
-        if os.path.exists(java_file):
-            # 直接用semgrep 在文件中进行匹配，有可能出现匹配的结果不在所要的方法内
+        # print(cmd)
 
-            cmd = ['semgrep', '-f', yml_file, java_file, '--error', '-q']
+        output = run_cmd(cmd)
+        
+        # print(output)
+        if output == 1:
+            return True
 
-            # print(cmd)
-
-            output = run_cmd(cmd)
-            
-            # print(output)
-            
-            if output == 1:
-                res.append(method)
-    return res
+    return False
 class jebtest(IScript):
     # method ope name
     def run(self, ctx):
-        unit = ctx.open("/mnt/RAID/users_data/caijiajin/semgrep/data/dex/com.sogou.novel/cookie_8886940.dex");                                    assert isinstance(unit,IUnit)
+        unit = ctx.open("/mnt/RAID/users_data/caijiajin/semgrep/data/dex/com.sogou.novel/cookie_5406748.dex");                                    assert isinstance(unit,IUnit)
 
-        # unit = ctx.open("/mnt/RAID/users_data/caijiajin/Desktop/tmp2/com.tencent.news/hook_1521340.dex");                                    assert isinstance(unit,IUnit)
         prj = ctx.getMainProject();                                     assert isinstance(prj,IRuntimeProject)
 
         dex_unit = prj.findUnit(IDexUnit);                               assert isinstance(dex_unit,IDexUnit)
 
-        mm = ReturnMethods(dex_unit, "/mnt/RAID/users_data/caijiajin/semgrep/source/com.sogou.novel/files/AndroidManifest.xml", 4, "Lcom/sogou/reader/doggy/ad/union/DownloaderWebView;->loadUrl(Ljava/lang/String;)V", "/mnt/RAID/users_data/caijiajin/semgrep/source/com.doupin.show/files/AndroidManifest.xml")
+        mm = ReturnMethods(dex_unit, "/mnt/RAID/users_data/caijiajin/semgrep/source/com.sogou.novel/files/AndroidManifest.xml", 4, "Ljava/io/FileOutputStream;-><init>(Ljava/io/File;)V", "/mnt/RAID/users_data/caijiajin/semgrep/source/com.sogou.novel/files/AndroidManifest.xml")
 
         print(len(mm))
         res = GetMethodXref(dex_unit, mm[0])

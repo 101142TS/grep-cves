@@ -1,0 +1,12 @@
+rules:
+- id: readandwrite
+  pattern: |
+    $RETURNTYPE copyFile(File $X, File $Y) {
+      ...
+    }
+
+  languages: 
+    - java
+  message: |
+    read to write
+  severity: WARNING

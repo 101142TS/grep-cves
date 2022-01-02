@@ -8,7 +8,7 @@ from basic_func import run_cmd_with_output
 from basic_func import run_cmd
 from basic_func import iterate_dir
 from basic_func import semgrep_exclude
-from filter_components import filter_output
+# from filter_components import filter_output
 
 def path_filter_cfg(x):
     return x.endswith(".cfg")
@@ -16,7 +16,11 @@ def path_filter_cfg(x):
 def path_filter_dex(x):
     return x.endswith(".dex")
 
-rules = iterate_dir("../rules", path_filter_cfg)
+if len(sys.argv) == 2:
+    rules = iterate_dir("../rules-test", path_filter_cfg)
+else:
+    rules = iterate_dir("../rules", path_filter_cfg)
+
 dirs = iterate_dir("../../data/dex", path_filter_dex)
 
 def generate_single_rule(r, dex):
@@ -49,6 +53,7 @@ def generate_single_rule(r, dex):
 
             # 起点函数，  函数的类型， 函数名， 匹配时的规则文件
             st = input.readline().split()
+            
             if not st[2] == "default":
                 st[2] = r[:-9] + st[2]
 
