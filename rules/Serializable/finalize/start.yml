@@ -1,0 +1,16 @@
+rules:
+- id: SerializableClass
+  pattern: |
+    class $CLS implements Serializable {
+      ...
+      $RETVAL finalize(...) {
+        ...
+      }
+      ...
+    }
+
+  languages: 
+    - java
+  message: |
+    SerializableClass
+  severity: WARNING

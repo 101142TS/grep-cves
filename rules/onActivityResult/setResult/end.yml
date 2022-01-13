@@ -1,0 +1,10 @@
+rules:
+- id: setResult
+  pattern-either:
+  - pattern: $A.setResult(..., (Intent $INTENT), ...);
+  - pattern: setResult(..., (Intent $INTENT), ...);
+  languages: 
+    - java
+  message: |
+    setResult
+  severity: WARNING
