@@ -1,14 +1,10 @@
 rules:
-  - id: taint-tracking
-    languages:
-      - java
-    message: 数据流跟踪
-    severity: WARNING
-    mode: taint
-    pattern-sinks:
-      - pattern: $OBJ.exists(...)
-      - pattern: exists(...)
-    pattern-sources:
-      - patterns:
-        - pattern-inside: $RETURNTYPE a(..., $TYPE $ARG, ...) {...}
-        - pattern: $ARG
+- id: SecretKeySpec
+  pattern-either:
+    - pattern: new SecretKeySpec(new String("...").getBytes(), "...")
+    - pattern: new SecretKeySpec("...".getBytes(), "...")
+  languages: 
+    - java
+  message: |
+    SecretKeySpec
+  severity: WARNING

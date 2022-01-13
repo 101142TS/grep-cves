@@ -368,8 +368,13 @@ class jeb(IScript):
         if links_len == 1:
             S = set()
             for i in sources:
+                java_file = GetFileName(root_path, i)
+                if SemgrepFile(dex_unit, java_file, st[2]) == False:
+                    continue
+                if SemgrepFile(dex_unit, java_file, ed[2]) == False:
+                    continue
                 s = i.address.encode('utf-8')
-                S.add(s[:s.index(';')])
+                S.add(s[:s.index(';') + 1])
             
             if len(S) > 0:
                 MyPrint("************START************", result_file)
@@ -382,13 +387,13 @@ class jeb(IScript):
             with open(taint_source, "r") as f:
                 taint_sources = f.readline().rstrip()
 
-            print("sources :")
-            for source in sources:
-                print(source)
+            # print("sources :")
+            # for source in sources:
+            #     print(source)
             
-            print("sinks :")
-            for sink in sinks:
-                print(sink)
+            # print("sinks :")
+            # for sink in sinks:
+            #     print(sink)
             GetPath(dex_unit, root_path, taint_file, taint_sources, sources, sinks, links_len, result_file, st[2], ed[2])
 
         input.close()
