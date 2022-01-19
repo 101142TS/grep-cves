@@ -1,0 +1,52 @@
+rules:
+- id: getData
+  pattern-either:
+    - patterns:
+      - pattern: $Y.$FUNC(...)
+      - pattern-inside: |
+          $RETVAL $FUN(...) {
+            ...
+            $Y = getIntent().getData();
+            ...
+          }
+      - pattern-not-inside: |
+          $RETVAL $FUN(...) {
+            ...
+            $Y = getIntent().getData();
+            ...
+            if ($Y != null) {
+              ...
+            }
+            ...
+          }
+    - patterns:
+      - pattern: getIntent().getData().$FUNC(...)
+    - patterns:
+      - pattern: $Y.$FUNC(...)
+      - pattern-inside: |
+          $RETVAL $FUN(..., Intent $X, ...) {
+            ...
+            $Y = (Intent $X).getData();
+            ...
+          }
+      - pattern-not-inside: |
+          $RETVAL $FUN(..., Intent $X, ...) {
+            ...
+            $Y = (Intent $X).getData();
+            ...
+            if ($Y != null) {
+              ...
+            }
+            ...
+          }
+    - patterns:
+      - pattern: (Intent $X).getData().$FUNC(...)
+      - pattern-inside: |
+          $RETVAL $FUN(..., Intent $X, ...) {
+            ...
+          }
+  languages: 
+    - java
+  message: |
+    getData
+  severity: WARNING

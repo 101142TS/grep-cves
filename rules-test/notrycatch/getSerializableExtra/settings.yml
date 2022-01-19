@@ -1,0 +1,52 @@
+rules:
+- id: getSerializableExtra
+  pattern-either:
+    - patterns:
+      - pattern: $Y.$FUNC(...)
+      - pattern-inside: |
+          $RETVAL $FUN(...) {
+            ...
+            $Y = getIntent().getSerializableExtra($ARG);
+            ...
+          }
+      - pattern-not-inside: |
+          $RETVAL $FUN(...) {
+            ...
+            $Y = getIntent().getSerializableExtra($ARG);
+            ...
+            if ($Y != null) {
+              ...
+            }
+            ...
+          }
+    - patterns:
+      - pattern: getIntent().getSerializableExtra($ARG).$FUNC(...)
+    - patterns:
+      - pattern: $Y.$FUNC(...)
+      - pattern-inside: |
+          $RETVAL $FUN(..., Intent $X, ...) {
+            ...
+            $Y = (Intent $X).getSerializableExtra($ARG);
+            ...
+          }
+      - pattern-not-inside: |
+          $RETVAL $FUN(..., Intent $X, ...) {
+            ...
+            $Y = (Intent $X).getSerializableExtra($ARG);
+            ...
+            if ($Y != null) {
+              ...
+            }
+            ...
+          }
+    - patterns:
+      - pattern: (Intent $X).getSerializableExtra($ARG).$FUNC(...)
+      - pattern-inside: |
+          $RETVAL $FUN(..., Intent $X, ...) {
+            ...
+          }
+  languages: 
+    - java
+  message: |
+    getSerializableExtra
+  severity: WARNING

@@ -1,0 +1,52 @@
+rules:
+- id: getStringExtra
+  pattern-either:
+    - patterns:
+      - pattern: $Y.$FUNC(...)
+      - pattern-inside: |
+          $RETVAL $FUN(...) {
+            ...
+            $Y = getIntent().getStringExtra($ARG);
+            ...
+          }
+      - pattern-not-inside: |
+          $RETVAL $FUN(...) {
+            ...
+            $Y = getIntent().getStringExtra($ARG);
+            ...
+            if ($Y != null) {
+              ...
+            }
+            ...
+          }
+    - patterns:
+      - pattern: getIntent().getStringExtra($ARG).$FUNC(...)
+    - patterns:
+      - pattern: $Y.$FUNC(...)
+      - pattern-inside: |
+          $RETVAL $FUN(..., Intent $X, ...) {
+            ...
+            $Y = (Intent $X).getStringExtra($ARG);
+            ...
+          }
+      - pattern-not-inside: |
+          $RETVAL $FUN(..., Intent $X, ...) {
+            ...
+            $Y = (Intent $X).getStringExtra($ARG);
+            ...
+            if ($Y != null) {
+              ...
+            }
+            ...
+          }
+    - patterns:
+      - pattern: (Intent $X).getStringExtra($ARG).$FUNC(...)
+      - pattern-inside: |
+          $RETVAL $FUN(..., Intent $X, ...) {
+            ...
+          }
+  languages: 
+    - java
+  message: |
+    getStringExtra
+  severity: WARNING

@@ -1,0 +1,52 @@
+rules:
+- id: getShortArrayExtra
+  pattern-either:
+    - patterns:
+      - pattern: $Y.$FUNC(...)
+      - pattern-inside: |
+          $RETVAL $FUN(...) {
+            ...
+            $Y = getIntent().getShortArrayExtra($ARG);
+            ...
+          }
+      - pattern-not-inside: |
+          $RETVAL $FUN(...) {
+            ...
+            $Y = getIntent().getShortArrayExtra($ARG);
+            ...
+            if ($Y != null) {
+              ...
+            }
+            ...
+          }
+    - patterns:
+      - pattern: getIntent().getShortArrayExtra($ARG).$FUNC(...)
+    - patterns:
+      - pattern: $Y.$FUNC(...)
+      - pattern-inside: |
+          $RETVAL $FUN(..., Intent $X, ...) {
+            ...
+            $Y = (Intent $X).getShortArrayExtra($ARG);
+            ...
+          }
+      - pattern-not-inside: |
+          $RETVAL $FUN(..., Intent $X, ...) {
+            ...
+            $Y = (Intent $X).getShortArrayExtra($ARG);
+            ...
+            if ($Y != null) {
+              ...
+            }
+            ...
+          }
+    - patterns:
+      - pattern: (Intent $X).getShortArrayExtra($ARG).$FUNC(...)
+      - pattern-inside: |
+          $RETVAL $FUN(..., Intent $X, ...) {
+            ...
+          }
+  languages: 
+    - java
+  message: |
+    getShortArrayExtra
+  severity: WARNING

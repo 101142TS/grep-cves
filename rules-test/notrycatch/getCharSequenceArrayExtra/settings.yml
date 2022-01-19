@@ -1,0 +1,52 @@
+rules:
+- id: getCharSequenceArrayExtra
+  pattern-either:
+    - patterns:
+      - pattern: $Y.$FUNC(...)
+      - pattern-inside: |
+          $RETVAL $FUN(...) {
+            ...
+            $Y = getIntent().getCharSequenceArrayExtra($ARG);
+            ...
+          }
+      - pattern-not-inside: |
+          $RETVAL $FUN(...) {
+            ...
+            $Y = getIntent().getCharSequenceArrayExtra($ARG);
+            ...
+            if ($Y != null) {
+              ...
+            }
+            ...
+          }
+    - patterns:
+      - pattern: getIntent().getCharSequenceArrayExtra($ARG).$FUNC(...)
+    - patterns:
+      - pattern: $Y.$FUNC(...)
+      - pattern-inside: |
+          $RETVAL $FUN(..., Intent $X, ...) {
+            ...
+            $Y = (Intent $X).getCharSequenceArrayExtra($ARG);
+            ...
+          }
+      - pattern-not-inside: |
+          $RETVAL $FUN(..., Intent $X, ...) {
+            ...
+            $Y = (Intent $X).getCharSequenceArrayExtra($ARG);
+            ...
+            if ($Y != null) {
+              ...
+            }
+            ...
+          }
+    - patterns:
+      - pattern: (Intent $X).getCharSequenceArrayExtra($ARG).$FUNC(...)
+      - pattern-inside: |
+          $RETVAL $FUN(..., Intent $X, ...) {
+            ...
+          }
+  languages: 
+    - java
+  message: |
+    getCharSequenceArrayExtra
+  severity: WARNING

@@ -1,8 +1,10 @@
 rules:
 - id: SecretKeySpec
-  pattern-either:
-    - pattern: new SecretKeySpec(new String("...").getBytes(), "...")
-    - pattern: new SecretKeySpec("...".getBytes(), "...")
+  pattern: |
+    @JavascriptInterface
+    $RETVAL $FUNC(...) {
+      ...
+    }
   languages: 
     - java
   message: |

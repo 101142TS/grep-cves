@@ -1,0 +1,13 @@
+rules:
+- id: parseUri
+  patterns:
+    - pattern: Intent.parseUri($X, 1)
+    - pattern-inside: |
+        $RETVAL shouldOverrideUrlLoading(...) {
+            ...
+        }
+  languages: 
+    - java
+  message: |
+    parseUri
+  severity: WARNING
