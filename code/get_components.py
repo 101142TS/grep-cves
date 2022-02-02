@@ -11,89 +11,86 @@ def getElementTree(filePath):
             print("rm " + filePath)
             run_cmd("rm " + filePath)
             return None
-    
-def search_nodelist(nodelist):
-    explicit_ret = []
-    implicit_ret = []
+
+def filterExportedComponents(nodelist, whitelist):
+    ret = []
     for node in nodelist:
         name = node.get('{http://schemas.android.com/apk/res/android}name')
         exported = node.get('{http://schemas.android.com/apk/res/android}exported')
+        permission = node.get('{http://schemas.android.com/apk/res/android}permission')
 
+        if ((permission == None) or (permission in whitelist)) and exported == "true":
+            ret.append(name)
+            
+    return ret
+
+def filterOpenedComponents(nodelist, whitelist):
+    ret = []
+    for node in nodelist:
+        name = node.get('{http://schemas.android.com/apk/res/android}name')
+        exported = node.get('{http://schemas.android.com/apk/res/android}exported')
+        permission = node.get('{http://schemas.android.com/apk/res/android}permission')
         x = node.findall('intent-filter')
 
-        if exported == "true":
-            if not (len(x) > 0):
-                explicit_ret.append(name)
-        
-        if len(x) > 0:
-            if not (exported == "false"):
-                implicit_ret.append(name)
+        if ((permission == None) or (permission in whitelist)):
+            if exported == "true":
+                ret.append(name)
+            elif (not exported == "false") and (len(x) > 0):
+                ret.append(name)
+            
+    return ret
+def getExportedComponents(doc, whitelist):
+    ret = []
+    # activity
 
-    return explicit_ret, implicit_ret
-def getExportedProvider(doc):
+    nodelist = doc.findall('application/activity')
+    ret = ret + filterExportedComponents(nodelist, whitelist)
+
+    nodelist = doc.findall('application/service')
+    ret = ret + filterExportedComponents(nodelist, whitelist)
+
+    nodelist = doc.findall('application/receiver')
+    ret = ret + filterExportedComponents(nodelist, whitelist)
+
     nodelist = doc.findall('application/provider')
+    ret = ret + filterExportedComponents(nodelist, whitelist)
+    return ret
 
-    explicit_ret = []
-    implicit_ret = []
+def getOpenedComponents(doc, whitelist):
+    ret = []
+
+    nodelist = doc.findall('application/activity')
+    ret = ret + filterOpenedComponents(nodelist, whitelist)
+
+    nodelist = doc.findall('application/service')
+    ret = ret + filterOpenedComponents(nodelist, whitelist)
+
+    nodelist = doc.findall('application/receiver')
+    ret = ret + filterOpenedComponents(nodelist, whitelist)
+
+    return ret
+def getPermissions(doc):
+    ret = []
+    nodelist = doc.findall('permission')
     for node in nodelist:
         name = node.get('{http://schemas.android.com/apk/res/android}name')
-        exported = node.get('{http://schemas.android.com/apk/res/android}exported')
 
-        if not (exported == "false"):
-            explicit_ret.append(name)
-            
-    return explicit_ret, implicit_ret
+        protectionLevel = node.get('{http://schemas.android.com/apk/res/android}protectionLevel')
 
-def getExportedService(doc):
-    nodelist = doc.findall('application/service')
+        if protectionLevel == None or protectionLevel == "normal" or protectionLevel == "dangerous":
+            ret.append(name)
 
-    explicit_ret, implicit_ret = search_nodelist(nodelist)
-    return explicit_ret, implicit_ret
-def getExportedReceiver(doc):
-    nodelist = doc.findall('application/receiver')
-
-    explicit_ret, implicit_ret = search_nodelist(nodelist)
-    return explicit_ret, implicit_ret
-# activity-alias??
-def getExportedActivity(doc):
-    nodelist = doc.findall('application/activity')
-
-    explicit_ret, implicit_ret = search_nodelist(nodelist)
-    return explicit_ret, implicit_ret
-
-def getComponentsTypes(source_doc):
-    nodelist = getElementTree(source_doc)
-    if nodelist == None:
-        return [], []
-    explicit_ret = []
-    implicit_ret = []
-
-    ret1, ret2 = getExportedActivity(nodelist)
-    explicit_ret = explicit_ret + ret1
-    implicit_ret = implicit_ret + ret2
-
-    # receiver  https://developer.android.com/guide/topics/manifest/receiver-element
-    # 对外公开方式同时受permission限制 
-    
-    ret1, ret2 = getExportedReceiver(nodelist)
-    explicit_ret = explicit_ret + ret1
-    implicit_ret = implicit_ret + ret2
-    # service  https://developer.android.com/guide/topics/manifest/service-element
-    # 对外公开方式同时受permission限制 
-
-    ret1, ret2 = getExportedService(nodelist)
-    explicit_ret = explicit_ret + ret1
-    implicit_ret = implicit_ret + ret2
-
-    # provider
-    ret1, ret2 = getExportedProvider(nodelist)
-    explicit_ret = explicit_ret + ret1
-    implicit_ret = implicit_ret + ret2
-
-
-    return explicit_ret, implicit_ret
+    return ret
 
 if len(sys.argv) == 2:
-    ret1, ret2 = getComponentsTypes(sys.argv[1])
-    print(ret1)
-    print(ret2)
+    doc = getElementTree(sys.argv[1])
+
+    if not doc == None:
+        whitelist = getPermissions(doc)
+        ans1 = getExportedComponents(doc, whitelist)
+        ans2 = getOpenedComponents(doc, whitelist)
+        print(ans1)
+        print(ans2)
+    else:
+        print([])
+        print([])

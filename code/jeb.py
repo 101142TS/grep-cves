@@ -123,9 +123,7 @@ def ReturnMethods(dex_unit, manifest, ope, name, root_path):
                 class_list = ast.literal_eval(line2)
         if ope == 2:
             with open(ExportedComponents, "r") as f:
-                line1 = f.readline().rstrip()
-                line2 = f.readline().rstrip()
-                class_list = ast.literal_eval(line1) + ast.literal_eval(line2)
+                class_list = []
 
         mm = GetMethods(dex_unit, class_list, 2)
 
@@ -205,7 +203,7 @@ def GetFileName(root_path, method):
     class_name = sign[1 : sign.index(";")]
     return root_path + "/" + class_name + ".java"
 
-def DFS(dex_unit, root_path, taint_file, taint_sources, now_method, len, links, vis, maxlen, output, yml_st, yml_ed):
+def DFS(dex_unit, root_path, taint_file, taint_sources, now_method, len, links, vis, maxlen, output, yml_ed):
     # print("DEBUG INGO : ##########################")
     # for i in range(len - 1, -1, -1):
     #         print("[*] " + str(links[i]))
@@ -219,9 +217,6 @@ def DFS(dex_unit, root_path, taint_file, taint_sources, now_method, len, links, 
 
             # 获取links[len - 1]函数所在的文件名
             java_file = GetFileName(root_path, links[len - 1])
-            
-            if SemgrepFile(dex_unit, java_file, yml_st) == False:
-                return
 
             if os.path.exists(java_file):
                 # 生成污点文件
@@ -252,18 +247,16 @@ def DFS(dex_unit, root_path, taint_file, taint_sources, now_method, len, links, 
     for pre in pre_methods:
         if pre.getIndex() in vis and vis[pre.getIndex()] == "True":
             continue
-
+        
+        from_name = pre.getName()
+        to_name = now_method.getName()
+        # 获取pre函数所在的文件名
+        java_file = GetFileName(root_path, pre)
+        if len == 1:
+            if SemgrepFile(dex_unit, java_file, yml_ed) == False:
+                continue
         # 污点跟踪
         if not (pre.getIndex() in vis and vis[pre.getIndex()] == "Target") and (not (taint_file == "no_taint")):
-            from_name = pre.getName()
-            to_name = now_method.getName()
-            # 获取pre函数所在的文件名
-            java_file = GetFileName(root_path, pre)
-            
-            if len == 1:
-                if SemgrepFile(dex_unit, java_file, yml_ed) == False:
-                    continue
-
             if os.path.exists(java_file):
                 # 生成污点跟踪文件
                 cmd = ['python', './gen_taint_tracking.py', taint_file, from_name, to_name, '0']
@@ -274,11 +267,11 @@ def DFS(dex_unit, root_path, taint_file, taint_sources, now_method, len, links, 
                     continue
 
         links[len] = pre
-        DFS(dex_unit, root_path, taint_file, taint_sources, pre, len + 1, links, vis, maxlen, output, yml_st, yml_ed)
+        DFS(dex_unit, root_path, taint_file, taint_sources, pre, len + 1, links, vis, maxlen, output, yml_ed)
     
     vis[now_method.getIndex()] = "False"
 
-def GetPath(dex_unit, root_path, taint_file, taint_sources, sources, sinks, maxlen, output, yml_st, yml_ed):
+def GetPath(dex_unit, root_path, taint_file, taint_sources, sources, sinks, maxlen, output, yml_ed):
     real_sinks = FindPath(dex_unit, sources, sinks)
 
     if real_sinks == []:
@@ -291,7 +284,7 @@ def GetPath(dex_unit, root_path, taint_file, taint_sources, sources, sinks, maxl
     for sink in sinks:
         links = [0] * maxlen
         links[0] = sink
-        DFS(dex_unit, root_path, taint_file, taint_sources, sink, 1, links, vis, maxlen, output, yml_st, yml_ed)
+        DFS(dex_unit, root_path, taint_file, taint_sources, sink, 1, links, vis, maxlen, output, yml_ed)
 
     
 def SemgrepFile(dex_unit, java_file, yml_file):
@@ -361,7 +354,14 @@ class jeb(IScript):
         MyPrint(taint_file, result_file)
         MyPrint(taint_source, result_file)
 
-        sources = ReturnMethods(dex_unit, manifest_path, int(st[1]), st[0], root_path)
+        ori_sources = ReturnMethods(dex_unit, manifest_path, int(st[1]), st[0], root_path)
+        # sources可以先进行过滤
+        sources = []
+        for i in ori_sources:
+            java_file = GetFileName(root_path, i)
+            if SemgrepFile(dex_unit, java_file, st[2]) == False:
+                continue
+            sources.append(i)
 
         sinks = ReturnMethods(dex_unit, manifest_path, int(ed[1]), ed[0], root_path)
         
@@ -369,8 +369,6 @@ class jeb(IScript):
             S = set()
             for i in sources:
                 java_file = GetFileName(root_path, i)
-                if SemgrepFile(dex_unit, java_file, st[2]) == False:
-                    continue
                 if SemgrepFile(dex_unit, java_file, ed[2]) == False:
                     continue
                 s = i.address.encode('utf-8')
@@ -383,9 +381,11 @@ class jeb(IScript):
 
                 MyPrint("*************END*************", result_file)
         else:
-
-            with open(taint_source, "r") as f:
-                taint_sources = f.readline().rstrip()
+            if taint_source == "no_taint":
+                taint_sources = "no_taint"
+            else:
+                with open(taint_source, "r") as f:
+                    taint_sources = f.readline().rstrip()
 
             # print("sources :")
             # for source in sources:
@@ -394,7 +394,7 @@ class jeb(IScript):
             # print("sinks :")
             # for sink in sinks:
             #     print(sink)
-            GetPath(dex_unit, root_path, taint_file, taint_sources, sources, sinks, links_len, result_file, st[2], ed[2])
+            GetPath(dex_unit, root_path, taint_file, taint_sources, sources, sinks, links_len, result_file, ed[2])
 
         input.close()
         if not result_file == "":

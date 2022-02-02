@@ -16,24 +16,18 @@ def path_filter_cfg(x):
 def path_filter_dex(x):
     return x.endswith(".dex")
 
-if len(sys.argv) == 2:
-    rules = iterate_dir("../rules-test", path_filter_cfg)
-else:
-    rules = iterate_dir("../rules", path_filter_cfg)
+def generate_single_rule(r, dex, datadirs, sourcedirs, resultdirs):
 
-dirs = iterate_dir("../../data/dex", path_filter_dex)
+    # r : ../rules-xxxxx/setResult/1/links.cfg
+    # dex : ../../data-xxxxx/dex/me.ele/cookie_5376.dex
+    pkgname = dex[dex[:dex.rfind('/')].rfind("/") + 1: dex.rfind('/')]
+    d = sourcedirs + pkgname + "/files"
+    # me.ele
+    # ../../source-xxxxx/me.ele/files
 
-def generate_single_rule(r, dex):
+    output_dir = resultdirs + r[r[4:].find("/") + 5:-9] + pkgname + dex[dex.rfind('/') : -4] + "/"
+    # ../../results-xxxxx/webview/setAllowFileAccessFromFileURLs/me.ele/classes2/
 
-    # r : ../rules/setResult/1/links.cfg
-    # dex : ../../data/dex/me.ele/cookie_5376.dex
-
-    d = "../../source/" + dex[15 : dex.rfind('/')] + "/files"
-    # ../../source/com.tencent.android.duoduo_327/files
-
-    output_dir = "../../results/" + r[9:-9] + dex[15:-4] + "/"
-    print(output_dir)
-    # 结果保存点  ../../results/
     # print(r)
     # print(d)
     # print(output_dir)
@@ -45,7 +39,7 @@ def generate_single_rule(r, dex):
     with open(config_file, 'w') as output:
         with open(r, "r") as input:
             # apk所在路径
-            output.write("../../data/apks/" + dex[15 : dex.rfind('/')] + ".apk" + "\n")
+            output.write(datadirs + "apks/" + pkgname + ".apk" + "\n")
             # manifest所在路径
             output.write(d + "/AndroidManifest.xml" + "\n")
             # jadx反编译后的 java文件的根路径
@@ -85,8 +79,8 @@ def generate_single_rule(r, dex):
                 output.write("no_taint" + "\n")
                 output.write("no_taint" + "\n")
 
-    return "../../data/apks/" + dex[15 : dex.rfind('/')] + ".apk", config_file
-def run_rules(rules, dirs, processes_num = 1):
+    return datadirs + "apks/" + pkgname + ".apk", config_file
+def run_rules(rules, dirs, processes_num, datadirs, sourcedirs, resultdirs):
 
     inputs = []
     for i in range(0, len(dirs)):
@@ -96,7 +90,7 @@ def run_rules(rules, dirs, processes_num = 1):
         apk_path = ""
         for r in rules:
             print(d, r)
-            apk_path, config = generate_single_rule(r, d)
+            apk_path, config = generate_single_rule(r, d, datadirs, sourcedirs, resultdirs)
             configs.append(config)
 
         print(configs)
@@ -117,6 +111,17 @@ def run_rules(rules, dirs, processes_num = 1):
     pool.close()
     pool.join()
 
-run_rules(rules, dirs, 4)
 
-# generate_single_rule("../rules/loadUrl/1/links.cfg", "me.ele")
+rules = iterate_dir("../rules", path_filter_cfg)
+
+if not len(sys.argv) == 2:
+    datadirs = "../../data/"
+    sourcedirs = "../../source/"
+    resultdirs = "../../results/"
+else:
+    datadirs = "../../data-" + sys.argv[1] + "/"
+    sourcedirs = "../../source-" + sys.argv[1] + "/"
+    resultdirs = "../../results-" + sys.argv[1] + "/"
+
+dirs = iterate_dir(datadirs + "dex", path_filter_dex)
+run_rules(rules, dirs, 4, datadirs, sourcedirs, resultdirs)

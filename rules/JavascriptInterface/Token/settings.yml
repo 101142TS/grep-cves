@@ -1,0 +1,15 @@
+rules:
+  - id: Token
+    patterns:
+      - pattern: |
+          @JavascriptInterface
+          $RETVAL $METHOD(...) {
+            ...
+          }
+      - metavariable-regex:
+          metavariable: $METHOD
+          regex: (.*Token.*)
+    message: Token
+    languages:
+      - java
+    severity: WARNING

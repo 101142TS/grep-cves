@@ -314,17 +314,15 @@ def SemgrepFile(dex_unit, java_file, yml_file):
 class jebtest(IScript):
     # method ope name
     def run(self, ctx):
-        unit = ctx.open("/mnt/RAID/users_data/caijiajin/semgrep/data/dex/com.sogou.novel/cookie_5406748.dex");                                    assert isinstance(unit,IUnit)
+        unit = ctx.open("/mnt/RAID/users_data/caijiajin/semgrep/data-selfmade/dex/com.sogou.novel/cookie_5406748.dex");                                    assert isinstance(unit,IUnit)
 
         prj = ctx.getMainProject();                                     assert isinstance(prj,IRuntimeProject)
 
         dex_unit = prj.findUnit(IDexUnit);                               assert isinstance(dex_unit,IDexUnit)
 
-        mm = ReturnMethods(dex_unit, "/mnt/RAID/users_data/caijiajin/semgrep/source/com.sogou.novel/files/AndroidManifest.xml", 4, "Ljava/io/FileOutputStream;-><init>(Ljava/io/File;)V", "/mnt/RAID/users_data/caijiajin/semgrep/source/com.sogou.novel/files/AndroidManifest.xml")
+        mm = ReturnMethods(dex_unit, "/mnt/RAID/users_data/caijiajin/semgrep/source-selfmade/com.sogou.novel/files/AndroidManifest.xml", 3, "getUrl", "/mnt/RAID/users_data/caijiajin/semgrep/source-selfmade/com.sogou.novel/files/AndroidManifest.xml")
 
-        print(len(mm))
-        res = GetMethodXref(dex_unit, mm[0])
-        for m in res:
+        for m in mm:
             print(m)
         # method = dex_unit.getMethods()
 

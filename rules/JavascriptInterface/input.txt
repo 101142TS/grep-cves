@@ -1,0 +1,15 @@
+install
+Install
+INSTALL
+download
+Download
+DOWNLOAD
+token
+Token
+TOKEN
+exec
+Exec
+EXEC
+gps
+Gps
+GPS

@@ -52,4 +52,5 @@ def decompose_apks(in_dir, out_dir, tmp_dir):
         decompose_single_apk(in_f, out_f, tmp_dir)
         cnt += 1
 
+
 decompose_apks("../../data/apks/", "../../data/dex/", "../../data/dex/tmp/")
