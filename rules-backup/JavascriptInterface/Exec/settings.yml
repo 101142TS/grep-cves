@@ -1,0 +1,15 @@
+rules:
+  - id: Exec
+    patterns:
+      - pattern: |
+          @JavascriptInterface
+          $RETVAL $METHOD(...) {
+            ...
+          }
+      - metavariable-regex:
+          metavariable: $METHOD
+          regex: (.*Exec.*)
+    message: Exec
+    languages:
+      - java
+    severity: WARNING

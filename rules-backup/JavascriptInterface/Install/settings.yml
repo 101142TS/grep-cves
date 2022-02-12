@@ -1,0 +1,15 @@
+rules:
+  - id: Install
+    patterns:
+      - pattern: |
+          @JavascriptInterface
+          $RETVAL $METHOD(...) {
+            ...
+          }
+      - metavariable-regex:
+          metavariable: $METHOD
+          regex: (.*Install.*)
+    message: Install
+    languages:
+      - java
+    severity: WARNING

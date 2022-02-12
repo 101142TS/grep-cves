@@ -1,0 +1,15 @@
+rules:
+  - id: Gps
+    patterns:
+      - pattern: |
+          @JavascriptInterface
+          $RETVAL $METHOD(...) {
+            ...
+          }
+      - metavariable-regex:
+          metavariable: $METHOD
+          regex: (.*Gps.*)
+    message: Gps
+    languages:
+      - java
+    severity: WARNING

@@ -1,0 +1,12 @@
+rules:
+- id: onActivityResult
+  pattern: |
+    $RETVAL onActivityResult(int $X, int $Y, Intent $Z) {
+      ...
+    }
+
+  languages: 
+    - java
+  message: |
+    onActivityResult
+  severity: WARNING

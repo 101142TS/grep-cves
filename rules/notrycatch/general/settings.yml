@@ -1,14 +1,16 @@
 rules:
-  - id: test
+  - id: no-trycatch
     pattern-either:  
       - patterns:
         - pattern: (Intent $X).$METHOD($K, ...)
         - metavariable-regex:
             metavariable: $METHOD
-            regex: (^get.*Extra)
+            regex: (^get.*Extra$)
       - patterns:
         - pattern: (Intent $X).hasExtra($K)
-    message: dddddd
+      - patterns:
+        - pattern: (Intent $X).getExtras()
+    message: 潜在的拒绝服务攻击
     languages:
       - java
     severity: ERROR

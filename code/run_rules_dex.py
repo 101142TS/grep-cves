@@ -124,4 +124,4 @@ else:
     resultdirs = "../../results-" + sys.argv[1] + "/"
 
 dirs = iterate_dir(datadirs + "dex", path_filter_dex)
-run_rules(rules, dirs, 4, datadirs, sourcedirs, resultdirs)
+run_rules(rules, dirs, 1, datadirs, sourcedirs, resultdirs)

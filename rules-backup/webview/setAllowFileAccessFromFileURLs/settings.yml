@@ -1,0 +1,8 @@
+rules:
+- id: setAllowFileAccessFromFileURLs
+  pattern: $X.setAllowFileAccessFromFileURLs(true)
+  languages: 
+    - java
+  message: |
+    setAllowFileAccessFromFileURLs
+  severity: WARNING

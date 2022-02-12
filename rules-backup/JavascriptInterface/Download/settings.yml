@@ -1,0 +1,15 @@
+rules:
+  - id: Download
+    patterns:
+      - pattern: |
+          @JavascriptInterface
+          $RETVAL $METHOD(...) {
+            ...
+          }
+      - metavariable-regex:
+          metavariable: $METHOD
+          regex: (.*Download.*)
+    message: Download
+    languages:
+      - java
+    severity: WARNING

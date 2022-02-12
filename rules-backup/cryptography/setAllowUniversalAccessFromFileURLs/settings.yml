@@ -1,0 +1,8 @@
+rules:
+- id: setAllowUniversalAccessFromFileURLs
+  pattern: $X.setAllowUniversalAccessFromFileURLs(true)
+  languages: 
+    - java
+  message: |
+    setAllowUniversalAccessFromFileURLs
+  severity: WARNING

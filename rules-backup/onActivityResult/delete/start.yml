@@ -1,0 +1,10 @@
+rules:
+- id: startActivityForResult
+  pattern-either:
+  - pattern: $A.startActivityForResult(...);
+  - pattern: startActivityForResult(...);
+  languages: 
+    - java
+  message: |
+    startActivityForResult
+  severity: WARNING

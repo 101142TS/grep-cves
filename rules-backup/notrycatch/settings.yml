@@ -1,0 +1,14 @@
+rules:
+  - id: insecure-methods
+    patterns:
+      - pattern-not-inside: |
+        try {
+          ...
+        } catch () {
+          ...
+        }
+      - pattern: $X.getExtras()
+    message: module using insecure method call
+    languages:
+      - python
+    severity: ERROR
