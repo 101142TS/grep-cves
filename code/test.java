@@ -99,7 +99,7 @@ public class TMPullMoreCacheActivity extends TMActivity {
             }
         }
         if (intent != null) {
-            Bundle extras = intent.getExtras();
+            Bundle extras = getIntent().getExtras();
             String s = intent.getStringArrayExtra("213");
             if (extras != null) {
                 final String string = extras.getString("pullMoreAction");

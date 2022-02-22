@@ -10,6 +10,13 @@ rules:
         - pattern: (Intent $X).hasExtra($K)
       - patterns:
         - pattern: (Intent $X).getExtras()
+      - patterns:
+        - pattern: getIntent().$METHOD(...)
+        - metavariable-regex:
+            metavariable: $METHOD
+            regex: (^get.*Extra)
+      - patterns:
+        - pattern: getIntent().getExtras()
     message: 潜在的拒绝服务攻击
     languages:
       - java
