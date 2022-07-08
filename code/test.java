@@ -51,43 +51,14 @@ public class TMPullMoreCacheActivity extends TMActivity {
     }
 
     @Override // com.tmall.wireless.module.TMActivity, android.support.v4.app.FragmentActivity, android.support.v4.app.SupportActivity, android.app.Activity
-    public void onCreate(Bundle bundle) {
-        IpChange ipChange = $ipChange;
-        if (ipChange != null) {
-            boolean z = ipChange instanceof IpChange;
-            if (z) {
-                ipChange.ipc$dispatch("onCreate.(Landroid/os/Bundle;)V", new Object[]{this, bundle});
-                return;
-            }
-        }
-        super.onCreate(bundle);
-        UTAnalytics.getInstance().getDefaultTracker().skipPage(this);
-        FrameLayout frameLayout = (FrameLayout) FrameLayout.inflate(this, R.layout.tm_homepage_pullmore_cache, null);
-        setContentView(frameLayout);
-        this.loadingControl = new b((TMImageView) frameLayout.findViewById(R.id.tm_pullmore_cache_loading));
-        jit.b(new jiu("ani") { // from class: com.tmall.wireless.homepage.activity.TMPullMoreCacheActivity.1
-            public static volatile transient /* synthetic */ IpChange $ipChange;
 
-            public static /* synthetic */ Object ipc$super(AnonymousClass1 r1, String str, Object... objArr) {
-                str.hashCode();
-                throw new InstantReloadException(String.format("String switch could not find '%s' with hashcode %s in %s", str, Integer.valueOf(str.hashCode()), "com/tmall/wireless/homepage/activity/TMPullMoreCacheActivity$1"));
-            }
-
-            @Override // java.lang.Runnable
-            public void run() {
-                IpChange ipChange2 = $ipChange;
-                if (ipChange2 != null) {
-                    boolean z2 = ipChange2 instanceof IpChange;
-                    if (z2) {
-                        ipChange2.ipc$dispatch("run.()V", new Object[]{this});
-                        return;
-                    }
-                }
-                TMPullMoreCacheActivity.access$000(TMPullMoreCacheActivity.this).a();
-            }
-        }, 210);
-        startPrompt(getIntent());
-    }
+    void example(String str, String Headers, Webview m) {
+        loadUrl("www.mysite.com");
+        loadUrl(str);
+        loadUrl(str, Headers);
+        m.loadUrl("123");
+        this.webview.loadUrl(str);
+    } 
 
     private void startPrompt(Intent intent) {
         IpChange ipChange = $ipChange;

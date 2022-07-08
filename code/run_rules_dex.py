@@ -100,16 +100,19 @@ def run_rules(rules, dirs, processes_num, datadirs, sourcedirs, resultdirs):
             for config in configs:
                 f.write(config + "\n")
         cmd = "java -jar /mnt/RAID/users_data/caijiajin/Desktop/jeb/bin/app/jeb.jar --srv2 --script=./jeb.py -- " + config_file + " " + d
-        # print(cmd)
-        # run_cmd(cmd)
-        inputs.append(cmd)
+        print(cmd)
+        run_cmd(cmd)
 
-    pool = Pool(processes_num)
-    for cmd in inputs:
-        pool.apply_async(run_cmd, (cmd, ))
+        # inputs.append(cmd)
 
-    pool.close()
-    pool.join()
+    # pool = Pool(processes_num)
+
+    # for i in range(0, len(inputs)):
+    #     cmd = inputs[i]
+    #     pool.apply_async(run_cmd, (cmd, ))
+
+    # pool.close()
+    # pool.join()
 
 
 rules = iterate_dir("../rules", path_filter_cfg)
